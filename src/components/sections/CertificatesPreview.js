@@ -1,3 +1,24 @@
+/**
+ * CertificatesPreview - Seção de prévia dos certificados
+ * 
+ * Componente que exibe uma prévia dos certificados e conquistas acadêmicas,
+ * com funcionalidade de modal para visualização detalhada.
+ * 
+ * Funcionalidades:
+ * - Exibe até 3 certificados na prévia
+ * - Modal para visualização ampliada das imagens
+ * - Download direto dos PDFs dos certificados
+ * - Cards interativos com animações hover
+ * - Chips de habilidades relacionadas
+ * - Layout responsivo com grid adaptativo
+ * 
+ * @component
+ * @example
+ * return (
+ *   <CertificatesPreview />
+ * )
+ */
+
 import React, { useState } from 'react';
 import {
   Box,

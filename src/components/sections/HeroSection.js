@@ -1,14 +1,15 @@
 /**
- * HeroSection Component
+ * HeroSection - Seção principal (hero) da página inicial
  * 
- * Componente principal da página inicial que apresenta o profissional
- * de forma impactante, incluindo animações e call-to-actions.
+ * Componente responsável por apresentar o perfil profissional de forma impactante,
+ * incluindo nome, título, descrição e call-to-actions principais.
  * 
- * Features:
- * - Animações sequenciais para melhor engagement
- * - Design responsivo para todos os dispositivos
- * - Ícones animados em background para contexto visual
- * - Links diretos para projetos e contato
+ * Funcionalidades:
+ * - Animações sequenciais dos elementos
+ * - Avatar com fallback para inicial do nome
+ * - Botões de ação (Projetos e Download CV)
+ * - Chips de especialidades
+ * - Layout responsivo
  * 
  * @component
  * @example
@@ -42,23 +43,17 @@ import { personalInfo } from '../../config/portfolio';
 const HeroSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  
-  // Estado para controlar as animações sequenciais
   const [animationPhase, setAnimationPhase] = useState(0);
 
-  /**
-   * Configura animações sequenciais dos elementos da hero section
-   * Cada fase é ativada com delay específico para criar fluidez visual
-   */
+  // Animação sequencial dos elementos
   useEffect(() => {
     const timers = [
-      setTimeout(() => setAnimationPhase(1), 200),   // Avatar/Nome
-      setTimeout(() => setAnimationPhase(2), 600),   // Título/Descrição  
-      setTimeout(() => setAnimationPhase(3), 1000),  // Botões
-      setTimeout(() => setAnimationPhase(4), 1400),  // Estatísticas
+      setTimeout(() => setAnimationPhase(1), 200),
+      setTimeout(() => setAnimationPhase(2), 600),
+      setTimeout(() => setAnimationPhase(3), 1000),
+      setTimeout(() => setAnimationPhase(4), 1400),
     ];
 
-    // Cleanup dos timers ao desmontar componente
     return () => timers.forEach(timer => clearTimeout(timer));
   }, []);
 

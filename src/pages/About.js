@@ -461,9 +461,9 @@ const About = () => {
             <Grid container spacing={4} sx={{ mt: 4 }}>
               {[
                 { number: '7+', label: 'Anos de Experiência Técnica' },
-                { number: '12+', label: 'Projetos de Data Analytics' },
-                { number: '15+', label: 'Tecnologias Dominadas' },
-                { number: '800+', label: 'Horas de Estudo Intensivo' },
+                { number: '9+', label: 'Projetos de Data Analytics' },
+                { number: '10+', label: 'Tecnologias Dominadas' },
+                { number: '∞', label: 'Paixão por Aprender' },
               ].map((stat, index) => (
                 <Grid item xs={6} md={3} key={index}>
                   <Typography

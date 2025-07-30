@@ -1,3 +1,23 @@
+/**
+ * ContactSection - Seção de contato do portfólio
+ * 
+ * Componente que exibe as informações de contato e formas de comunicação,
+ * organizadas em cartões interativos com links diretos.
+ * 
+ * Funcionalidades:
+ * - Cartões de contato com hover effects
+ * - Links diretos para email, LinkedIn, GitHub, WhatsApp
+ * - Informações rápidas (localização, telefone)
+ * - Indicador de disponibilidade para projetos
+ * - Layout responsivo com grid adaptativo
+ * 
+ * @component
+ * @example
+ * return (
+ *   <ContactSection />
+ * )
+ */
+
 import React from 'react';
 import {
   Box,
