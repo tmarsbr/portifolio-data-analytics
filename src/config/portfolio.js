@@ -159,7 +159,7 @@ export const projects = [
   {
     id: 4,
     title: "Extração e Análise - Repositórios GitHub",
-    description: "Extração automatizada de dados de repositórios de grandes empresas tech via API GitHub, com análise das linguagens mais utilizadas.",
+    description: "🐙 Extração automatizada de dados de repositórios de grandes empresas tech via API GitHub, com análise das linguagens mais utilizadas.",
     longDescription: "Sistema automatizado para coleta e análise de dados de repositórios GitHub de grandes empresas de tecnologia. Utilizou API do GitHub para extrair informações sobre linguagens, atividade e tendências de desenvolvimento, gerando insights sobre o ecossistema tech.",
     technologies: ["Python", "GitHub API", "Pandas", "Requests", "JSON"],
     category: "API & Web Scraping",
@@ -173,7 +173,7 @@ export const projects = [
   {
     id: 5,
     title: "Pipeline Python - MongoDB - MySQL",
-    description: "Pipeline robusto para integração e análise de dados em e-commerce, conectando Python, MongoDB e MySQL.",
+    description: "🔄 Pipeline robusto para integração e análise de dados em e-commerce, conectando Python, MongoDB e MySQL.",
     longDescription: "Desenvolvimento de pipeline completo para processamento de dados de e-commerce, integrando diferentes bases de dados. Solução automatizada para ETL entre MongoDB (dados não-estruturados) e MySQL (dados estruturados), com foco em performance e confiabilidade.",
     technologies: ["Python", "MongoDB", "MySQL", "ETL", "PyMongo"],
     category: "Engenharia de Dados",
