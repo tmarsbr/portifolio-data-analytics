@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Portfólio profissional de Data & Analytics - Tiago Silva",
+  "homepage": "https://tmarsbr.github.io/portifolio-data-analytics",
   "keywords": ["react", "portfolio", "data-analytics", "data-science"],
   "author": "Tiago Silva <tiagomars233@gmail.com>",
   "dependencies": {

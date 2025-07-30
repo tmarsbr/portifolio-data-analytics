@@ -9,14 +9,14 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tiagosilvadata.com/" />
+    <meta property="og:url" content="https://tmarsbr.github.io/portifolio-data-analytics/" />
     <meta property="og:title" content="Tiago Silva - Data & Analytics Portfolio" />
     <meta property="og:description" content="Especialista em Data & Analytics com projetos em Python, Machine Learning e visualização de dados." />
     <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://tiagosilvadata.com/" />
+    <meta property="twitter:url" content="https://tmarsbr.github.io/portifolio-data-analytics/" />
     <meta property="twitter:title" content="Tiago Silva - Data & Analytics Portfolio" />
     <meta property="twitter:description" content="Especialista em Data & Analytics com projetos em Python, Machine Learning e visualização de dados." />
     <meta property="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
@@ -31,6 +31,20 @@
     
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- GitHub Pages SPA hack -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
     
     <title>Tiago Silva - Data & Analytics Portfolio</title>
   </head>

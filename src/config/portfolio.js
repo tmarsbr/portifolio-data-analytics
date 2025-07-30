@@ -253,7 +253,7 @@ export const seoConfig = {
   description: "Portfólio de Tiago Silva, Full Stack em Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
   keywords: "data analytics, data science, python, machine learning, análise de dados, sql, portfolio, tiago silva",
   author: "Tiago Silva",
-  url: "https://tiagosilvadata.com", // Substitua pela URL real
+  url: "https://tmarsbr.github.io/portifolio-data-analytics", // URL do GitHub Pages
   image: "/og-image.jpg", // Adicione uma imagem de preview
   
   // Open Graph
