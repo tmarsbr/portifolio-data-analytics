@@ -335,69 +335,6 @@ const ContactSection = () => {
             </Box>
           </Grid>
         </Grid>
-
-        {/* Call to action final */}
-        <Box
-          sx={{
-            mt: 8,
-            p: 4,
-            backgroundColor: 'grey.50',
-            borderRadius: 3,
-            textAlign: 'center',
-            border: `1px solid ${theme.palette.divider}`,
-          }}
-          data-aos="fade-up"
-          data-aos-delay="600"
-        >
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 700,
-              mb: 2,
-              color: 'text.primary',
-            }}
-          >
-            Pronto para Transformar Dados em Insights?
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: 'text.secondary',
-              mb: 3,
-              lineHeight: 1.6,
-            }}
-          >
-            Vamos discutir como posso ajudar seu negócio a tomar decisões mais 
-            inteligentes baseadas em dados. Entre em contato e vamos conversar!
-          </Typography>
-
-          {/* Botões sociais rápidos */}
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            {contactMethods.slice(0, 3).map((method, index) => (
-              <IconButton
-                key={index}
-                component="a"
-                href={method.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Contato via ${method.title}`}
-                sx={{
-                  backgroundColor: method.color,
-                  color: 'white',
-                  width: 48,
-                  height: 48,
-                  '&:hover': {
-                    backgroundColor: method.color,
-                    transform: 'scale(1.1)',
-                    boxShadow: `0 8px 25px ${method.color}40`,
-                  },
-                }}
-              >
-                {method.icon}
-              </IconButton>
-            ))}
-          </Box>
-        </Box>
       </Container>
     </Box>
   );
