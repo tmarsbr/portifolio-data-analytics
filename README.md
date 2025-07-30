@@ -1,13 +1,30 @@
-# Portfólio Data & Analytics - Tiago Silva
+# 🎯 Portfolio de Data & Analytics - Tiago Silva
 
-Um portfólio moderno e responsivo desenvolvido em React para showcase de projetos e habilidades em Data & Analytics.
+Portfólio profissional desenvolvido em React com Material-UI, mostrando projetos, habilidades e experiência em análise de dados.
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Deploy Automático
 
-- **React 18** - Framework principal
-- **Material-UI (MUI)** - Componentes e design system
-- **React Router** - Navegação entre páginas
-- **Lottie React** - Animações interativas
+Este projeto está configurado para deploy automático no GitHub Pages. Qualquer push para a branch `main` dispara o build e deploy automaticamente.
+
+**URL do Portfólio:** https://tmarsbr.github.io/portifolio-data-analytics
+
+## 📋 Features
+
+- ✅ Design responsivo com Material-UI
+- ✅ Tema escuro/claro personalizável  
+- ✅ Seções organizadas (Hero, Sobre, Projetos, Certificados, Contato)
+- ✅ Documentação JSDoc completa
+- ✅ Deploy automático via GitHub Actions
+- ✅ Roteamento SPA otimizado para GitHub Pages
+- ✅ SEO optimizado com meta tags dinâmicas
+
+## 🛠️ Tecnologias
+
+- **Frontend:** React 18.2.0, Material-UI 5.15.15
+- **Roteamento:** React Router DOM 6.22.3
+- **Deploy:** GitHub Pages com GitHub Actions
+- **Qualidade:** ESLint, JSDoc
+- **Ícones:** Material-UI Icons, React Icons
 - **AOS** - Animações de scroll
 - **React Helmet** - Meta tags e SEO
 

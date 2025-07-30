@@ -269,7 +269,8 @@ export const analyticsConfig = {
   enabled: process.env.NODE_ENV === "production"
 };
 
-export default {
+// Configuração principal do portfólio
+const portfolioConfig = {
   personalInfo,
   skills,
   experiences,
@@ -279,3 +280,5 @@ export default {
   seoConfig,
   analyticsConfig
 };
+
+export default portfolioConfig;

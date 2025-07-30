@@ -27,14 +27,10 @@ import {
   Avatar,
   Chip,
   useTheme,
-  useMediaQuery,
 } from '@mui/material';
 import {
   Download,
   ArrowForward,
-  Analytics,
-  Code,
-  TrendingUp,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
@@ -42,7 +38,6 @@ import { personalInfo } from '../../config/portfolio';
 
 const HeroSection = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [animationPhase, setAnimationPhase] = useState(0);
 
   // Animação sequencial dos elementos
@@ -56,19 +51,6 @@ const HeroSection = () => {
 
     return () => timers.forEach(timer => clearTimeout(timer));
   }, []);
-
-  const iconStyle = {
-    fontSize: { xs: 40, md: 60 },
-    color: 'primary.main',
-    opacity: 0.8,
-  };
-
-  const backgroundIcons = [
-    { icon: <Analytics sx={iconStyle} />, top: '15%', left: '10%' },
-    { icon: <Code sx={iconStyle} />, top: '25%', right: '15%' },
-    { icon: <TrendingUp sx={iconStyle} />, bottom: '20%', left: '8%' },
-    { icon: <Analytics sx={iconStyle} />, bottom: '30%', right: '12%' },
-  ];
 
   return (
     <Box
