@@ -325,7 +325,7 @@ const ContactSection = () => {
                   sx={{
                     opacity: 0.9,
                     lineHeight: 1.5,
-                    color: 'info.main',
+                    color: 'white',
                   }}
                 >
                   Estou aberto para oportunidades em Data & Analytics, 

@@ -7,7 +7,7 @@
 export const personalInfo = {
   name: "Tiago Silva",
   fullName: "Tiago Da Silva E Santo",
-  title: "Estudante de Data & Analytics",
+  title: "Full Stack em Data & Analytics",
   subtitle: "Transformando dados em insights estratégicos para negócios",
   location: "São Paulo, SP",
   email: "tiagomars233@gmail.com",
@@ -17,13 +17,14 @@ export const personalInfo = {
   whatsapp: "https://wa.me/5511975429994",
   
   // Resumo para a página inicial (1-2 frases)
-  homeIntro: "Estudante de Data & Analytics com paixão por transformar dados em insights estratégicos, aplicando técnicas de análise e machine learning para resolver problemas de negócio.",
+  homeIntro: "Full Stack em Data & Analytics com paixão por transformar dados em insights estratégicos, aplicando técnicas de análise e machine learning para resolver problemas de negócio.",
   
   // Descrição expandida para a seção Sobre
-  aboutDescription: `Formação Full Stack em Dados & Analytics
-A Formação Full Stack Dados & Analytics é a trilha completa de Dados & Analytics, com Engenharia de Dados, Tecnologia, Computação em Nuvem, Negócios e Ciência de Dados do nível básico até o especialista.
+  aboutDescription: `Minha jornada profissional começou na engenharia mecânica, onde desenvolvi uma sólida base em pensamento analítico e resolução de problemas complexos. A transição para o universo de dados foi natural, combinando minha paixão por números com o potencial transformador da tecnologia.
 
-engenharia de dados curso em andamento`,
+Atualmente, estou focado em uma formação completa em Data & Analytics, abrangendo desde engenharia de dados até ciência de dados, computação em nuvem e inteligência de negócios. Esta trilha me proporciona uma visão 360° do ecossistema de dados, permitindo atuar desde a coleta e processamento até a geração de insights estratégicos.
+
+Meu objetivo é utilizar dados para gerar valor real aos negócios, transformando informações em decisões inteligentes que impulsionem o crescimento e a inovação das organizações.`,
 
 
   // Avatar/Foto (deixe vazio para usar placeholder)
@@ -248,8 +249,8 @@ export const themeConfig = {
 
 // Configurações de SEO
 export const seoConfig = {
-  title: "Tiago Silva - Estudante de Data & Analytics",
-  description: "Portfólio de Tiago Silva, estudante de Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
+  title: "Tiago Silva - Full Stack em Data & Analytics",
+  description: "Portfólio de Tiago Silva, Full Stack em Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
   keywords: "data analytics, data science, python, machine learning, análise de dados, sql, portfolio, tiago silva",
   author: "Tiago Silva",
   url: "https://tiagosilvadata.com", // Substitua pela URL real
@@ -257,7 +258,7 @@ export const seoConfig = {
   
   // Open Graph
   ogTitle: "Tiago Silva - Data & Analytics Portfolio",
-  ogDescription: "Estudante de Data & Analytics com projetos em Python, Machine Learning e visualização de dados. Veja meus projetos e entre em contato!",
+  ogDescription: "Full Stack em Data & Analytics com projetos em Python, Machine Learning e visualização de dados. Veja meus projetos e entre em contato!",
   twitterCard: "summary_large_image",
   twitterCreator: "@tiagodados" // Se tiver Twitter
 };
