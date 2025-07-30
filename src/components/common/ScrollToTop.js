@@ -6,6 +6,22 @@ import {
 } from '@mui/material';
 import { KeyboardArrowUp } from '@mui/icons-material';
 
+/**
+ * ScrollToTop - Botão flutuante para voltar ao início
+ *
+ * Aparece após a página ser rolada e permite retorno suave ao topo.
+ *
+ * Funcionalidades:
+ * - Detecta a posição do scroll
+ * - Exibe efeito de zoom na aparição
+ * - Scroll suave ao topo
+ *
+ * @component
+ * @example
+ * return (
+ *   <ScrollToTop />
+ * )
+ */
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
   

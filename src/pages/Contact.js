@@ -3,6 +3,22 @@ import { Helmet } from 'react-helmet';
 import ContactSection from '../components/sections/ContactSection';
 import { personalInfo } from '../config/portfolio';
 
+/**
+ * Contact - Página de contato
+ *
+ * Reúne informações para entrar em contato e formulário dedicado.
+ *
+ * Funcionalidades:
+ * - Metadados dinâmicos para SEO
+ * - Componente reutilizável de contato
+ * - Espaçamento para header fixo
+ *
+ * @component
+ * @example
+ * return (
+ *   <Contact />
+ * )
+ */
 const Contact = () => {
   return (
     <>

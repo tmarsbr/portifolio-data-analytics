@@ -13,6 +13,22 @@ import ContactSection from '../components/sections/ContactSection';
 // Configurações
 import { seoConfig } from '../config/portfolio';
 
+/**
+ * Home - Página inicial do portfólio
+ *
+ * Agrega seções principais com overview das habilidades e projetos.
+ *
+ * Funcionalidades:
+ * - Carrega herói, destaques de projetos e experiência
+ * - Metadados para SEO na página inicial
+ * - Integração com seções reutilizáveis
+ *
+ * @component
+ * @example
+ * return (
+ *   <Home />
+ * )
+ */
 const Home = () => {
   return (
     <>

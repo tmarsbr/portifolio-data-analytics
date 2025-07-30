@@ -17,6 +17,22 @@ import {
 
 import { personalInfo } from '../../config/portfolio';
 
+/**
+ * Footer - Rodapé do site
+ *
+ * Centraliza links de contato, redes sociais e créditos do portfólio.
+ *
+ * Funcionalidades:
+ * - Links para redes sociais
+ * - Ano corrente automático
+ * - Mensagem personalizada sobre o portfólio
+ *
+ * @component
+ * @example
+ * return (
+ *   <Footer />
+ * )
+ */
 const Footer = () => {
   const theme = useTheme();
   const currentYear = new Date().getFullYear();
