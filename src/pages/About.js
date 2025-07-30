@@ -19,6 +19,7 @@ import {
 
 import { personalInfo } from '../config/portfolio';
 
+
 const About = () => {
   const theme = useTheme();
 

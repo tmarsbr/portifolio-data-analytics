@@ -5,7 +5,7 @@
 
 // Informações Pessoais
 export const personalInfo = {
-  name: "Tiago Silva",
+  name: "Tiago da Silva e Santo",
   fullName: "Tiago Da Silva E Santo",
   title: "Full Stack em Data & Analytics",
   subtitle: "Transformando dados em insights estratégicos para negócios",
@@ -20,7 +20,7 @@ export const personalInfo = {
   homeIntro: "Full Stack em Data & Analytics com paixão por transformar dados em insights estratégicos, aplicando técnicas de análise e machine learning para resolver problemas de negócio.",
   
   // Descrição expandida para a seção Sobre
-  aboutDescription: `Minha jornada profissional começou na engenharia mecânica, onde desenvolvi uma sólida base em pensamento analítico e resolução de problemas complexos. A transição para o universo de dados foi natural, combinando minha paixão por números com o potencial transformador da tecnologia.
+  aboutDescription: `Minha jornada profissional começou na Torneiro Mecânico, onde desenvolvi uma sólida base em pensamento analítico e resolução de problemas complexos. A transição para o universo de dados foi natural, combinando minha paixão por números com o potencial transformador da tecnologia.
 
 Atualmente, estou focado em uma formação completa em Data & Analytics, abrangendo desde engenharia de dados até ciência de dados, computação em nuvem e inteligência de negócios. Esta trilha me proporciona uma visão 360° do ecossistema de dados, permitindo atuar desde a coleta e processamento até a geração de insights estratégicos.
 

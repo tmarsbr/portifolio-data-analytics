@@ -188,6 +188,7 @@ const Footer = () => {
           }}
         >
           <Typography variant="caption" sx={{ color: 'grey.500', lineHeight: 1.6 }}>
+
             💡 Portfólio criado com React para demonstrar a paixão por transformar dados em insights.
             <br />
             Cada linha de código aqui reflete o compromisso com a excelência em Data & Analytics.

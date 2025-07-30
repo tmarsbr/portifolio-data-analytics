@@ -19,7 +19,7 @@ const Home = () => {
             Portfolio Data & Analytics
           </Typography>
           <Typography variant="h5" gutterBottom>
-            Tiago Silva
+            Tiago da Silva e Santo
           </Typography>
           <Typography variant="body1" color="text.secondary">
             ✅ React está funcionando corretamente!
