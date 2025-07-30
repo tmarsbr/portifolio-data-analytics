@@ -75,7 +75,7 @@ const HeroSection = () => {
       }}
     >
       {/* Ícones decorativos de fundo */}
-      {backgroundIcons.map((item, index) => (
+      {/* {backgroundIcons.map((item, index) => (
         <Box
           key={index}
           sx={{
@@ -89,7 +89,7 @@ const HeroSection = () => {
         >
           {item.icon}
         </Box>
-      ))}
+      ))} */}
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Box
