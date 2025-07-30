@@ -180,7 +180,7 @@ npm run build
 
 - `npm start` - Executa em modo desenvolvimento
 - `npm run build` - Gera build de produção
-- `npm test` - Executa testes
+- `npm test` - Executa testes de componentes com `@testing-library/react`
 - `npm run eject` - Ejeta configurações (irreversível)
 
 ## 📞 Suporte
