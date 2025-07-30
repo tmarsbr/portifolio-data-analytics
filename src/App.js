@@ -26,7 +26,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <Router basename="/portifolio-data-analytics">
         <Helmet>
           <title>{seoConfig.title}</title>
           <meta name="description" content={seoConfig.description} />

@@ -42,8 +42,6 @@ jobs:
         env:
           # Importante: define a URL base para GitHub Pages
           PUBLIC_URL: /portifolio-data-analytics
-          # Permite warnings do ESLint durante o build
-          CI: false
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
