@@ -7,7 +7,7 @@
 export const personalInfo = {
   name: "Tiago Silva",
   fullName: "Tiago Da Silva E Santo",
-  title: "Especialista em Data & Analytics",
+  title: "Estudante de Data & Analytics",
   subtitle: "Transformando dados em insights estratégicos para negócios",
   location: "São Paulo, SP",
   email: "tiagomars233@gmail.com",
@@ -17,14 +17,14 @@ export const personalInfo = {
   whatsapp: "https://wa.me/5511975429994",
   
   // Resumo para a página inicial (1-2 frases)
-  homeIntro: "Especialista em Data & Analytics com experiência em resolver problemas de negócio através de dados, aplicando técnicas avançadas de análise e machine learning para gerar insights estratégicos.",
+  homeIntro: "Estudante de Data & Analytics com paixão por transformar dados em insights estratégicos, aplicando técnicas de análise e machine learning para resolver problemas de negócio.",
   
   // Descrição expandida para a seção Sobre
-  aboutDescription: `Meu nome é Tiago Silva, profissional com background sólido na área de usinagem, onde atuei por anos operando tornos mecânicos para fabricar peças metálicas com precisão. Esta experiência me trouxe habilidades fundamentais em resolução de problemas, atenção aos detalhes e pensamento analítico.
+  aboutDescription: `Formação Full Stack em Dados & Analytics
+A Formação Full Stack Dados & Analytics é a trilha completa de Dados & Analytics, com Engenharia de Dados, Tecnologia, Computação em Nuvem, Negócios e Ciência de Dados do nível básico até o especialista.
 
-Atualmente, trabalho de forma autônoma especializado na usinagem de cadinhos de grafite para fundição, o que me permite ter flexibilidade para dedicar tempo à minha transição para a área de Data & Analytics.
+engenharia de dados curso em andamento`,
 
-Nos últimos anos, venho me especializando em Data & Analytics, aplicando minha experiência prática e visão analítica para desenvolver soluções baseadas em dados. Combino a precisão técnica adquirida na usinagem com conhecimentos avançados em programação, estatística e machine learning para entregar insights valiosos aos negócios.`,
 
   // Avatar/Foto (deixe vazio para usar placeholder)
   avatar: "", // Adicione o caminho da sua foto aqui
@@ -189,30 +189,39 @@ export const projects = [
 export const certificates = [
   {
     id: 1,
-    title: "Python para Data Science",
-    institution: "Comunidade DS",
-    year: "2024",
-    image: "", // Adicione o caminho do certificado
-    pdf: "", // Adicione o caminho do PDF
-    skills: ["Python", "Pandas", "NumPy", "Matplotlib"]
+    title: "Ciências Aplicadas: Matemática e Estatística",
+    institution: "PoD Academy",
+    year: "2025",
+    image: "/certificates/4.png",
+    pdf: "/certificates/certificado-2427912AD2AF41E914203880.pdf",
+    skills: ["Matemática Aplicada", "Estatística Aplicada", "Dados"]
   },
   {
     id: 2,
-    title: "SQL para Análise de Dados",
-    institution: "Curso Online",
+    title: "Formação em Análise de Dados",
+    institution: "PoD Academy",
     year: "2024",
-    image: "",
-    pdf: "",
-    skills: ["SQL", "PostgreSQL", "MySQL", "Data Analysis"]
+    image: "/certificates/3.png",
+    pdf: "/certificates/certificado-2184196A1D520FC214203880.pdf",
+    skills: ["Análise de Dados", "CRISP-DM", "Estatística", "Visualização"]
   },
   {
     id: 3,
-    title: "Machine Learning Fundamentals",
-    institution: "Autodidata",
+    title: "Cloud Computing",
+    institution: "PoD Academy",
     year: "2024",
-    image: "",
-    pdf: "",
-    skills: ["Scikit-learn", "ML Algorithms", "Feature Engineering"]
+    image: "/certificates/2.png",
+    pdf: "/certificates/certificado-2181848AF6E35A5F13239070.pdf",
+    skills: ["Cloud Computing", "AWS", "Azure", "GCP"]
+  },
+  {
+    id: 4,
+    title: "Nivelamento em Matemática, Estatística e Programação para Big Data & Analytics",
+    institution: "PoD Academy",
+    year: "2024",
+    image: "/certificates/1.png",
+    pdf: "/certificates/certificado-2026662A6157507713239070.pdf",
+    skills: ["Matemática", "Estatística", "Programação", "Big Data"]
   }
 ];
 
@@ -239,8 +248,7 @@ export const themeConfig = {
 
 // Configurações de SEO
 export const seoConfig = {
-  title: "Tiago Silva - Especialista em Data & Analytics",
-  description: "Portfólio de Tiago Silva, especialista em Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
+   title: "Tiago Silva - Estudante de Data &   description: "Portfólio de Tiago Silva, estudante de Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
   keywords: "data analytics, data science, python, machine learning, análise de dados, sql, portfolio, tiago silva",
   author: "Tiago Silva",
   url: "https://tiagosilvadata.com", // Substitua pela URL real
@@ -248,9 +256,7 @@ export const seoConfig = {
   
   // Open Graph
   ogTitle: "Tiago Silva - Data & Analytics Portfolio",
-  ogDescription: "Especialista em Data & Analytics com projetos em Python, Machine Learning e visualização de dados. Veja meus projetos e entre em contato!",
-  
-  // Twitter Card
+  ogDescription: "Estudante de Data & Analytics com projetos em Python, Machine Learning e visualização de dados. Veja meus projetos e entre em contato!",
   twitterCard: "summary_large_image",
   twitterCreator: "@tiagodados" // Se tiver Twitter
 };
