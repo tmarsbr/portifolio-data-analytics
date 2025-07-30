@@ -1,3 +1,22 @@
+/**
+ * HeroSection Component
+ * 
+ * Componente principal da página inicial que apresenta o profissional
+ * de forma impactante, incluindo animações e call-to-actions.
+ * 
+ * Features:
+ * - Animações sequenciais para melhor engagement
+ * - Design responsivo para todos os dispositivos
+ * - Ícones animados em background para contexto visual
+ * - Links diretos para projetos e contato
+ * 
+ * @component
+ * @example
+ * return (
+ *   <HeroSection />
+ * )
+ */
+
 import React, { useEffect, useState } from 'react';
 import {
   Box,
@@ -23,17 +42,23 @@ import { personalInfo } from '../../config/portfolio';
 const HeroSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  
+  // Estado para controlar as animações sequenciais
   const [animationPhase, setAnimationPhase] = useState(0);
 
-  // Animação sequencial dos elementos
+  /**
+   * Configura animações sequenciais dos elementos da hero section
+   * Cada fase é ativada com delay específico para criar fluidez visual
+   */
   useEffect(() => {
     const timers = [
-      setTimeout(() => setAnimationPhase(1), 200),
-      setTimeout(() => setAnimationPhase(2), 600),
-      setTimeout(() => setAnimationPhase(3), 1000),
-      setTimeout(() => setAnimationPhase(4), 1400),
+      setTimeout(() => setAnimationPhase(1), 200),   // Avatar/Nome
+      setTimeout(() => setAnimationPhase(2), 600),   // Título/Descrição  
+      setTimeout(() => setAnimationPhase(3), 1000),  // Botões
+      setTimeout(() => setAnimationPhase(4), 1400),  // Estatísticas
     ];
 
+    // Cleanup dos timers ao desmontar componente
     return () => timers.forEach(timer => clearTimeout(timer));
   }, []);
 

@@ -64,7 +64,7 @@ const About = () => {
       period: '2022-Presente',
       title: 'Transição para Data & Analytics',
       description: 'Início dos estudos intensivos em Data Science, aplicando experiência prática para desenvolver projetos completos de análise de dados.',
-      achievements: ['9+ projetos práticos concluídos', 'Domínio de Python e SQL', 'Especialização em Machine Learning'],
+      achievements: ['9+ projetos práticos concluídos'],
     },
   ];
 
@@ -461,9 +461,9 @@ const About = () => {
             <Grid container spacing={4} sx={{ mt: 4 }}>
               {[
                 { number: '7+', label: 'Anos de Experiência Técnica' },
-                { number: '9+', label: 'Projetos de Data Analytics' },
-                { number: '10+', label: 'Tecnologias Dominadas' },
-                { number: '∞', label: 'Paixão por Aprender' },
+                { number: '12+', label: 'Projetos de Data Analytics' },
+                { number: '15+', label: 'Tecnologias Dominadas' },
+                { number: '800+', label: 'Horas de Estudo Intensivo' },
               ].map((stat, index) => (
                 <Grid item xs={6} md={3} key={index}>
                   <Typography

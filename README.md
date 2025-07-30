@@ -1,23 +1,55 @@
-# Portfólio Data & Analytics - Tiago Silva
+# 📊 Portfólio Data & Analytics - Tiago Silva
 
-Um portfólio moderno e responsivo desenvolvido em React para showcase de projetos e habilidades em Data & Analytics.
+> **Da Precisão Mecânica aos Insights Estratégicos**  
+> Portfólio profissional desenvolvido em React showcasing projetos e expertise em Data & Analytics
 
-## 🚀 Tecnologias Utilizadas
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)
+![Material-UI](https://img.shields.io/badge/Material--UI-5.15.15-0081CB?style=for-the-badge&logo=material-ui)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript)
 
-- **React 18** - Framework principal
-- **Material-UI (MUI)** - Componentes e design system
-- **React Router** - Navegação entre páginas
-- **Lottie React** - Animações interativas
-- **AOS** - Animações de scroll
-- **React Helmet** - Meta tags e SEO
+## 🎯 **Sobre o Projeto**
 
-## 📋 Funcionalidades
+Este portfólio representa a jornada de transição profissional da engenharia mecânica para Data & Analytics, demonstrando:
 
-- **Responsivo** - Adaptado para desktop, tablet e mobile
-- **SEO Otimizado** - Meta tags, Open Graph e títulos dinâmicos
-- **Acessibilidade** - ARIA labels e navegação por teclado
-- **Performance** - Componentes otimizados e lazy loading
-- **Configuração Dinâmica** - Dados centralizados em arquivo de configuração
+- **🏗️ Arquitetura Sólida**: Código limpo, componentizado e escalável
+- **📱 Responsividade Total**: Experiência otimizada para todos os dispositivos  
+- **🚀 Performance**: Componentes otimizados e lazy loading
+- **♿ Acessibilidade**: ARIA labels e navegação por teclado
+- **🔍 SEO Otimizado**: Meta tags dinâmicas e Open Graph
+
+## ✨ **Funcionalidades Principais**
+
+### 🎨 **Design & UX**
+- Interface moderna com Material Design
+- Animações fluidas com AOS (Animate On Scroll)
+- Tema consistente com paleta profissional
+- Micro-interações para melhor engagement
+
+### 📊 **Showcasing de Projetos**
+- Demonstração de 12+ projetos práticos
+- Storytelling orientado a resultados de negócio
+- Métricas quantificadas de impacto
+- Links diretos para repositórios GitHub
+
+### 📈 **Apresentação Profissional**
+- Timeline interativa de experiências
+- Visualização de skills com níveis
+- Certificações com preview e download
+- Seção de contato integrada
+
+## 🛠️ **Stack Tecnológica**
+
+### **Frontend**
+- **React 18** - Framework principal com hooks modernos
+- **Material-UI (MUI)** - Sistema de design consistente
+- **React Router** - Navegação SPA otimizada
+- **React Helmet** - Gerenciamento de meta tags
+
+### **Bibliotecas & Ferramentas**
+- **AOS** - Animações de scroll suaves
+- **Lottie React** - Animações interativas avançadas  
+- **ESLint & Prettier** - Qualidade e formatação de código
+- **Git & GitHub** - Controle de versão e deploy
 
 ## 🛠️ Instalação e Execução
 
