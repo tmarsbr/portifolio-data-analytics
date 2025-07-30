@@ -30,6 +30,22 @@ import {
 
 import { projects, personalInfo } from '../config/portfolio';
 
+/**
+ * Projects - Portfólio de projetos
+ *
+ * Lista projetos desenvolvidos com filtros e detalhes em modal.
+ *
+ * Funcionalidades:
+ * - Filtro por categoria e busca por texto
+ * - Visualização de detalhes em modal com links
+ * - Integração com dados do portfolio
+ *
+ * @component
+ * @example
+ * return (
+ *   <Projects />
+ * )
+ */
 const Projects = () => {
   const theme = useTheme();
   const [selectedProject, setSelectedProject] = useState(null);

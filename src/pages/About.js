@@ -20,6 +20,22 @@ import {
 import { personalInfo } from '../config/portfolio';
 
 
+/**
+ * About - Página "Sobre"
+ *
+ * Apresenta a trajetória profissional e as principais habilidades do autor.
+ *
+ * Funcionalidades:
+ * - Seções com história, qualidades e evolução profissional
+ * - Uso de animações e responsividade
+ * - Metadados para SEO via react-helmet
+ *
+ * @component
+ * @example
+ * return (
+ *   <About />
+ * )
+ */
 const About = () => {
   const theme = useTheme();
 

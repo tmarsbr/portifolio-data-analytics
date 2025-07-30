@@ -24,6 +24,22 @@ import PropTypes from 'prop-types';
 
 import { personalInfo } from '../../config/portfolio';
 
+/**
+ * Header - Barra de navegação do portfólio
+ *
+ * Exibe links para as páginas principais e adapta o layout entre desktop e mobile.
+ *
+ * Funcionalidades:
+ * - Navegação responsiva com menu mobile
+ * - Mudança de estilo ao rolar a página
+ * - Destaque da rota ativa
+ *
+ * @component
+ * @example
+ * return (
+ *   <Header />
+ * )
+ */
 const Header = ({ elevation = 0 }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
