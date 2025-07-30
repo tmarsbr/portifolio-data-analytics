@@ -189,6 +189,15 @@ export const projects = [
 export const certificates = [
   {
     id: 1,
+    title: "Nivelamento em Matemática, Estatística e Programação para Big Data & Analytics",
+    institution: "PoD Academy",
+    year: "2024",
+    image: "/certificates/1.png",
+    pdf: "/certificates/certificado-2026662A6157507713239070.pdf",
+    skills: ["Matemática", "Estatística", "Programação", "Big Data"]
+  },
+  {
+    id: 2,
     title: "Ciências Aplicadas: Matemática e Estatística",
     institution: "PoD Academy",
     year: "2025",
@@ -197,7 +206,7 @@ export const certificates = [
     skills: ["Matemática Aplicada", "Estatística Aplicada", "Dados"]
   },
   {
-    id: 2,
+    id: 3,
     title: "Formação em Análise de Dados",
     institution: "PoD Academy",
     year: "2024",
@@ -206,22 +215,13 @@ export const certificates = [
     skills: ["Análise de Dados", "CRISP-DM", "Estatística", "Visualização"]
   },
   {
-    id: 3,
+    id: 4,
     title: "Cloud Computing",
     institution: "PoD Academy",
     year: "2024",
     image: "/certificates/2.png",
     pdf: "/certificates/certificado-2181848AF6E35A5F13239070.pdf",
     skills: ["Cloud Computing", "AWS", "Azure", "GCP"]
-  },
-  {
-    id: 4,
-    title: "Nivelamento em Matemática, Estatística e Programação para Big Data & Analytics",
-    institution: "PoD Academy",
-    year: "2024",
-    image: "/certificates/1.png",
-    pdf: "/certificates/certificado-2026662A6157507713239070.pdf",
-    skills: ["Matemática", "Estatística", "Programação", "Big Data"]
   }
 ];
 
