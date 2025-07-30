@@ -248,7 +248,8 @@ export const themeConfig = {
 
 // Configurações de SEO
 export const seoConfig = {
-   title: "Tiago Silva - Estudante de Data &   description: "Portfólio de Tiago Silva, estudante de Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
+  title: "Tiago Silva - Estudante de Data & Analytics",
+  description: "Portfólio de Tiago Silva, estudante de Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
   keywords: "data analytics, data science, python, machine learning, análise de dados, sql, portfolio, tiago silva",
   author: "Tiago Silva",
   url: "https://tiagosilvadata.com", // Substitua pela URL real
