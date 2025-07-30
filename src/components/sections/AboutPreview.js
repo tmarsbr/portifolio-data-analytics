@@ -16,8 +16,6 @@ import {
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
-import { personalInfo } from '../../config/portfolio';
-
 const AboutPreview = () => {
   const theme = useTheme();
 
