@@ -12,14 +12,12 @@ import {
 import { Helmet } from 'react-helmet';
 import {
   Engineering,
-  Analytics,
-  School,
   TrendingUp,
   Code,
   Psychology,
 } from '@mui/icons-material';
 
-import { personalInfo, seoConfig } from '../config/portfolio';
+import { personalInfo } from '../config/portfolio';
 
 const About = () => {
   const theme = useTheme();
