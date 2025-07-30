@@ -1,0 +1,76 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
+import { Helmet } from 'react-helmet';
+
+// Estilos
+import theme from './styles/theme';
+import './styles/global.css';
+
+// Componentes
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+import ScrollToTop from './components/common/ScrollToTop';
+
+// Páginas
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+
+// Configurações
+import { seoConfig } from './config/portfolio';
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Helmet>
+          <title>{seoConfig.title}</title>
+          <meta name="description" content={seoConfig.description} />
+          <meta name="keywords" content={seoConfig.keywords} />
+          <meta name="author" content={seoConfig.author} />
+          
+          {/* Open Graph */}
+          <meta property="og:title" content={seoConfig.ogTitle} />
+          <meta property="og:description" content={seoConfig.ogDescription} />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={seoConfig.url} />
+          <meta property="og:image" content={seoConfig.image} />
+          
+          {/* Twitter Card */}
+          <meta name="twitter:card" content={seoConfig.twitterCard} />
+          <meta name="twitter:title" content={seoConfig.ogTitle} />
+          <meta name="twitter:description" content={seoConfig.ogDescription} />
+          <meta name="twitter:image" content={seoConfig.image} />
+          {seoConfig.twitterCreator && (
+            <meta name="twitter:creator" content={seoConfig.twitterCreator} />
+          )}
+          
+          {/* Outros meta tags */}
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="theme-color" content={theme.palette.primary.main} />
+          <link rel="canonical" href={seoConfig.url} />
+        </Helmet>
+        
+        <div className="App">
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+          <ScrollToTop />
+        </div>
+      </Router>
+    </ThemeProvider>
+  );
+}
+
+export default App;
