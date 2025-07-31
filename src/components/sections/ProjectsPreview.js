@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -11,12 +11,18 @@ import {
   Button,
   IconButton,
   useTheme,
+  Tabs,
+  Tab,
+  Fade,
 } from '@mui/material';
 import {
   ArrowForward,
   GitHub,
   Launch,
   TrendingUp,
+  DataObject,
+  Engineering,
+  Analytics,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
@@ -24,9 +30,61 @@ import { projects } from '../../config/portfolio';
 
 const ProjectsPreview = () => {
   const theme = useTheme();
-  
-  // Pegar apenas os projetos em destaque para a home
-  const featuredProjects = projects.filter(project => project.featured).slice(0, 3);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  // Definir categorias com seus ícones e cores
+  const categories = [
+    {
+      key: 'all',
+      label: 'Todos os Projetos',
+      icon: <DataObject />,
+      color: theme.palette.primary.main,
+      description: 'Veja todos os projetos em destaque'
+    },
+    {
+      key: 'Análise Exploratória',
+      label: 'Análise de Dados',
+      icon: <Analytics />,
+      color: '#2196f3',
+      description: 'Projetos de análise exploratória e insights'
+    },
+    {
+      key: 'Engenharia de Dados',
+      label: 'Engenharia de Dados',
+      icon: <Engineering />,
+      color: '#4caf50',
+      description: 'Pipelines, ETL e infraestrutura de dados'
+    },
+    {
+      key: 'Análise Geoespacial',
+      label: 'Ciência de Dados',
+      icon: <DataObject />,
+      color: '#ff9800',
+      description: 'Machine learning e análise geoespacial'
+    },
+    {
+      key: 'API & Web Scraping',
+      label: 'API & Web Scraping',
+      icon: <TrendingUp />,
+      color: '#9c27b0',
+      description: 'Extração e coleta de dados via APIs'
+    }
+  ];
+
+  // Filtrar projetos por categoria
+  const getFilteredProjects = (category) => {
+    if (category === 'all') {
+      return projects.filter(project => project.featured);
+    }
+    // Para categorias específicas, mostrar todos os projetos da categoria
+    return projects.filter(project => project.category === category);
+  };
+
+  const filteredProjects = getFilteredProjects(selectedCategory);
+
+  const handleCategoryChange = (event, newValue) => {
+    setSelectedCategory(newValue);
+  };
 
   const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23f5f5f5'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='14' fill='%23999'%3eImagem do Projeto%3c/text%3e%3c/svg%3e";
 
@@ -39,7 +97,7 @@ const ProjectsPreview = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }} data-aos="fade-up">
+        <Box sx={{ textAlign: 'center', mb: 6 }} data-aos="fade-up">
           <Typography
             variant="subtitle2"
             sx={{
@@ -92,34 +150,107 @@ const ProjectsPreview = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
-          {featuredProjects.map((project, index) => (
-            <Grid
-              item
-              xs={12}
-              md={4}
-              key={project.id}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <Card
+        {/* Filtros por categoria */}
+        <Box sx={{ mb: 6 }} data-aos="fade-up" data-aos-delay="100">
+          <Tabs
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+            variant="scrollable"
+            scrollButtons="auto"
+            allowScrollButtonsMobile
+            sx={{
+              mb: 4,
+              '& .MuiTabs-flexContainer': {
+                justifyContent: 'center',
+              },
+              '& .MuiTabs-indicator': {
+                height: 3,
+                borderRadius: 1.5,
+              },
+            }}
+          >
+            {categories.map((category) => (
+              <Tab
+                key={category.key}
+                value={category.key}
+                label={
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    {React.cloneElement(category.icon, {
+                      sx: { 
+                        fontSize: '1.2rem',
+                        color: selectedCategory === category.key ? category.color : 'text.secondary'
+                      }
+                    })}
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontWeight: selectedCategory === category.key ? 600 : 400,
+                        textTransform: 'none',
+                      }}
+                    >
+                      {category.label}
+                    </Typography>
+                  </Box>
+                }
                 sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  borderRadius: 3,
-                  overflow: 'hidden',
-                  transition: 'all 0.3s ease',
-                  border: `1px solid ${theme.palette.divider}`,
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: theme.shadows[12],
-                    '& .project-image': {
-                      transform: 'scale(1.05)',
-                    },
+                  minHeight: 48,
+                  textTransform: 'none',
+                  color: 'text.secondary',
+                  '&.Mui-selected': {
+                    color: 'primary.main',
                   },
                 }}
+              />
+            ))}
+          </Tabs>
+
+          {/* Descrição da categoria selecionada */}
+          <Fade in={true} key={selectedCategory} timeout={300}>
+            <Typography
+              variant="body2"
+              sx={{
+                textAlign: 'center',
+                color: 'text.secondary',
+                fontStyle: 'italic',
+                mb: 2,
+              }}
+            >
+              {categories.find(cat => cat.key === selectedCategory)?.description}
+            </Typography>
+          </Fade>
+        </Box>
+
+        <Grid container spacing={4}>
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project, index) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={filteredProjects.length > 6 ? 3 : 4}
+                key={project.id}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
+                <Fade in={true} timeout={500}>
+                  <Card
+                    sx={{
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      borderRadius: 3,
+                      overflow: 'hidden',
+                      transition: 'all 0.3s ease',
+                      border: `1px solid ${theme.palette.divider}`,
+                      '&:hover': {
+                        transform: 'translateY(-8px)',
+                        boxShadow: theme.shadows[12],
+                        '& .project-image': {
+                          transform: 'scale(1.05)',
+                        },
+                      },
+                    }}
+                  >
                 {/* Imagem do projeto */}
                 <Box
                   sx={{
@@ -235,6 +366,19 @@ const ProjectsPreview = () => {
                     }}
                   >
                     {project.title}
+                    {project.date === "Em breve" && (
+                      <Chip
+                        label="Em Breve"
+                        size="small"
+                        sx={{
+                          ml: 1,
+                          backgroundColor: 'warning.main',
+                          color: 'warning.contrastText',
+                          fontSize: '0.7rem',
+                          height: 20,
+                        }}
+                      />
+                    )}
                   </Typography>
 
                   {/* Descrição */}
@@ -317,8 +461,27 @@ const ProjectsPreview = () => {
                   </Typography>
                 </CardContent>
               </Card>
+              </Fade>
             </Grid>
-          ))}
+          ))
+          ) : (
+            <Grid item xs={12}>
+              <Box sx={{ textAlign: 'center', py: 8 }}>
+                <Typography 
+                  variant="h6" 
+                  sx={{ color: 'text.secondary', mb: 2 }}
+                >
+                  Nenhum projeto encontrado nesta categoria
+                </Typography>
+                <Typography 
+                  variant="body2" 
+                  sx={{ color: 'text.secondary' }}
+                >
+                  Tente selecionar uma categoria diferente ou visualize todos os projetos.
+                </Typography>
+              </Box>
+            </Grid>
+          )}
         </Grid>
 
         {/* Botão para ver todos os projetos */}
