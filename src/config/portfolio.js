@@ -193,8 +193,8 @@ export const certificates = [
     title: "Nivelamento em Matemática, Estatística e Programação para Big Data & Analytics",
     institution: "PoD Academy",
     year: "2024",
-    image: "/certificates/1.png",
-    pdf: "/certificates/certificado-2026662A6157507713239070.pdf",
+    image: `${process.env.PUBLIC_URL}/certificates/1.png`,
+    pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2026662A6157507713239070.pdf`,
     skills: ["Matemática", "Estatística", "Programação", "Big Data"]
   },
   {
@@ -202,8 +202,8 @@ export const certificates = [
     title: "Ciências Aplicadas: Matemática e Estatística",
     institution: "PoD Academy",
     year: "2025",
-    image: "/certificates/4.png",
-    pdf: "/certificates/certificado-2427912AD2AF41E914203880.pdf",
+    image: `${process.env.PUBLIC_URL}/certificates/4.png`,
+    pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2427912AD2AF41E914203880.pdf`,
     skills: ["Matemática Aplicada", "Estatística Aplicada", "Dados"]
   },
   {
@@ -211,8 +211,8 @@ export const certificates = [
     title: "Formação em Análise de Dados",
     institution: "PoD Academy",
     year: "2024",
-    image: "/certificates/3.png",
-    pdf: "/certificates/certificado-2184196A1D520FC214203880.pdf",
+    image: `${process.env.PUBLIC_URL}/certificates/3.png`,
+    pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2184196A1D520FC214203880.pdf`,
     skills: ["Análise de Dados", "CRISP-DM", "Estatística", "Visualização"]
   },
   {
@@ -220,8 +220,8 @@ export const certificates = [
     title: "Cloud Computing",
     institution: "PoD Academy",
     year: "2024",
-    image: "/certificates/2.png",
-    pdf: "/certificates/certificado-2181848AF6E35A5F13239070.pdf",
+    image: `${process.env.PUBLIC_URL}/certificates/2.png`,
+    pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2181848AF6E35A5F13239070.pdf`,
     skills: ["Cloud Computing", "AWS", "Azure", "GCP"]
   }
 ];
@@ -254,7 +254,7 @@ export const seoConfig = {
   keywords: "data analytics, data science, python, machine learning, análise de dados, sql, portfolio, tiago silva",
   author: "Tiago Silva",
   url: "https://tmarsbr.github.io/portifolio-data-analytics", // URL do GitHub Pages
-  image: "/og-image.jpg", // Adicione uma imagem de preview
+  image: `${process.env.PUBLIC_URL}/og-image.jpg`, // Adicione uma imagem de preview
   
   // Open Graph
   ogTitle: "Tiago Silva - Data & Analytics Portfolio",
