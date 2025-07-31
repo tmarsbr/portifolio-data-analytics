@@ -5,8 +5,18 @@ import {
   Typography,
   Button,
   Box,
-  IconButton,
-  Drawer,
+  Icon        <AppBar
+        position="fixed"
+        elevation={scrolled ? 2 : elevation}
+        sx={{
+          backgroundColor: scrolled 
+            ? (darkMode ? 'rgba(30, 30, 30, 0.95)' : 'rgba(255, 255, 255, 0.95)') 
+            : 'transparent',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          transition: 'all 0.3s ease-in-out',
+          borderBottom: scrolled ? `1px solid ${theme.palette.divider}` : 'none',
+        }}
+      > Drawer,
   List,
   ListItem,
   ListItemText,
@@ -29,13 +39,11 @@ import ThemeToggle from './ThemeToggle';
  * Header - Barra de navegação do portfólio
  *
  * Exibe links para as páginas principais e adapta o layout entre desktop e mobile.
- * Inclui toggle para alternar entre modo claro e escuro.
  *
  * Funcionalidades:
  * - Navegação responsiva com menu mobile
  * - Mudança de estilo ao rolar a página
  * - Destaque da rota ativa
- * - Toggle de tema claro/escuro
  *
  * @component
  * @example
@@ -130,9 +138,7 @@ const Header = ({ elevation = 0 }) => {
         position="fixed"
         elevation={scrolled ? 2 : elevation}
         sx={{
-          backgroundColor: scrolled 
-            ? (darkMode ? 'rgba(30, 30, 30, 0.95)' : 'rgba(255, 255, 255, 0.95)') 
-            : 'transparent',
+          backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           transition: 'all 0.3s ease-in-out',
           borderBottom: scrolled ? `1px solid ${theme.palette.divider}` : 'none',
@@ -200,11 +206,6 @@ const Header = ({ elevation = 0 }) => {
                     {item.text}
                   </Button>
                 ))}
-                
-                {/* Toggle de tema no desktop */}
-                <Box sx={{ ml: 1 }}>
-                  <ThemeToggle />
-                </Box>
               </Box>
             )}
 

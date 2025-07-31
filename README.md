@@ -1,23 +1,42 @@
 # Portfólio Data & Analytics - Tiago Silva
 
-Um portfólio moderno e responsivo desenvolvido em React para showcase de projetos e habilidades em Data & Analytics.
+Um portfólio moderno e responsivo desenvolvido em React para showcase de projetos e habilidades em Data & Analytics, agora com **modo escuro** completo!
 
 ## 🚀 Tecnologias Utilizadas
 
 - **React 18** - Framework principal
 - **Material-UI (MUI)** - Componentes e design system
 - **React Router** - Navegação entre páginas
+- **React Context API** - Gerenciamento de estado do tema
 - **Lottie React** - Animações interativas
 - **AOS** - Animações de scroll
 - **React Helmet** - Meta tags e SEO
 
-## 📋 Funcionalidades
+## ✨ Funcionalidades
 
-- **Responsivo** - Adaptado para desktop, tablet e mobile
-- **SEO Otimizado** - Meta tags, Open Graph e títulos dinâmicos
-- **Acessibilidade** - ARIA labels e navegação por teclado
-- **Performance** - Componentes otimizados e lazy loading
-- **Configuração Dinâmica** - Dados centralizados em arquivo de configuração
+- **🌗 Modo Escuro/Claro** - Toggle inteligente com persistência
+- **📱 Responsivo** - Adaptado para desktop, tablet e mobile
+- **🔍 SEO Otimizado** - Meta tags, Open Graph e títulos dinâmicos
+- **♿ Acessibilidade** - ARIA labels, contraste AA/AAA e navegação por teclado
+- **⚡ Performance** - Componentes otimizados e lazy loading
+- **🎨 Temas Dinâmicos** - Sistema completo de temas claro/escuro
+- **💾 Persistência** - Salva preferência do usuário automaticamente
+- **🔧 Configuração Dinâmica** - Dados centralizados em arquivo de configuração
+
+## 🌗 Modo Escuro - Destaques
+
+### Funcionalidades Avançadas
+- **Toggle Visual**: Ícone sol/lua com animação de rotação
+- **Detecção Automática**: Respeita preferência do sistema operacional
+- **Persistência Local**: Mantém escolha entre sessões
+- **Transições Suaves**: Mudança instantânea sem recarga
+- **Paleta Otimizada**: Cores cientificamente escolhidas para conforto visual
+
+### Design Profissional
+- **Contraste Perfeito**: WCAG AA/AAA compliant
+- **Cores Harmoniosas**: Paleta especial para fundo escuro
+- **Componentes Adaptados**: Todos os elementos respondem ao tema
+- **Micro-interações**: Feedbacks visuais refinados
 
 ## 🛠️ Instalação e Execução
 
@@ -45,7 +64,7 @@ Um portfólio moderno e responsivo desenvolvido em React para showcase de projet
 
 4. **Acesse no navegador**
    ```
-   http://localhost:3000
+   http://localhost:3000/portifolio-data-analytics
    ```
 
 ## 📁 Estrutura do Projeto
