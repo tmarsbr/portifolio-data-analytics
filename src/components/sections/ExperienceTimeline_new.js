@@ -3,11 +3,15 @@ import {
   Box,
   Container,
   Typography,
+  Paper,
   Chip,
+  IconButton,
+  Collapse,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Avatar,
   Card,
   CardContent,
   Divider,
@@ -23,10 +27,16 @@ import {
 } from '@mui/lab';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
+  Work,
+  School,
   Engineering,
+  Analytics,
   ExpandMore,
   ExpandLess,
   CheckCircle,
+  Business,
+  Code,
+  TrendingUp,
 } from '@mui/icons-material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -374,11 +384,9 @@ const ExperienceTimeline = () => {
         py: { xs: 8, md: 12 },
         background: theme.palette.mode === 'dark'
           ? 'linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(33, 33, 33, 0.9) 100%)'
-          : 'linear-gradient(to bottom, rgb(248, 250, 252) 0%, white 50%, rgb(241, 245, 249) 100%)',
+          : 'linear-gradient(135deg, rgba(250, 250, 250, 1) 0%, rgba(245, 245, 245, 1) 100%)',
         position: 'relative',
         overflow: 'hidden',
-        borderTop: theme.palette.mode === 'dark' ? 'none' : '1px solid rgb(226, 232, 240)',
-        transition: 'all 0.3s ease',
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -388,7 +396,7 @@ const ExperienceTimeline = () => {
           bottom: 0,
           background: theme.palette.mode === 'dark'
             ? 'radial-gradient(circle at 80% 20%, rgba(156, 39, 176, 0.1) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(25, 118, 210, 0.1) 0%, transparent 50%)'
-            : 'radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.03) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%)',
+            : 'radial-gradient(circle at 80% 20%, rgba(156, 39, 176, 0.05) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(25, 118, 210, 0.05) 0%, transparent 50%)',
           pointerEvents: 'none',
         },
       }}
@@ -516,8 +524,8 @@ const ExperienceTimeline = () => {
             >
               {[
                 { number: '7+', label: 'Anos de Experiência Técnica', icon: '⚙️' },
-                { number: '3', label: 'Empresas Trabalhadas', icon: '🏢' },
-                { number: '1+', label: 'Anos em Data & Analytics', icon: '📊' },
+                { number: '3+', label: 'Empresas Trabalhadas', icon: '🏢' },
+                { number: '2+', label: 'Anos em Data & Analytics', icon: '📊' },
                 { number: '100%', label: 'Dedicação ao Aprendizado', icon: '🎯' },
               ].map((stat, index) => (
                 <motion.div

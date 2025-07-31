@@ -29,77 +29,77 @@ export const useTheme = () => {
 // Função para criar tema base
 const createBaseTheme = (mode) => {
   const isDark = mode === 'dark';
-  const colors = isDark ? themeConfig.dark : themeConfig.light;
+  const colors = isDark ? themeConfig.colors.dark : themeConfig.colors.light;
   
   return createTheme({
     palette: {
       mode,
       primary: {
-        main: colors.primaryColor,
-        light: isDark ? '#90caf9' : '#5e92f3',
-        dark: isDark ? '#1976d2' : '#1565c0',
+        main: colors.primary,
+        light: colors.primaryLight,
+        dark: colors.primaryDark,
         contrastText: '#ffffff',
       },
       secondary: {
-        main: colors.secondaryColor,
-        light: isDark ? '#ff7961' : '#ff6659',
-        dark: isDark ? '#c62828' : '#d32f2f',
+        main: colors.secondary,
+        light: colors.secondaryLight,
+        dark: colors.secondaryDark,
         contrastText: '#ffffff',
       },
       background: {
-        default: colors.backgroundColor,
-        paper: colors.paperColor,
+        default: colors.background,
+        paper: colors.surface,
       },
       text: {
         primary: colors.textPrimary,
         secondary: colors.textSecondary,
       },
       error: {
-        main: '#f44336',
+        main: colors.error,
       },
       warning: {
-        main: '#ff9800',
+        main: colors.warning,
       },
       info: {
-        main: '#2196f3',
+        main: colors.info,
       },
       success: {
-        main: colors.accentColor,
+        main: colors.success,
       },
-      divider: colors.dividerColor,
+      divider: colors.border,
     },
     typography: {
-      fontFamily: themeConfig.fontFamily,
+      fontFamily: themeConfig.fontFamily.primary,
       h1: {
-        fontSize: themeConfig.fontSize.xxxlarge,
-        fontWeight: themeConfig.fontWeight.bold,
+        fontSize: themeConfig.fontSize.xxlarge,
+        fontWeight: 700,
         lineHeight: 1.2,
         letterSpacing: '-0.02em',
       },
       h2: {
-        fontSize: themeConfig.fontSize.xxlarge,
-        fontWeight: themeConfig.fontWeight.semibold,
+        fontSize: themeConfig.fontSize.xlarge,
+        fontWeight: 600,
         lineHeight: 1.3,
         letterSpacing: '-0.01em',
       },
       h3: {
         fontSize: '1.75rem',
-        fontWeight: themeConfig.fontWeight.semibold,
+        fontWeight: 600,
         lineHeight: 1.4,
       },
       h4: {
         fontSize: themeConfig.fontSize.large,
-        fontWeight: themeConfig.fontWeight.medium,
+        fontWeight: 500,
         lineHeight: 1.4,
       },
       h5: {
         fontSize: '1.125rem',
-        fontWeight: themeConfig.fontWeight.medium,
+        fontWeight: 500,
         lineHeight: 1.5,
       },
       h6: {
         fontSize: themeConfig.fontSize.medium,
-        fontWeight: themeConfig.fontWeight.medium,
+        fontWeight: 500,
         lineHeight: 1.6,
       },
       body1: {
@@ -112,19 +112,19 @@ const createBaseTheme = (mode) => {
       },
       subtitle1: {
         fontSize: '1.125rem',
-        fontWeight: themeConfig.fontWeight.regular,
+        fontWeight: 400,
         lineHeight: 1.5,
       },
       subtitle2: {
         fontSize: themeConfig.fontSize.small,
-        fontWeight: themeConfig.fontWeight.medium,
+        fontWeight: 500,
         lineHeight: 1.4,
         textTransform: 'uppercase',
         letterSpacing: '0.5px',
       },
       button: {
         fontSize: themeConfig.fontSize.small,
-        fontWeight: themeConfig.fontWeight.medium,
+        fontWeight: 500,
         textTransform: 'none',
         letterSpacing: '0.3px',
       },
@@ -134,18 +134,18 @@ const createBaseTheme = (mode) => {
       },
     },
     shape: {
-      borderRadius: parseInt(themeConfig.borderRadius.medium),
+      borderRadius: themeConfig.borderRadius.medium,
     },
-    spacing: 8, // padrão do Material-UI
+    spacing: themeConfig.spacing.unit,
     transitions: {
       duration: {
-        shortest: 150,
-        shorter: 200,
-        short: 250,
-        standard: 300,
-        complex: 375,
-        enteringScreen: 225,
-        leavingScreen: 195,
+        shortest: themeConfig.transitions.fast,
+        shorter: themeConfig.transitions.normal,
+        short: themeConfig.transitions.slow,
+        standard: themeConfig.transitions.normal,
+        complex: themeConfig.transitions.slow,
+        enteringScreen: themeConfig.transitions.normal,
+        leavingScreen: themeConfig.transitions.fast,
       },
     },
     components: {
@@ -153,23 +153,23 @@ const createBaseTheme = (mode) => {
       MuiButton: {
         styleOverrides: {
           root: {
-            borderRadius: parseInt(themeConfig.borderRadius.large),
+            borderRadius: themeConfig.borderRadius.large,
             padding: '12px 32px',
             fontSize: '0.95rem',
-            fontWeight: themeConfig.fontWeight.medium,
+            fontWeight: 500,
             textTransform: 'none',
             boxShadow: 'none',
-            transition: `all 300ms ease`,
+            transition: `all ${themeConfig.transitions.normal}ms ease`,
             '&:hover': {
               boxShadow: isDark ? '0 4px 20px rgba(100, 181, 246, 0.3)' : '0 4px 20px rgba(33, 150, 243, 0.3)',
               transform: 'translateY(-2px)',
             },
           },
           containedPrimary: {
-            background: `linear-gradient(45deg, ${colors.primaryColor} 30%, ${colors.accentColor} 90%)`,
+            background: `linear-gradient(45deg, ${colors.primary} 30%, ${colors.primaryLight} 90%)`,
             color: '#ffffff',
             '&:hover': {
-              background: `linear-gradient(45deg, ${colors.secondaryColor} 30%, ${colors.primaryColor} 90%)`,
+              background: `linear-gradient(45deg, ${colors.primaryDark} 30%, ${colors.primary} 90%)`,
             },
           },
         },
@@ -178,13 +178,17 @@ const createBaseTheme = (mode) => {
       MuiCard: {
         styleOverrides: {
           root: {
-            borderRadius: parseInt(themeConfig.borderRadius.large),
-            border: `1px solid ${colors.dividerColor}`,
-            boxShadow: colors.shadow,
-            transition: `all 300ms ease`,
+            borderRadius: themeConfig.borderRadius.large,
+            border: `1px solid ${colors.border}`,
+            boxShadow: isDark 
+              ? '0 4px 20px rgba(0, 0, 0, 0.3)'
+              : '0 4px 20px rgba(0, 0, 0, 0.08)',
+            transition: `all ${themeConfig.transitions.normal}ms ease`,
             '&:hover': {
               transform: 'translateY(-4px)',
-              boxShadow: colors.hoverShadow,
+              boxShadow: isDark 
+                ? '0 12px 40px rgba(0, 0, 0, 0.4)'
+                : '0 12px 40px rgba(0, 0, 0, 0.15)',
             },
           },
         },
@@ -193,14 +197,14 @@ const createBaseTheme = (mode) => {
       MuiChip: {
         styleOverrides: {
           root: {
-            borderRadius: parseInt(themeConfig.borderRadius.small),
-            fontWeight: themeConfig.fontWeight.medium,
+            borderRadius: themeConfig.borderRadius.small,
+            fontWeight: 500,
           },
           outlined: {
-            borderColor: colors.dividerColor,
+            borderColor: colors.border,
             '&:hover': {
-              backgroundColor: colors.primaryColor + '10',
-              borderColor: colors.primaryColor,
+              backgroundColor: colors.primary + '10',
+              borderColor: colors.primary,
             },
           },
         },
@@ -213,7 +217,7 @@ const createBaseTheme = (mode) => {
               ? 'rgba(15, 23, 42, 0.95)' 
               : 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(20px)',
-            borderBottom: `1px solid ${colors.dividerColor}`,
+            borderBottom: `1px solid ${colors.border}`,
           },
         },
       },
@@ -333,5 +337,4 @@ ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { ThemeProvider };
 export default ThemeProvider;

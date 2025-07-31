@@ -185,7 +185,7 @@ const About = () => {
                     lineHeight: 1.2,
                   }}
                 >
-                  Da Precisão Mecânica para a Análise de Dados
+                  Da Oficina para os Dados
                 </Typography>
 
                 <Box sx={{ '& p': { mb: 3, fontSize: '1.1rem', lineHeight: 1.7 } }}>
@@ -214,7 +214,7 @@ const About = () => {
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          backgroundColor: 'grey.50',
+          backgroundColor: 'background.default',
         }}
       >
         <Container maxWidth="lg">
@@ -443,7 +443,7 @@ const About = () => {
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          backgroundColor: 'grey.50',
+          backgroundColor: 'background.default',
         }}
       >
         <Container maxWidth="md">
@@ -476,9 +476,9 @@ const About = () => {
             <Grid container spacing={4} sx={{ mt: 4 }}>
               {[
                 { number: '7+', label: 'Anos de Experiência Técnica' },
-                { number: '9+', label: 'Projetos de Data Analytics' },
-                { number: '10+', label: 'Tecnologias Dominadas' },
-                { number: '∞', label: 'Paixão por Aprender' },
+                { number: '3', label: 'Empresas Trabalhadas' },
+                { number: '1+', label: 'Anos em Data & Analytics' },
+                { number: '100%', label: 'Dedicação ao Aprendizado' },
               ].map((stat, index) => (
                 <Grid item xs={6} md={3} key={index}>
                   <Typography

@@ -3,11 +3,15 @@ import {
   Box,
   Container,
   Typography,
+  Paper,
   Chip,
+  IconButton,
+  Collapse,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Avatar,
   Card,
   CardContent,
   Divider,
@@ -23,10 +27,16 @@ import {
 } from '@mui/lab';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
+  Work,
+  School,
   Engineering,
+  Analytics,
   ExpandMore,
   ExpandLess,
   CheckCircle,
+  Business,
+  Code,
+  TrendingUp,
 } from '@mui/icons-material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -372,13 +382,224 @@ const ExperienceTimeline = () => {
     <Box
       sx={{
         py: { xs: 8, md: 12 },
+        backgroundColor: 'background.paper',
+        position: 'relative',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box sx={{ textAlign: 'center', mb: 8 }} data-aos="fade-up">
+          <Typography
+            variant="subtitle2"
+            sx={{
+              color: 'primary.main',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: 1,
+              mb: 2,
+            }}
+          >
+            Minha Jornada
+          </Typography>
+
+          <Typography
+            variant="h3"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              mb: 3,
+              color: 'text.primary',
+            }}
+          >
+            Experiência e{' '}
+            <Typography
+              component="span"
+              variant="inherit"
+              sx={{
+                background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Formação
+            </Typography>
+          </Typography>
+
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: '1.1rem',
+              color: 'text.secondary',
+              maxWidth: '600px',
+              mx: 'auto',
+              lineHeight: 1.7,
+            }}
+          >
+            Uma trajetória de crescimento contínuo, combinando experiência prática 
+            com conhecimentos técnicos em Data & Analytics.
+          </Typography>
+        </Box>
+
+        <Timeline
+          sx={{
+            '& .MuiTimelineItem-root': {
+              '&:before': {
+                display: 'none',
+              },
+            },
+          }}
+        >
+          {experiences.map((exp, index) => (
+            <TimelineItem key={exp.id} data-aos="fade-up" data-aos-delay={index * 100}>
+              <TimelineOppositeContent
+                sx={{
+                  m: 'auto 0',
+                  variant: 'body2',
+                  color: 'text.secondary',
+                  fontWeight: 600,
+                  minWidth: 120,
+                  textAlign: 'right',
+                  pr: 2,
+                }}
+              >
+                {exp.period}
+              </TimelineOppositeContent>
+
+              <TimelineSeparator>
+                <TimelineDot
+                  sx={{
+                    bgcolor: getTypeColor(exp.type),
+                    border: `3px solid ${theme.palette.background.paper}`,
+                    boxShadow: `0 0 0 4px ${getTypeColor(exp.type)}20`,
+                    p: 1,
+                    width: 56,
+                    height: 56,
+                  }}
+                >
+                  {getIcon(exp.type, exp.icon)}
+                </TimelineDot>
+                {index < experiences.length - 1 && (
+                  <TimelineConnector
+                    sx={{
+                      bgcolor: 'divider',
+                      width: 2,
+                    }}
+                  />
+                )}
+              </TimelineSeparator>
+
+              <TimelineContent sx={{ py: '12px', px: 2 }}>
+                <Paper
+                  elevation={0}
+                  sx={{
+                    p: 3,
+                    borderRadius: 3,
+                    border: `1px solid ${theme.palette.divider}`,
+                    backgroundColor: 'background.paper',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: theme.shadows[8],
+                      borderColor: getTypeColor(exp.type),
+                    },
+                  }}
+                >
+                  {/* Tipo da experiência */}
+                  <Chip
+                    label={getTypeLabel(exp.type)}
+                    size="small"
+                    sx={{
+                      backgroundColor: `${getTypeColor(exp.type)}20`,
+                      color: getTypeColor(exp.type),
+                      fontWeight: 600,
+                      mb: 2,
+                    }}
+                  />
+
+                  {/* Título e empresa */}
+                  <Typography
+                    variant="h6"
+                    component="h3"
+                    sx={{
+                      fontWeight: 700,
+                      color: 'text.primary',
+                      mb: 1,
+                    }}
+                  >
+                    {exp.title}
+                  </Typography>
+
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      color: 'primary.main',
+                      fontWeight: 600,
+                      mb: 2,
+                    }}
+                  >
+                    {exp.company}
+                  </Typography>
+
+                  {/* Descrição */}
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: 'text.secondary',
+                      lineHeight: 1.6,
+                      mb: 3,
+                    }}
+                  >
+                    {exp.description}
+                  </Typography>
+
+                  {/* Habilidades */}
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                    {exp.skills.map((skill, skillIndex) => (
+                      <Chip
+                        key={skillIndex}
+                        label={skill}
+                        size="small"
+                        variant="outlined"
+                        sx={{
+                          borderColor: 'divider',
+                          color: 'text.secondary',
+                          fontSize: '0.75rem',
+                          '&:hover': {
+                            borderColor: 'primary.main',
+                            backgroundColor: 'primary.main',
+                            color: 'white',
+                          },
+                        }}
+                      />
+                    ))}
+                  </Box>
+                </Paper>
+              </TimelineContent>
+            </TimelineItem>
+          ))}
+        </Timeline>
+
+        {/* Estatísticas da jornada */}
+        <Box
+          sx={{
+            mt: 8,
+            p: 4,
+            backgroundColor: 'grey.50',
+            borderRadius: 3,
+            textAlign: 'center',
+          }}
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+  return (
+    <Box
+      sx={{
+        py: { xs: 8, md: 12 },
         background: theme.palette.mode === 'dark'
           ? 'linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(33, 33, 33, 0.9) 100%)'
-          : 'linear-gradient(to bottom, rgb(248, 250, 252) 0%, white 50%, rgb(241, 245, 249) 100%)',
+          : 'linear-gradient(135deg, rgba(250, 250, 250, 1) 0%, rgba(245, 245, 245, 1) 100%)',
         position: 'relative',
         overflow: 'hidden',
-        borderTop: theme.palette.mode === 'dark' ? 'none' : '1px solid rgb(226, 232, 240)',
-        transition: 'all 0.3s ease',
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -388,7 +609,7 @@ const ExperienceTimeline = () => {
           bottom: 0,
           background: theme.palette.mode === 'dark'
             ? 'radial-gradient(circle at 80% 20%, rgba(156, 39, 176, 0.1) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(25, 118, 210, 0.1) 0%, transparent 50%)'
-            : 'radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.03) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%)',
+            : 'radial-gradient(circle at 80% 20%, rgba(156, 39, 176, 0.05) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(25, 118, 210, 0.05) 0%, transparent 50%)',
           pointerEvents: 'none',
         },
       }}
@@ -516,8 +737,8 @@ const ExperienceTimeline = () => {
             >
               {[
                 { number: '7+', label: 'Anos de Experiência Técnica', icon: '⚙️' },
-                { number: '3', label: 'Empresas Trabalhadas', icon: '🏢' },
-                { number: '1+', label: 'Anos em Data & Analytics', icon: '📊' },
+                { number: '3+', label: 'Empresas Trabalhadas', icon: '🏢' },
+                { number: '2+', label: 'Anos em Data & Analytics', icon: '📊' },
                 { number: '100%', label: 'Dedicação ao Aprendizado', icon: '🎯' },
               ].map((stat, index) => (
                 <motion.div

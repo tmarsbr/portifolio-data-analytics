@@ -12,6 +12,8 @@ import {
   ListItemText,
   useMediaQuery,
   Container,
+  Slide,
+  useScrollTrigger,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
@@ -19,6 +21,7 @@ import {
   Code as CodeIcon,
 } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 import { personalInfo } from '../../config/portfolio';
@@ -26,23 +29,29 @@ import { useTheme } from '../../contexts/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 
 /**
- * Header - Barra de navegação do portfólio
- *
- * Exibe links para as páginas principais e adapta o layout entre desktop e mobile.
- * Inclui toggle para alternar entre modo claro e escuro.
- *
- * Funcionalidades:
- * - Navegação responsiva com menu mobile
- * - Mudança de estilo ao rolar a página
- * - Destaque da rota ativa
- * - Toggle de tema claro/escuro
- *
- * @component
- * @example
- * return (
- *   <Header />
- * )
+ * Header aprimorado - Barra de navegação moderna e elegante
+ * 
+ * Melhorias visuais implementadas:
+ * - Navbar com blur effect e sombra dinâmica no scroll
+ * - Links com animação de hover (sublinhado animado)
+ * - Indicação visual da rota ativa
+ * - Menu mobile aprimorado com animações
+ * - Transições suaves entre estados
  */
+
+// Componente para esconder header no scroll
+function HideOnScroll({ children }) {
+  const trigger = useScrollTrigger({
+    threshold: 100,
+  });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
 const Header = ({ elevation = 0 }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -50,22 +59,22 @@ const Header = ({ elevation = 0 }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
 
-  // Lista de navegação
+  // Lista de navegação com ícones
   const navItems = [
-    { text: 'Home', path: '/' },
-    { text: 'Sobre', path: '/about' },
-    { text: 'Projetos', path: '/projects' },
-    { text: 'Contato', path: '/contact' },
+    { text: 'Home', path: '/', icon: '🏠' },
+    { text: 'Sobre', path: '/about', icon: '👨‍💻' },
+    { text: 'Projetos', path: '/projects', icon: '💼' },
+    { text: 'Contato', path: '/contact', icon: '📬' },
   ];
 
-  // Efeito de scroll para mudança de estilo do header
+  // Efeito de scroll melhorado para mudança de estilo do header
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
+      const isScrolled = window.scrollY > 20;
       setScrolled(isScrolled);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -74,186 +83,293 @@ const Header = ({ elevation = 0 }) => {
     setMobileOpen(!mobileOpen);
   };
 
-  // Componente do menu mobile
+  // Função para fechar menu ao navegar
+  const handleNavigation = () => {
+    setMobileOpen(false);
+  };
+
+  // Estilo dinâmico baseado no scroll
+  const headerStyle = {
+    backgroundColor: scrolled 
+      ? (darkMode ? 'rgba(15, 23, 42, 0.95)' : 'rgba(255, 255, 255, 0.95)')
+      : (darkMode ? 'rgba(15, 23, 42, 0.8)' : 'rgba(255, 255, 255, 0.8)'),
+    backdropFilter: 'blur(20px)',
+    borderBottom: scrolled 
+      ? `1px solid ${darkMode ? 'rgba(71, 85, 105, 0.3)' : 'rgba(226, 232, 240, 0.8)'}`
+      : 'none',
+    boxShadow: scrolled 
+      ? (darkMode ? '0 4px 20px rgba(0, 0, 0, 0.3)' : '0 4px 20px rgba(0, 0, 0, 0.08)')
+      : 'none',
+    transition: 'all 0.3s ease-in-out',
+  };
+
+  // Estilo do link ativo
+  const getLinkStyle = (path) => ({
+    position: 'relative',
+    padding: '8px 16px',
+    borderRadius: '8px',
+    transition: 'all 0.3s ease',
+    fontWeight: location.pathname === path ? 600 : 500,
+    color: location.pathname === path 
+      ? theme.palette.primary.main 
+      : theme.palette.text.primary,
+    '&:hover': {
+      backgroundColor: darkMode ? 'rgba(100, 181, 246, 0.08)' : 'rgba(25, 118, 210, 0.04)',
+      transform: 'translateY(-1px)',
+    },
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      bottom: 0,
+      left: '50%',
+      width: location.pathname === path ? '80%' : '0%',
+      height: '2px',
+      backgroundColor: theme.palette.primary.main,
+      transform: 'translateX(-50%)',
+      transition: 'width 0.3s ease',
+    },
+  });
+
+  // Componente do menu mobile aprimorado
   const drawer = (
-    <Box sx={{ width: 250, height: '100%', backgroundColor: 'background.paper' }}>
+    <Box sx={{ 
+      width: 280, 
+      height: '100%', 
+      background: darkMode 
+        ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
+        : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+    }}>
+      {/* Header do menu mobile */}
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          p: 2,
+          p: 3,
           borderBottom: `1px solid ${theme.palette.divider}`,
         }}
       >
-        <Typography variant="h6" component="div" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
-          <CodeIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-          {personalInfo.name}
-        </Typography>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Typography 
+            variant="h6" 
+            component="div" 
+            sx={{ 
+              color: 'primary.main', 
+              fontWeight: 'bold',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1
+            }}
+          >
+            <CodeIcon sx={{ fontSize: '1.5rem' }} />
+            {personalInfo.fullName}
+          </Typography>
+        </motion.div>
+        
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <ThemeToggle />
-          <IconButton onClick={handleDrawerToggle} color="inherit">
+          <IconButton 
+            onClick={handleDrawerToggle} 
+            color="inherit"
+            sx={{
+              '&:hover': {
+                backgroundColor: 'rgba(25, 118, 210, 0.08)',
+                transform: 'rotate(90deg)',
+              },
+              transition: 'all 0.3s ease',
+            }}
+          >
             <CloseIcon />
           </IconButton>
         </Box>
       </Box>
-      <List>
-        {navItems.map((item) => (
-          <ListItem
-            key={item.text}
-            component={Link}
-            to={item.path}
-            onClick={handleDrawerToggle}
-            sx={{
-              color: location.pathname === item.path ? 'primary.main' : 'text.primary',
-              backgroundColor: location.pathname === item.path ? 'action.selected' : 'transparent',
-              '&:hover': {
-                backgroundColor: 'action.hover',
-              },
-            }}
-          >
-            <ListItemText
-              primary={item.text}
-              primaryTypographyProps={{
-                fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-              }}
-            />
-          </ListItem>
-        ))}
+
+      {/* Links de navegação mobile */}
+      <List sx={{ pt: 2 }}>
+        <AnimatePresence>
+          {navItems.map((item, index) => (
+            <motion.div
+              key={item.path}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+            >
+              <ListItem 
+                button 
+                component={Link} 
+                to={item.path}
+                onClick={handleNavigation}
+                sx={{
+                  py: 2,
+                  px: 3,
+                  mx: 2,
+                  mb: 1,
+                  borderRadius: 2,
+                  backgroundColor: location.pathname === item.path 
+                    ? (darkMode ? 'rgba(100, 181, 246, 0.1)' : 'rgba(25, 118, 210, 0.08)')
+                    : 'transparent',
+                  '&:hover': {
+                    backgroundColor: darkMode ? 'rgba(100, 181, 246, 0.08)' : 'rgba(25, 118, 210, 0.04)',
+                    transform: 'translateX(8px)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Typography sx={{ fontSize: '1.2rem' }}>
+                    {item.icon}
+                  </Typography>
+                  <ListItemText 
+                    primary={item.text}
+                    primaryTypographyProps={{
+                      fontWeight: location.pathname === item.path ? 600 : 500,
+                      color: location.pathname === item.path 
+                        ? theme.palette.primary.main 
+                        : theme.palette.text.primary,
+                    }}
+                  />
+                </Box>
+              </ListItem>
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </List>
     </Box>
   );
 
   return (
     <>
-      <AppBar
-        position="fixed"
-        elevation={scrolled ? 2 : elevation}
-        sx={{
-          backgroundColor: scrolled 
-            ? (darkMode ? 'rgba(30, 30, 30, 0.95)' : 'rgba(255, 255, 255, 0.95)') 
-            : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          transition: 'all 0.3s ease-in-out',
-          borderBottom: scrolled ? `1px solid ${theme.palette.divider}` : 'none',
-        }}
-      >
-        <Container maxWidth="lg">
-          <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 0, sm: 2 } }}>
-            {/* Logo/Nome */}
-            <Typography
-              variant="h6"
-              component={Link}
-              to="/"
-              sx={{
-                textDecoration: 'none',
-                color: scrolled ? 'primary.main' : 'text.primary',
-                fontWeight: 'bold',
-                display: 'flex',
-                alignItems: 'center',
-                transition: 'color 0.3s ease',
-                '&:hover': {
-                  color: 'primary.main',
-                },
-              }}
-            >
-              <CodeIcon sx={{ mr: 1 }} />
-              {personalInfo.name}
-            </Typography>
+      <HideOnScroll>
+        <AppBar 
+          position="fixed" 
+          elevation={0}
+          sx={headerStyle}
+        >
+          <Container maxWidth="lg">
+            <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
+              {/* Logo/Nome */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Typography
+                  variant="h5"
+                  component={Link}
+                  to="/"
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 1,
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                    },
+                    transition: 'transform 0.3s ease',
+                  }}
+                >
+                  <CodeIcon sx={{ fontSize: '1.8rem' }} />
+                  {!isMobile && (
+                    <Box component="span" className="gradient-text">
+                      {personalInfo.fullName}
+                    </Box>
+                  )}
+                </Typography>
+              </motion.div>
 
-            {/* Navegação Desktop */}
-            {!isMobile && (
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                {navItems.map((item) => (
-                  <Button
-                    key={item.text}
-                    component={Link}
-                    to={item.path}
+              {/* Navegação Desktop */}
+              {!isMobile && (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  {navItems.map((item, index) => (
+                    <motion.div
+                      key={item.path}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                    >
+                      <Button
+                        component={Link}
+                        to={item.path}
+                        sx={getLinkStyle(item.path)}
+                      >
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                          <Typography sx={{ fontSize: '1rem' }}>
+                            {item.icon}
+                          </Typography>
+                          {item.text}
+                        </Box>
+                      </Button>
+                    </motion.div>
+                  ))}
+                  
+                  {/* Toggle de tema */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                  >
+                    <ThemeToggle />
+                  </motion.div>
+                </Box>
+              )}
+
+              {/* Menu Mobile */}
+              {isMobile && (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <ThemeToggle />
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={handleDrawerToggle}
                     sx={{
-                      color: location.pathname === item.path 
-                        ? 'primary.main' 
-                        : scrolled ? 'text.primary' : 'text.primary',
-                      fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-                      textTransform: 'none',
-                      px: 2,
-                      py: 1,
-                      borderRadius: 2,
-                      transition: 'all 0.3s ease',
-                      position: 'relative',
                       '&:hover': {
-                        backgroundColor: 'action.hover',
-                        color: 'primary.main',
+                        backgroundColor: 'rgba(25, 118, 210, 0.08)',
+                        transform: 'scale(1.1)',
                       },
-                      '&::after': location.pathname === item.path ? {
-                        content: '""',
-                        position: 'absolute',
-                        bottom: 0,
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        width: '60%',
-                        height: 2,
-                        backgroundColor: 'primary.main',
-                        borderRadius: 1,
-                      } : {},
+                      transition: 'all 0.3s ease',
                     }}
                   >
-                    {item.text}
-                  </Button>
-                ))}
-                
-                {/* Toggle de tema no desktop */}
-                <Box sx={{ ml: 1 }}>
-                  <ThemeToggle />
+                    <MenuIcon />
+                  </IconButton>
                 </Box>
-              </Box>
-            )}
-
-            {/* Menu Mobile */}
-            {isMobile && (
-              <IconButton
-                color="inherit"
-                aria-label="abrir menu"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{
-                  color: scrolled ? 'text.primary' : 'text.primary',
-                }}
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
-          </Toolbar>
-        </Container>
-      </AppBar>
+              )}
+            </Toolbar>
+          </Container>
+        </AppBar>
+      </HideOnScroll>
 
       {/* Drawer Mobile */}
       <Drawer
-        variant="temporary"
         anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Melhor performance no mobile
+          keepMounted: true, // Melhor performance em mobile
         }}
         sx={{
-          display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: 250,
+            backgroundImage: 'none',
           },
         }}
       >
         {drawer}
       </Drawer>
-
-      {/* Spacer para evitar sobreposição */}
-      <Toolbar />
     </>
   );
 };
 
 Header.propTypes = {
   elevation: PropTypes.number,
+};
+
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired,
 };
 
 export default Header;

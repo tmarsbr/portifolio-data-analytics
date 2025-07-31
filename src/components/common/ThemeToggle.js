@@ -36,11 +36,13 @@ const ThemeToggle = () => {
           sx={{
             transition: 'all 0.3s ease-in-out',
             transform: 'scale(1)',
+            color: darkMode ? '#fff' : '#374151', // Cor base do botão
             '&:hover': {
               transform: 'scale(1.1)',
               backgroundColor: darkMode 
                 ? 'rgba(255, 255, 255, 0.08)' 
-                : 'rgba(0, 0, 0, 0.04)',
+                : 'rgba(59, 130, 246, 0.08)', // Azul suave no modo claro
+              color: darkMode ? '#64b5f6' : '#3b82f6', // Hover colors
             },
             '&:active': {
               transform: 'scale(0.95)',
@@ -83,16 +85,18 @@ const ThemeToggle = () => {
               <Brightness7 
                 sx={{ 
                   fontSize: '1.5rem',
-                  color: '#fff',
+                  color: 'inherit', // Herda a cor do IconButton
                   filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))',
+                  transition: 'color 0.3s ease-in-out',
                 }} 
               />
             ) : (
               <Brightness4 
                 sx={{ 
                   fontSize: '1.5rem',
-                  color: 'inherit',
+                  color: 'inherit', // Herda a cor do IconButton
                   filter: 'drop-shadow(0 0 8px rgba(0, 0, 0, 0.2))',
+                  transition: 'color 0.3s ease-in-out',
                 }} 
               />
             )}

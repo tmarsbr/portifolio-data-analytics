@@ -15,9 +15,11 @@ import {
   School,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import { useTheme as useCustomTheme } from '../../contexts/ThemeContext';
 
 const AboutPreview = () => {
   const theme = useTheme();
+  const { darkMode } = useCustomTheme();
 
   const highlights = [
     {
@@ -41,8 +43,12 @@ const AboutPreview = () => {
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: 'background.paper',
+        background: darkMode 
+          ? 'linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(33, 33, 33, 0.9) 100%)'
+          : 'linear-gradient(to bottom, rgb(249, 250, 251) 0%, white 50%, rgb(241, 245, 249) 100%)',
         position: 'relative',
+        borderTop: darkMode ? 'none' : '1px solid rgb(226, 232, 240)',
+        transition: 'all 0.3s ease',
       }}
     >
       <Container maxWidth="lg">
@@ -73,7 +79,7 @@ const AboutPreview = () => {
                   lineHeight: 1.2,
                 }}
               >
-                Da Precisão Mecânica para a{' '}
+                Da Oficina para os{' '}
                 <Typography
                   component="span"
                   variant="inherit"
@@ -84,7 +90,7 @@ const AboutPreview = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  Análise de Dados
+                  Dados
                 </Typography>
               </Typography>
 
@@ -97,9 +103,9 @@ const AboutPreview = () => {
                   mb: 4,
                 }}
               >
-                Minha jornada começou na usinagem, onde desenvolvi habilidades fundamentais 
-                em resolução de problemas e atenção aos detalhes. Hoje, aplico essa experiência 
-                na área de Data & Analytics, transformando dados em insights estratégicos para negócios.
+                Tudo começou com barulho de torno, cheiro de óleo e precisão milimétrica. 
+                Na usinagem, aprendi que um erro de um décimo pode custar caro. Foi lá que 
+                desenvolvi o olhar clínico, a paciência e o gosto por resolver problemas com método.
               </Typography>
 
               <Typography
@@ -111,8 +117,23 @@ const AboutPreview = () => {
                   mb: 4,
                 }}
               >
-                Combine a precisão técnica com conhecimentos avançados em programação, 
-                estatística e machine learning para entregar soluções que geram valor real.
+                Hoje, essa precisão virou código. Projeto pipelines, organizo dados brutos, 
+                crio dashboards, desenvolvo modelos preditivos e conto histórias com dados reais. 
+                Da engenharia à análise, passando pela ciência de dados, aplico o mesmo rigor 
+                técnico que aprendi na mecânica para transformar números em decisões inteligentes.
+              </Typography>
+
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: '1.1rem',
+                  lineHeight: 1.7,
+                  color: 'text.secondary',
+                  mb: 4,
+                  fontWeight: 500,
+                }}
+              >
+                Porque no fim, seja no aço ou no algoritmo, o detalhe certo no lugar certo muda tudo.
               </Typography>
 
               <Button

@@ -37,9 +37,11 @@ import {
 } from '@mui/icons-material';
 
 import { personalInfo } from '../../config/portfolio';
+import { useTheme as useCustomTheme } from '../../contexts/ThemeContext';
 
 const ContactSection = () => {
   const theme = useTheme();
+  const { darkMode } = useCustomTheme();
 
   const contactMethods = [
     {
@@ -93,8 +95,12 @@ const ContactSection = () => {
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: 'background.paper',
+        background: darkMode 
+          ? 'linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(33, 33, 33, 0.9) 100%)'
+          : 'linear-gradient(to bottom, rgb(248, 250, 252) 0%, white 50%, rgb(241, 245, 249) 100%)',
         position: 'relative',
+        borderTop: darkMode ? 'none' : '1px solid rgb(226, 232, 240)',
+        transition: 'all 0.3s ease',
       }}
     >
       <Container maxWidth="lg">
@@ -174,14 +180,17 @@ const ContactSection = () => {
                       borderRadius: 3,
                       textDecoration: 'none',
                       color: 'inherit',
-                      border: `1px solid ${theme.palette.divider}`,
-                      backgroundColor: 'background.paper',
+                      border: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : theme.palette.divider}`,
+                      backgroundColor: darkMode ? 'rgba(39, 39, 42, 0.8)' : 'background.paper',
+                      backdropFilter: 'blur(10px)',
                       transition: 'all 0.3s ease',
                       display: 'block',
                       height: '100%',
                       '&:hover': {
                         transform: 'translateY(-4px)',
-                        boxShadow: theme.shadows[8],
+                        boxShadow: darkMode 
+                          ? `0 8px 25px rgba(${method.color === '#333333' ? '255, 255, 255' : method.color.replace('#', '')}, 0.15)`
+                          : theme.shadows[8],
                         borderColor: method.color,
                         '& .contact-icon': {
                           backgroundColor: method.color,
@@ -255,8 +264,10 @@ const ContactSection = () => {
                 sx={{
                   p: 3,
                   borderRadius: 3,
-                  border: `1px solid ${theme.palette.divider}`,
-                  backgroundColor: 'grey.50',
+                  border: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : theme.palette.divider}`,
+                  backgroundColor: darkMode ? 'rgba(39, 39, 42, 0.8)' : 'grey.50',
+                  backdropFilter: 'blur(10px)',
+                  transition: 'all 0.3s ease',
                   mb: 3,
                 }}
               >
@@ -324,10 +335,21 @@ const ContactSection = () => {
                 sx={{
                   p: 3,
                   borderRadius: 3,
-                  border: `1px solid ${theme.palette.divider}`,
-                  backgroundColor: 'success.main',
-                  color: 'white',
+                  border: darkMode 
+                    ? '1px solid rgba(34, 197, 94, 0.3)' 
+                    : '1px solid rgba(34, 197, 94, 0.2)',
+                  backgroundColor: darkMode 
+                    ? 'rgba(39, 39, 42, 0.8)' 
+                    : 'rgba(34, 197, 94, 0.05)',
+                  backdropFilter: 'blur(10px)',
                   textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: darkMode 
+                      ? '0 8px 25px rgba(34, 197, 94, 0.15)' 
+                      : '0 8px 25px rgba(34, 197, 94, 0.1)',
+                  },
                 }}
               >
                 <Typography
@@ -335,6 +357,11 @@ const ContactSection = () => {
                   sx={{
                     fontWeight: 700,
                     mb: 1,
+                    color: darkMode ? '#22c55e' : '#16a34a',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 1,
                   }}
                 >
                   🟢 Disponível para Projetos
@@ -342,13 +369,11 @@ const ContactSection = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    opacity: 0.9,
                     lineHeight: 1.5,
-                    color: 'white',
+                    color: darkMode ? 'rgba(255, 255, 255, 0.8)' : 'text.secondary',
                   }}
                 >
-                  Estou aberto para oportunidades em Data & Analytics, 
-                  tanto para projetos freelance quanto posições fixas.
+                  Abertura para freelance ou posições fixas em Data & Analytics.
                 </Typography>
               </Paper>
             </Box>

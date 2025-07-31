@@ -30,7 +30,6 @@ import {
   Chip,
   Modal,
   IconButton,
-  useTheme,
 } from '@mui/material';
 import {
   Close,
@@ -40,9 +39,10 @@ import {
 } from '@mui/icons-material';
 
 import { certificates } from '../../config/portfolio';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const CertificatesPreview = () => {
-  const theme = useTheme();
+  const { theme, darkMode } = useTheme();
   const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23f5f5f5'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='14' fill='%23999'%3eCertificado%3c/text%3e%3c/svg%3e";
@@ -66,11 +66,28 @@ const CertificatesPreview = () => {
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: 'grey.50',
+        background: darkMode 
+          ? 'linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(33, 33, 33, 0.9) 100%)'
+          : 'linear-gradient(to bottom, white 0%, rgb(248, 250, 252) 50%, rgb(241, 245, 249) 100%)',
         position: 'relative',
+        overflow: 'hidden',
+        borderTop: darkMode ? 'none' : '1px solid rgb(226, 232, 240)',
+        transition: 'all 0.3s ease',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: darkMode
+            ? 'radial-gradient(circle at 80% 20%, rgba(156, 39, 176, 0.1) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(25, 118, 210, 0.1) 0%, transparent 50%)'
+            : 'radial-gradient(circle at 80% 20%, rgba(156, 39, 176, 0.05) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(25, 118, 210, 0.05) 0%, transparent 50%)',
+          pointerEvents: 'none',
+        },
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Box sx={{ textAlign: 'center', mb: 8 }} data-aos="fade-up">
           <Typography
             variant="subtitle2"
@@ -142,10 +159,16 @@ const CertificatesPreview = () => {
                   borderRadius: 3,
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
-                  border: `1px solid ${theme.palette.divider}`,
+                  background: darkMode
+                    ? 'linear-gradient(135deg, rgba(25, 118, 210, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%)'
+                    : 'linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(156, 39, 176, 0.05) 100%)',
+                  backdropFilter: 'blur(10px)',
+                  border: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : theme.palette.divider}`,
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: theme.shadows[12],
+                    boxShadow: darkMode
+                      ? '0 8px 32px rgba(25, 118, 210, 0.15)'
+                      : '0 8px 32px rgba(0, 0, 0, 0.08)',
                     borderColor: 'primary.main',
                   },
                 }}
@@ -204,7 +227,7 @@ const CertificatesPreview = () => {
                     label={certificate.year}
                     size="small"
                     sx={{
-                      backgroundColor: 'grey.200',
+                      backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'grey.200',
                       color: 'text.secondary',
                       fontWeight: 600,
                       mb: 3,
@@ -232,7 +255,7 @@ const CertificatesPreview = () => {
                           label={`+${certificate.skills.length - 3}`}
                           size="small"
                           sx={{
-                            backgroundColor: 'grey.200',
+                            backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'grey.200',
                             color: 'text.secondary',
                             fontSize: '0.7rem',
                           }}
@@ -251,10 +274,13 @@ const CertificatesPreview = () => {
           sx={{
             mt: 8,
             p: 4,
-            backgroundColor: 'background.paper',
+            background: darkMode
+              ? 'linear-gradient(135deg, rgba(25, 118, 210, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%)'
+              : 'linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(156, 39, 176, 0.05) 100%)',
             borderRadius: 3,
             textAlign: 'center',
-            border: `1px solid ${theme.palette.divider}`,
+            border: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : theme.palette.divider}`,
+            backdropFilter: 'blur(10px)',
           }}
           data-aos="fade-up"
           data-aos-delay="400"
@@ -322,7 +348,11 @@ const CertificatesPreview = () => {
       >
         <Box
           sx={{
-            backgroundColor: 'background.paper',
+            background: darkMode
+              ? 'linear-gradient(135deg, rgba(25, 118, 210, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%)'
+              : 'linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(156, 39, 176, 0.05) 100%)',
+            backdropFilter: 'blur(10px)',
+            border: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : theme.palette.divider}`,
             borderRadius: 3,
             boxShadow: 24,
             p: 0,
@@ -338,7 +368,7 @@ const CertificatesPreview = () => {
               <Box
                 sx={{
                   p: 3,
-                  borderBottom: `1px solid ${theme.palette.divider}`,
+                  borderBottom: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : theme.palette.divider}`,
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',

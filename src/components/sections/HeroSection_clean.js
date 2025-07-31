@@ -21,16 +21,18 @@ import {
   Chip,
   Grid,
   Stack,
+  useMediaQuery,
 } from '@mui/material';
 import {
+  Download,
   ArrowForward,
+  PlayArrow,
   GitHub,
   LinkedIn,
   Email,
-  Download,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 
 import { personalInfo } from '../../config/portfolio';
@@ -41,73 +43,27 @@ const TypewriterEffect = ({ text, delay = 0 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
+      if (currentIndex < text.length) {
         setDisplayText(prev => prev + text[currentIndex]);
         setCurrentIndex(prev => prev + 1);
-      }, delay + currentIndex * 80); // Velocidade ajustada para melhor visualização
+      }
+    }, delay + currentIndex * 30); // Reduzido de 50 para 30 para aumentar velocidade
 
-      return () => clearTimeout(timer);
-    }
+    return () => clearTimeout(timer);
   }, [currentIndex, text, delay]);
 
   return (
     <span>
       {displayText}
       <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ 
-          duration: 0.6, 
-          repeat: Infinity, 
-          ease: "easeInOut",
-          repeatType: "reverse"
-        }}
-        style={{ 
-          color: 'currentColor',
-          fontSize: '1em',
-          fontWeight: 'bold',
-          marginLeft: '2px',
-          display: 'inline-block'
-        }}
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{ duration: 0.8, repeat: Infinity }}
+        style={{ borderRight: '2px solid', paddingRight: '2px' }}
       >
         |
       </motion.span>
     </span>
-  );
-};
-
-// Componente para efeito pisca-pisca (texto completo)
-const BlinkingText = ({ text, delay = 0 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [delay]);
-
-  if (!isVisible) return null;
-
-  return (
-    <motion.span
-      animate={{ 
-        opacity: [1, 0.1, 1, 0.1, 1],
-        scale: [1, 0.98, 1, 0.98, 1]
-      }}
-      transition={{ 
-        duration: 1.5,
-        repeat: Infinity,
-        ease: "easeInOut",
-        repeatDelay: 0.5
-      }}
-      style={{
-        display: 'inline-block'
-      }}
-    >
-      {text}
-    </motion.span>
   );
 };
 
@@ -163,7 +119,8 @@ const FloatingParticles = () => {
 };
 
 const HeroSection = () => {
-  const { darkMode } = useTheme();
+  const { theme, darkMode } = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [animationStarted, setAnimationStarted] = useState(false);
 
   // Primeira linha de especialidades - Ciência de Dados e Análise
@@ -172,12 +129,11 @@ const HeroSection = () => {
     { label: 'Python', icon: '🐍' },
     { label: 'Machine Learning', icon: '🤖' },
     { label: 'SQL', icon: '🗃️' },
-    { label: 'Estatística', icon: '📈' },
+    { label: 'Analytics', icon: '📈' },
   ];
 
   // Segunda linha de especialidades - Engenharia de Dados
   const specialtiesLine2 = [
-    { label: 'Engenharia de Dados', icon: '🔄' },
     { label: 'ETL/Data Pipeline', icon: '🔄' },
     { label: 'Apache Spark', icon: '⚡' },
     { label: 'Docker', icon: '🐳' },
@@ -272,7 +228,7 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
             >
-              <Stack spacing={2}>
+              <Stack spacing={3}>
                 {/* Saudação */}
                 <motion.div variants={itemVariants}>
                   <Typography
@@ -285,12 +241,7 @@ const HeroSection = () => {
                       letterSpacing: '0.02em',
                     }}
                   >
-                    {animationStarted && (
-                      <BlinkingText 
-                        text="👋 Olá, seja bem-vindo(a) ao meu portifolio!" 
-                        delay={200}
-                      />
-                    )}
+                    👋 Olá, seja bem-vindo(a)!
                   </Typography>
                 </motion.div>
 
@@ -308,10 +259,10 @@ const HeroSection = () => {
                       backgroundClip: 'text',
                       WebkitBackgroundClip: 'text',
                       color: 'transparent',
-                      mb: 0.5,
+                      mb: 1,
                     }}
                   >
-                    {personalInfo.name}
+                    Eu sou {personalInfo.name}
                   </Typography>
                 </motion.div>
 
@@ -329,7 +280,7 @@ const HeroSection = () => {
                     {animationStarted && (
                       <TypewriterEffect 
                         text={personalInfo.title} 
-                        delay={1800}
+                        delay={800}
                       />
                     )}
                   </Typography>
@@ -346,7 +297,7 @@ const HeroSection = () => {
                       maxWidth: '600px',
                     }}
                   >
-                    {personalInfo.homeIntro}
+                    {personalInfo.description}
                   </Typography>
                 </motion.div>
 
@@ -424,7 +375,7 @@ const HeroSection = () => {
                   <Stack 
                     direction={{ xs: 'column', sm: 'row' }} 
                     spacing={2} 
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 4 }}
                   >
                     <Button
                       component={Link}
@@ -452,36 +403,6 @@ const HeroSection = () => {
                       }}
                     >
                       Ver Projetos
-                    </Button>
-
-                    <Button
-                      href="/cv.pdf"
-                      download
-                      variant="outlined"
-                      size="large"
-                      endIcon={<Download />}
-                      sx={{
-                        borderColor: darkMode ? '#10b981' : '#059669',
-                        color: darkMode ? '#10b981' : '#059669',
-                        fontWeight: 600,
-                        px: 4,
-                        py: 1.5,
-                        borderRadius: '12px',
-                        textTransform: 'none',
-                        fontSize: '1rem',
-                        borderWidth: '2px',
-                        '&:hover': {
-                          backgroundColor: darkMode 
-                            ? 'rgba(16, 185, 129, 0.1)' 
-                            : 'rgba(5, 150, 105, 0.1)',
-                          borderColor: darkMode ? '#059669' : '#047857',
-                          transform: 'translateY(-2px)',
-                          borderWidth: '2px',
-                        },
-                        transition: 'all 0.3s ease',
-                      }}
-                    >
-                      Baixar CV
                     </Button>
 
                     <Button
@@ -520,7 +441,7 @@ const HeroSection = () => {
                 <motion.div variants={itemVariants}>
                   <Stack direction="row" spacing={2} sx={{ mt: 3 }}>
                     <Button
-                      href={personalInfo.github}
+                      href={personalInfo.social.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       sx={{
@@ -542,7 +463,7 @@ const HeroSection = () => {
                     </Button>
 
                     <Button
-                      href={personalInfo.linkedin}
+                      href={personalInfo.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       sx={{
@@ -561,26 +482,6 @@ const HeroSection = () => {
                       }}
                     >
                       <LinkedIn />
-                    </Button>
-
-                    <Button
-                      href={`mailto:${personalInfo.email}`}
-                      sx={{
-                        minWidth: 'auto',
-                        p: 1.5,
-                        borderRadius: '50%',
-                        color: darkMode ? '#94a3b8' : '#64748b',
-                        '&:hover': {
-                          backgroundColor: darkMode 
-                            ? 'rgba(100, 181, 246, 0.1)' 
-                            : 'rgba(21, 101, 192, 0.1)',
-                          color: darkMode ? '#64b5f6' : '#1565c0',
-                          transform: 'translateY(-2px)',
-                        },
-                        transition: 'all 0.3s ease',
-                      }}
-                    >
-                      <Email />
                     </Button>
                   </Stack>
                 </motion.div>

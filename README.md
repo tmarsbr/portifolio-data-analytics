@@ -1,4 +1,14 @@
-# Portfólio Data & Analytics - Tiago Silva
+# 📊 Portfólio Data & Analytics - Tiago da Silva e Santo
+
+[![React](https://img.shields.io/badge/React-18.0+-blue.svg)](https://reactjs.org/)
+[![Material-UI](https://img.shields.io/badge/Material--UI-5.0+-purple.svg)](https://mui.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+> 🚀 **Portfólio profissional moderno e responsivo** para especialista em Data & Analytics, desenvolvido com React e Material-UI.
+
+## 🌟 **Demonstração Online**
+
+🔗 **[Ver Portfólio Online](https://tmarsbr.github.io/portifolio-data-analytics)**
 
 Um portfólio moderno e responsivo desenvolvido em React para showcase de projetos e habilidades em Data & Analytics, agora com **modo escuro** completo!
 

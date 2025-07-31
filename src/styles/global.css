@@ -1,76 +1,84 @@
-/* Estilos globais para o portfólio Data & Analytics */
-/* Suporte completo para modo claro e escuro */
+/* ===================================================================
+   ESTILOS GLOBAIS APRIMORADOS - DATA & ANALYTICS PORTFOLIO
+   =================================================================== */
 
-* {
+/* Importando Google Fonts para tipografia moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset CSS moderno */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Configurações base do HTML */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Compensa header fixo */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
+/* Body global */
 body {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Inter', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
-  /* Colors serão gerenciados pelo Material-UI Theme */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Scrollbar personalizada - Modo Claro */
+/* ===================================================================
+   SCROLLBAR PERSONALIZADA
+   =================================================================== */
+
+/* Scrollbar base */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1976d2;
+  background: linear-gradient(45deg, #1565c0, #00897b);
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1565c0;
+  background: linear-gradient(45deg, #0d47a1, #00695c);
 }
 
-/* Scrollbar personalizada - Modo Escuro */
-[data-theme="dark"] ::-webkit-scrollbar-track {
-  background: #2a2a2a;
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1565c0 transparent;
 }
 
-[data-theme="dark"] ::-webkit-scrollbar-thumb {
-  background: #64b5f6;
+/* ===================================================================
+   ANIMAÇÕES E TRANSIÇÕES GLOBAIS
+   =================================================================== */
+
+/* Animação fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-  background: #90caf9;
-}
-
-/* Seleção de texto - Modo Claro */
-::selection {
-  background-color: rgba(25, 118, 210, 0.2);
-  color: #1976d2;
-}
-
-/* Seleção de texto - Modo Escuro */
-[data-theme="dark"] ::selection {
-  background-color: rgba(100, 181, 246, 0.3);
-  color: #90caf9;
-}
-
-/* Links - serão gerenciados pelo theme */
-a {
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-/* Animações customizadas */
-@keyframes fadeInUp {
+/* Animação fade-up */
+@keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -81,306 +89,167 @@ a {
   }
 }
 
-@keyframes fadeInLeft {
+/* Animação scale-in */
+@keyframes scaleIn {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
   }
 }
 
-@keyframes fadeInRight {
-  from {
+/* Animação bounce-in */
+@keyframes bounceIn {
+  0% {
     opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Animação de pulse - Modo Claro */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(25, 118, 210, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0);
-  }
-}
-
-/* Animação de pulse - Modo Escuro */
-@keyframes pulseDark {
-  0% {
-    box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(100, 181, 246, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(100, 181, 246, 0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+    transform: scale(0.3);
   }
   50% {
-    transform: translateY(-10px);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-/* Classes utilitárias */
-.fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
+/* ===================================================================
+   UTILITÁRIOS DE ANIMAÇÃO
+   =================================================================== */
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
 }
 
-.fade-in-left {
-  animation: fadeInLeft 0.8s ease-out;
+.fade-up {
+  animation: fadeUp 0.8s ease-out;
 }
 
-.fade-in-right {
-  animation: fadeInRight 0.8s ease-out;
+.scale-in {
+  animation: scaleIn 0.5s ease-out;
 }
 
-.pulse {
-  animation: pulse 2s infinite;
+.bounce-in {
+  animation: bounceIn 0.8s ease-out;
 }
 
-[data-theme="dark"] .pulse {
-  animation: pulseDark 2s infinite;
+/* ===================================================================
+   SEÇÕES COM ALTERNÂNCIA DE CORES
+   =================================================================== */
+
+.section-alternate {
+  background-color: var(--alternate-bg, #f5f7fa);
+  transition: background-color 0.3s ease;
 }
 
-.float {
-  animation: float 3s ease-in-out infinite;
+/* Modo escuro */
+[data-theme="dark"] .section-alternate {
+  background-color: var(--alternate-bg-dark, #1a202c);
 }
 
-/* Gradientes - Modo Claro */
-.gradient-text {
-  background: linear-gradient(45deg, #1976d2 30%, #00acc1 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ===================================================================
+   EFEITOS DE HOVER APRIMORADOS
+   =================================================================== */
+
+/* Efeito de elevação para cards */
+.hover-elevate {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Gradientes - Modo Escuro */
-[data-theme="dark"] .gradient-text {
-  background: linear-gradient(45deg, #64b5f6 30%, #4dd0e1 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.hover-elevate:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.gradient-background {
-  background: linear-gradient(135deg, #1976d2 0%, #00acc1 100%);
+[data-theme="dark"] .hover-elevate:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
-[data-theme="dark"] .gradient-background {
-  background: linear-gradient(135deg, #64b5f6 0%, #4dd0e1 100%);
-}
-
-.gradient-overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(25, 118, 210, 0.9) 0%,
-    rgba(0, 172, 193, 0.8) 100%
-  );
-}
-
-[data-theme="dark"] .gradient-overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(100, 181, 246, 0.9) 0%,
-    rgba(77, 208, 225, 0.8) 100%
-  );
-}
-
-/* Seções */
-.section-padding {
-  padding: 80px 0;
-}
-
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+/* Efeito de destaque para texto */
+.highlight-on-hover {
   position: relative;
-  overflow: hidden;
+  transition: color 0.3s ease;
 }
 
-/* Grid pattern para hero - Modo Claro */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e0e0e0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-  opacity: 0.3;
-  z-index: 0;
+.highlight-on-hover:hover {
+  color: #1565c0;
 }
 
-/* Grid pattern para hero - Modo Escuro */
-[data-theme="dark"] .hero-section::before {
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid-dark" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23404040" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid-dark)"/></svg>');
-  opacity: 0.2;
+[data-theme="dark"] .highlight-on-hover:hover {
+  color: #64b5f6;
 }
 
-/* Cards */
-.project-card {
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
-}
+/* ===================================================================
+   COMPONENTES CUSTOMIZADOS
+   =================================================================== */
 
-.project-card:hover {
-  transform: translateY(-8px);
-}
-
-/* Efeito shimmer para cards - Modo Claro */
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+/* Container responsivo aprimorado */
+.container-custom {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* Efeito shimmer para cards - Modo Escuro */
-[data-theme="dark"] .project-card::before {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-}
-
-.project-card:hover::before {
-  left: 100%;
-}
-
-/* Skills */
-.skill-chip {
-  margin: 4px;
-  transition: all 0.3s ease;
-}
-
-.skill-chip:hover {
-  transform: scale(1.05);
-}
-
-/* Hover shadow para skills - Modo Claro */
-.skill-chip:hover {
-  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
-}
-
-/* Hover shadow para skills - Modo Escuro */
-[data-theme="dark"] .skill-chip:hover {
-  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
-}
-
-/* Timeline */
-.timeline-content {
-  border-radius: 12px;
-  padding: 20px;
-  transition: all 0.3s ease;
-}
-
-.timeline-content:hover {
-  transform: translateX(5px);
-}
-
-/* Loading spinner - será gerenciado pelo theme */
-.loading-spinner {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(25, 118, 210, 0.3);
-  border-radius: 50%;
-  border-top-color: #1976d2;
-  animation: spin 1s ease-in-out infinite;
-}
-
-[data-theme="dark"] .loading-spinner {
-  border: 3px solid rgba(100, 181, 246, 0.3);
-  border-top-color: #64b5f6;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Modal personalizado */
-.custom-modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  border-radius: 16px;
-  padding: 0;
-  max-width: 90vw;
-  max-height: 90vh;
-  outline: none;
-  overflow: hidden;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .modal-content {
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
-}
-
-/* Responsividade */
 @media (max-width: 768px) {
-  .section-padding {
-    padding: 60px 0;
-  }
-  
-  .hero-section {
-    min-height: 80vh;
-  }
-  
-  .project-card:hover {
-    transform: none;
-  }
-  
-  .timeline-content:hover {
-    transform: none;
+  .container-custom {
+    padding: 0 16px;
   }
 }
 
-@media (max-width: 480px) {
-  .section-padding {
-    padding: 40px 0;
-  }
-  
-  .hero-section {
-    min-height: 70vh;
-  }
+/* Gradiente de texto */
+.gradient-text {
+  background: linear-gradient(45deg, #1565c0, #00897b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
-/* Acessibilidade */
+[data-theme="dark"] .gradient-text {
+  background: linear-gradient(45deg, #64b5f6, #4db6ac);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Divider estilizado */
+.custom-divider {
+  height: 2px;
+  background: linear-gradient(45deg, #1565c0, #00897b);
+  border: none;
+  border-radius: 1px;
+  margin: 32px 0;
+  opacity: 0.6;
+}
+
+[data-theme="dark"] .custom-divider {
+  background: linear-gradient(45deg, #64b5f6, #4db6ac);
+}
+
+/* ===================================================================
+   ESTILOS PARA MELHORAR ACESSIBILIDADE
+   =================================================================== */
+
+/* Foco visível melhorado */
+*:focus-visible {
+  outline: 2px solid #1565c0;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] *:focus-visible {
+  outline-color: #64b5f6;
+}
+
+/* Reduzir movimentos para usuários sensíveis */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -388,49 +257,31 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================================================
+   ESTILOS PARA IMPRESSÃO
+   =================================================================== */
+
+@media print {
+  * {
+    color: #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
   }
   
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-/* Focus styles para acessibilidade - Modo Claro */
-*:focus {
-  outline: 2px solid #1976d2;
-  outline-offset: 2px;
-}
-
-button:focus,
-a:focus {
-  outline: 2px solid #1976d2;
-  outline-offset: 2px;
-}
-
-/* Focus styles para acessibilidade - Modo Escuro */
-[data-theme="dark"] *:focus {
-  outline: 2px solid #64b5f6;
-  outline-offset: 2px;
-}
-
-[data-theme="dark"] button:focus,
-[data-theme="dark"] a:focus {
-  outline: 2px solid #64b5f6;
-  outline-offset: 2px;
-}
-
-/* Print styles */
-@media print {
   .no-print {
     display: none !important;
   }
   
-  * {
-    color: black !important;
-    background: white !important;
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
   }
   
-  a[href]:after {
-    content: " (" attr(href) ")";
+  h1, h2, h3 {
+    page-break-after: avoid;
   }
 }
