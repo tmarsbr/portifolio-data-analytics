@@ -285,3 +285,23 @@ html {
     page-break-after: avoid;
   }
 }
+
+/* ===================================================================
+   EXTRA RESPONSIVE RULES
+   =================================================================== */
+
+@media (max-width: 480px) {
+  .app-header .header-toolbar {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .nav-button {
+    padding: 6px 8px;
+    margin: 0 2px;
+  }
+}
