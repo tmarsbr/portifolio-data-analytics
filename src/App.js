@@ -24,6 +24,23 @@ import Contact from './pages/Contact';
 // Configurações
 import { seoConfig } from './config/portfolio';
 
+/**
+ * App - Componente raiz do portfólio
+ *
+ * Envolve toda a aplicação com o provedor de tema e define as rotas
+ * principais utilizando o Router.
+ *
+ * Funcionalidades:
+ * - Fornece contexto de tema global
+ * - Inclui o CssBaseline do Material UI
+ * - Configura o roteamento com basename do projeto
+ *
+ * @component
+ * @example
+ * return (
+ *   <App />
+ * )
+ */
 function App() {
   return (
     <ThemeProvider>
@@ -36,6 +53,23 @@ function App() {
 }
 
 // Componente interno para acessar o tema
+/**
+ * AppContent - Estrutura interna da aplicação
+ *
+ * Gerencia metadados de SEO e renderiza as páginas com
+ * cabeçalho e rodapé.
+ *
+ * Funcionalidades:
+ * - Define título e meta tags dinâmicas
+ * - Renderiza Header, Footer e componentes auxiliares
+ * - Controla as rotas do portfólio
+ *
+ * @component
+ * @example
+ * return (
+ *   <AppContent />
+ * )
+ */
 function AppContent() {
   return (
     <>
