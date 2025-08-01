@@ -172,10 +172,11 @@ const Header = ({ elevation = 0 }) => {
         
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <ThemeToggle />
-          <IconButton 
-            onClick={handleDrawerToggle} 
+          <IconButton
+            onClick={handleDrawerToggle}
             color="inherit"
             sx={{
+              color: darkMode ? '#fff' : '#1f2937',
               '&:hover': {
                 backgroundColor: 'rgba(25, 118, 210, 0.08)',
                 transform: 'rotate(90deg)',
@@ -331,6 +332,7 @@ const Header = ({ elevation = 0 }) => {
                     aria-label="open drawer"
                     onClick={handleDrawerToggle}
                     sx={{
+                      color: darkMode ? '#fff' : '#1f2937',
                       '&:hover': {
                         backgroundColor: 'rgba(25, 118, 210, 0.08)',
                         transform: 'scale(1.1)',
