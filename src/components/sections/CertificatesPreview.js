@@ -30,13 +30,16 @@ import {
   Chip,
   Modal,
   IconButton,
+  Button,
 } from '@mui/material';
 import {
   Close,
   School,
   Verified,
   Download,
+  Article,
 } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 import { certificates } from '../../config/portfolio';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -332,6 +335,44 @@ const CertificatesPreview = () => {
               </Grid>
             ))}
           </Grid>
+        </Box>
+
+        {/* Botão Ver Todas as Certificações */}
+        <Box
+          sx={{
+            mt: 6,
+            textAlign: 'center',
+          }}
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <Button
+            component={Link}
+            to="/certificacoes"
+            variant="contained"
+            size="large"
+            startIcon={<Article />}
+            sx={{
+              px: 4,
+              py: 2,
+              borderRadius: 3,
+              fontWeight: 700,
+              fontSize: '1rem',
+              textTransform: 'none',
+              background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+              boxShadow: darkMode
+                ? '0 8px 32px rgba(25, 118, 210, 0.15)'
+                : '0 8px 32px rgba(0, 0, 0, 0.08)',
+              '&:hover': {
+                transform: 'translateY(-2px)',
+                boxShadow: darkMode
+                  ? '0 12px 40px rgba(25, 118, 210, 0.25)'
+                  : '0 12px 40px rgba(0, 0, 0, 0.15)',
+              },
+            }}
+          >
+            📜 Ver Todas as Certificações
+          </Button>
         </Box>
       </Container>
 

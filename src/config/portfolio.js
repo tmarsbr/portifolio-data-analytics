@@ -416,6 +416,78 @@ export const certificates = [
     image: `${process.env.PUBLIC_URL}/certificates/2.png`,
     pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2181848AF6E35A5F13239070.pdf`,
     skills: ["Cloud Computing", "AWS", "Azure", "GCP"]
+  },
+  {
+    id: 5,
+    title: "Python para Data Science",
+    institution: "Alura",
+    year: "2024",
+    image: "",
+    pdf: "",
+    skills: ["Python", "Data Science", "Pandas", "NumPy"]
+  },
+  {
+    id: 6,
+    title: "Machine Learning com Scikit-learn",
+    institution: "Alura",
+    year: "2024",
+    image: "",
+    pdf: "",
+    skills: ["Machine Learning", "Scikit-learn", "Algoritmos", "Python"]
+  },
+  {
+    id: 7,
+    title: "SQL para Análise de Dados",
+    institution: "DIO",
+    year: "2024",
+    image: "",
+    pdf: "",
+    skills: ["SQL", "Banco de Dados", "Análise de Dados", "Consultas"]
+  },
+  {
+    id: 8,
+    title: "Visualização de Dados com Python",
+    institution: "Coursera",
+    year: "2024",
+    image: "",
+    pdf: "",
+    skills: ["Visualização", "Matplotlib", "Seaborn", "Plotly"]
+  },
+  {
+    id: 9,
+    title: "Fundamentos de Engenharia de Dados",
+    institution: "PoD Academy",
+    year: "2024",
+    image: "",
+    pdf: "",
+    skills: ["Engenharia de Dados", "ETL", "Pipeline", "Dados"]
+  },
+  {
+    id: 10,
+    title: "Estatística Aplicada",
+    institution: "Udemy",
+    year: "2024",
+    image: "",
+    pdf: "",
+    skills: ["Estatística", "Inferência", "Hipóteses", "Probabilidade"]
+  },
+  {
+    id: 11,
+    title: "Business Intelligence com Power BI",
+    institution: "Microsoft Learn",
+    year: "2024",
+    image: "",
+    pdf: "",
+    skills: ["Power BI", "Business Intelligence", "Dashboards", "DAX"]
+  },
+  {
+    id: 12,
+    title: "Git e GitHub Essencial",
+    institution: "DIO",
+    year: "2023",
+    image: "",
+    pdf: "",
+    skills: ["Git", "GitHub", "Controle de Versão", "Colaboração"]
   }
 ];
 
