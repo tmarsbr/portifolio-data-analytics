@@ -184,8 +184,14 @@ const Projects = () => {
       <Box
         sx={{
           py: 4,
-          backgroundColor: 'grey.50',
+          backgroundColor: theme.palette.mode === 'dark' ? '#1e293b' : '#f8fafc',
           borderBottom: `1px solid ${theme.palette.divider}`,
+          borderRadius: { xs: 0, md: '0.5rem' },
+          boxShadow: theme.palette.mode === 'dark' 
+            ? '0 1px 3px rgba(0,0,0,0.3)' 
+            : '0 1px 2px rgba(0,0,0,0.05)',
+          mx: { xs: 0, md: 2 },
+          my: { xs: 0, md: 2 },
         }}
       >
         <Container maxWidth="lg">
@@ -208,23 +214,78 @@ const Projects = () => {
                 flex: 1,
                 maxWidth: { xs: '100%', md: 400 },
                 '& .MuiOutlinedInput-root': {
-                  backgroundColor: 'background.paper',
+                  backgroundColor: theme.palette.mode === 'dark' ? '#334155' : 'background.paper',
+                  color: theme.palette.mode === 'dark' ? '#f8fafc' : 'text.primary',
+                  '& fieldset': {
+                    borderColor: theme.palette.mode === 'dark' ? '#475569' : theme.palette.divider,
+                  },
+                  '&:hover fieldset': {
+                    borderColor: theme.palette.mode === 'dark' ? '#64748b' : theme.palette.primary.main,
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: theme.palette.primary.main,
+                  },
+                },
+                '& .MuiInputBase-input::placeholder': {
+                  color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary',
+                  opacity: 1,
                 },
               }}
               InputProps={{
-                startAdornment: <Search sx={{ mr: 1, color: 'text.secondary' }} />,
+                startAdornment: <Search sx={{ mr: 1, color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary' }} />,
               }}
             />
 
             {/* Filtro de categoria */}
             <FormControl size="small" sx={{ minWidth: 200 }}>
-              <InputLabel>Categoria</InputLabel>
+              <InputLabel 
+                sx={{ 
+                  color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary',
+                  '&.Mui-focused': {
+                    color: theme.palette.primary.main,
+                  },
+                }}
+              >
+                Categoria
+              </InputLabel>
               <Select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
                 label="Categoria"
                 sx={{
-                  backgroundColor: 'background.paper',
+                  backgroundColor: theme.palette.mode === 'dark' ? '#334155' : 'background.paper',
+                  color: theme.palette.mode === 'dark' ? '#f8fafc' : 'text.primary',
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: theme.palette.mode === 'dark' ? '#475569' : theme.palette.divider,
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: theme.palette.mode === 'dark' ? '#64748b' : theme.palette.primary.main,
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: theme.palette.primary.main,
+                  },
+                  '& .MuiSvgIcon-root': {
+                    color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary',
+                  },
+                }}
+                MenuProps={{
+                  PaperProps: {
+                    sx: {
+                      backgroundColor: theme.palette.mode === 'dark' ? '#334155' : 'background.paper',
+                      '& .MuiMenuItem-root': {
+                        color: theme.palette.mode === 'dark' ? '#f8fafc' : 'text.primary',
+                        '&:hover': {
+                          backgroundColor: theme.palette.mode === 'dark' ? '#475569' : 'action.hover',
+                        },
+                        '&.Mui-selected': {
+                          backgroundColor: theme.palette.mode === 'dark' ? '#475569' : 'action.selected',
+                          '&:hover': {
+                            backgroundColor: theme.palette.mode === 'dark' ? '#64748b' : 'action.selected',
+                          },
+                        },
+                      },
+                    },
+                  },
                 }}
               >
                 {categories.map((category) => (
@@ -243,6 +304,13 @@ const Projects = () => {
               sx={{
                 minWidth: 'auto',
                 px: 3,
+                borderColor: theme.palette.mode === 'dark' ? '#475569' : theme.palette.divider,
+                color: theme.palette.mode === 'dark' ? '#f8fafc' : 'text.primary',
+                backgroundColor: theme.palette.mode === 'dark' ? '#334155' : 'transparent',
+                '&:hover': {
+                  borderColor: theme.palette.mode === 'dark' ? '#64748b' : theme.palette.primary.main,
+                  backgroundColor: theme.palette.mode === 'dark' ? '#475569' : 'action.hover',
+                },
               }}
             >
               Filtros
@@ -254,8 +322,9 @@ const Projects = () => {
             variant="body2"
             sx={{
               mt: 2,
-              color: 'text.secondary',
+              color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary',
               textAlign: 'center',
+              fontWeight: 500,
             }}
           >
             {filteredProjects.length === projects.length
