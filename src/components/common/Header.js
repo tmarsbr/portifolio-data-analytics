@@ -172,10 +172,11 @@ const Header = ({ elevation = 0 }) => {
         
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <ThemeToggle />
-          <IconButton 
-            onClick={handleDrawerToggle} 
+          <IconButton
+            onClick={handleDrawerToggle}
             color="inherit"
             sx={{
+              color: darkMode ? '#fff' : '#1f2937',
               '&:hover': {
                 backgroundColor: 'rgba(25, 118, 210, 0.08)',
                 transform: 'rotate(90deg)',
@@ -244,13 +245,14 @@ const Header = ({ elevation = 0 }) => {
   return (
     <>
       <HideOnScroll>
-        <AppBar 
-          position="fixed" 
+        <AppBar
+          position="fixed"
           elevation={0}
           sx={headerStyle}
+          className="app-header"
         >
           <Container maxWidth="lg">
-            <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
+            <Toolbar className="header-toolbar" sx={{ justifyContent: 'space-between', py: 1 }}>
               {/* Logo/Nome */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -261,6 +263,7 @@ const Header = ({ elevation = 0 }) => {
                   variant="h5"
                   component={Link}
                   to="/"
+                  className="header-title"
                   sx={{
                     textDecoration: 'none',
                     color: 'primary.main',
@@ -296,6 +299,7 @@ const Header = ({ elevation = 0 }) => {
                       <Button
                         component={Link}
                         to={item.path}
+                        className="nav-button"
                         sx={getLinkStyle(item.path)}
                       >
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -328,6 +332,7 @@ const Header = ({ elevation = 0 }) => {
                     aria-label="open drawer"
                     onClick={handleDrawerToggle}
                     sx={{
+                      color: darkMode ? '#fff' : '#1f2937',
                       '&:hover': {
                         backgroundColor: 'rgba(25, 118, 210, 0.08)',
                         transform: 'scale(1.1)',

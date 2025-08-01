@@ -42,10 +42,17 @@ const TypewriterEffect = ({ text, delay = 0 }) => {
 
   useEffect(() => {
     if (currentIndex < text.length) {
+      const baseSpeed = 50; // velocidade inicial em ms
+      const minSpeed = 30; // velocidade mínima em ms
+      const letterDelay =
+        currentIndex === 0
+          ? delay
+          : Math.max(minSpeed, baseSpeed - currentIndex * 2); // leve aceleração
+
       const timer = setTimeout(() => {
         setDisplayText(prev => prev + text[currentIndex]);
         setCurrentIndex(prev => prev + 1);
-      }, delay + currentIndex * 80); // Velocidade ajustada para melhor visualização
+      }, letterDelay);
 
       return () => clearTimeout(timer);
     }

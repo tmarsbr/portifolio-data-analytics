@@ -10,7 +10,7 @@
 export const personalInfo = {
   name: "Tiago da Silva e Santo",
   fullName: "Tiago Da Silva E Santo",
-  title: "Full Stack em Dados e Analytics — da coleta ao insight estratégico.",
+  title: "Full Stack em Dados e Analytics",
   subtitle: "Transformando dados em insights estratégicos para negócios",
   location: "São Paulo, SP",
   email: "tiagomars233@gmail.com",
