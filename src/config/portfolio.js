@@ -386,6 +386,7 @@ export const certificates = [
     title: "Nivelamento em Matemática, Estatística e Programação para Big Data & Analytics",
     institution: "PoD Academy",
     year: "2024",
+    duration: "120h",
     image: `${process.env.PUBLIC_URL}/certificates/1.png`,
     pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2026662A6157507713239070.pdf`,
     skills: ["Matemática", "Estatística", "Programação", "Big Data"]
@@ -395,6 +396,7 @@ export const certificates = [
     title: "Ciências Aplicadas: Matemática e Estatística",
     institution: "PoD Academy",
     year: "2025",
+    duration: "80h",
     image: `${process.env.PUBLIC_URL}/certificates/4.png`,
     pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2427912AD2AF41E914203880.pdf`,
     skills: ["Matemática Aplicada", "Estatística Aplicada", "Dados"]
@@ -404,6 +406,7 @@ export const certificates = [
     title: "Formação em Análise de Dados",
     institution: "PoD Academy",
     year: "2024",
+    duration: "100h",
     image: `${process.env.PUBLIC_URL}/certificates/3.png`,
     pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2184196A1D520FC214203880.pdf`,
     skills: ["Análise de Dados", "CRISP-DM", "Estatística", "Visualização"]
@@ -413,78 +416,87 @@ export const certificates = [
     title: "Cloud Computing",
     institution: "PoD Academy",
     year: "2024",
+    duration: "60h",
     image: `${process.env.PUBLIC_URL}/certificates/2.png`,
     pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2181848AF6E35A5F13239070.pdf`,
     skills: ["Cloud Computing", "AWS", "Azure", "GCP"]
   },
   {
     id: 5,
-    title: "Python para Data Science",
-    institution: "Alura",
+    title: "Análise de Negócios",
+    institution: "Formação em Ciência de Dados",
     year: "2024",
-    image: "",
+    duration: "40h",
+    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_analise_negocios.png`,
     pdf: "",
-    skills: ["Python", "Data Science", "Pandas", "NumPy"]
+    skills: ["Análise de Negócios", "KPIs", "Métricas", "Estratégia"]
   },
   {
     id: 6,
-    title: "Machine Learning com Scikit-learn",
-    institution: "Alura",
+    title: "Regressão Linear - Python",
+    institution: "Data Viking",
     year: "2024",
-    image: "",
+    duration: "20h",
+    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_regressao_linear.png`,
     pdf: "",
-    skills: ["Machine Learning", "Scikit-learn", "Algoritmos", "Python"]
+    skills: ["Python", "Regressão Linear", "Machine Learning", "Estatística"]
   },
   {
     id: 7,
-    title: "SQL para Análise de Dados",
-    institution: "DIO",
+    title: "Floresta Aleatória (Random Forest)",
+    institution: "Data Viking",
     year: "2024",
-    image: "",
+    duration: "25h",
+    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_random_forest.png`,
     pdf: "",
-    skills: ["SQL", "Banco de Dados", "Análise de Dados", "Consultas"]
+    skills: ["Random Forest", "Machine Learning", "Python", "Algoritmos"]
   },
   {
     id: 8,
-    title: "Visualização de Dados com Python",
-    institution: "Coursera",
+    title: "Regressão Logística - Python",
+    institution: "Data Viking",
     year: "2024",
-    image: "",
+    duration: "22h",
+    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_regressao_logistica.png`,
     pdf: "",
-    skills: ["Visualização", "Matplotlib", "Seaborn", "Plotly"]
+    skills: ["Regressão Logística", "Python", "Machine Learning", "Classificação"]
   },
   {
     id: 9,
-    title: "Fundamentos de Engenharia de Dados",
-    institution: "PoD Academy",
+    title: "SQL com Python",
+    institution: "Data Viking",
     year: "2024",
-    image: "",
+    duration: "30h",
+    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_sql_python.png`,
     pdf: "",
-    skills: ["Engenharia de Dados", "ETL", "Pipeline", "Dados"]
+    skills: ["SQL", "Python", "Banco de Dados", "SQLite"]
   },
   {
     id: 10,
-    title: "Estatística Aplicada",
-    institution: "Udemy",
+    title: "Formação Python Impressionador",
+    institution: "Hashtag Treinamentos",
     year: "2024",
-    image: "",
+    duration: "50h",
+    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_python_impressionador.png`,
     pdf: "",
-    skills: ["Estatística", "Inferência", "Hipóteses", "Probabilidade"]
+    skills: ["Python", "Automação", "Data Science", "Pandas"]
   },
   {
     id: 11,
-    title: "Business Intelligence com Power BI",
-    institution: "Microsoft Learn",
+    title: "Formação SQL Impressionador",
+    institution: "Hashtag Treinamentos",
     year: "2024",
-    image: "",
+    duration: "45h",
+    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_sql_impressionador.png`,
     pdf: "",
-    skills: ["Power BI", "Business Intelligence", "Dashboards", "DAX"]
+    skills: ["SQL", "Banco de Dados", "Consultas Avançadas", "Performance"]
   },
   {
     id: 12,
     title: "Git e GitHub Essencial",
     institution: "DIO",
     year: "2023",
+    duration: "15h",
     image: "",
     pdf: "",
     skills: ["Git", "GitHub", "Controle de Versão", "Colaboração"]

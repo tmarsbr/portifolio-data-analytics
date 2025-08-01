@@ -2,15 +2,16 @@
  * Certificacoes - Página completa de certificações e cursos
  * 
  * Página dedicada para exibir todas as certificações e cursos concluídos,
- * com filtros por categoria e layout responsivo.
+ * com filtros por categoria, lightbox para imagens e layout responsivo.
  * 
  * Funcionalidades:
  * - Lista completa de certificações
- * - Filtro por categoria
- * - Modal para visualização detalhada
+ * - Filtro por categoria e busca
+ * - Modal/Lightbox para visualização das imagens
  * - Download direto dos PDFs
  * - Design consistente com dark mode
- * - Layout responsivo
+ * - Layout responsivo (2 colunas mobile, 3 desktop)
+ * - Hover effects nos cards
  * 
  * @component
  * @example
@@ -27,6 +28,7 @@ import {
   Grid,
   Card,
   CardContent,
+  CardMedia,
   Chip,
   Modal,
   IconButton,
@@ -36,6 +38,8 @@ import {
   Select,
   MenuItem,
   useTheme,
+  Button,
+  Fade,
 } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import {
@@ -44,7 +48,8 @@ import {
   Verified,
   Download,
   Search,
-  FilterList,
+  AccessTime,
+  ZoomIn,
 } from '@mui/icons-material';
 
 import { certificates, personalInfo } from '../config/portfolio';
@@ -59,8 +64,6 @@ const Certificacoes = () => {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
-
-  const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23f5f5f5'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='14' fill='%23999'%3eCertificado%3c/text%3e%3c/svg%3e";
 
   // Categorias extraídas das skills dos certificados
   const categories = ['all', ...new Set(
@@ -95,7 +98,7 @@ const Certificacoes = () => {
   return (
     <>
       <Helmet>
-        <title>Certificações - {personalInfo.name} | Data & Analytics</title>
+        <title>Todas as Certificações e Cursos Concluídos - {personalInfo.name} | Data & Analytics</title>
         <meta name="description" content={`Todas as certificações e cursos de ${personalInfo.name} em Data Science, Machine Learning e tecnologias relacionadas.`} />
         <meta property="og:title" content={`Certificações - ${personalInfo.name}`} />
         <meta property="og:description" content="Lista completa de certificações e cursos em Data & Analytics, Machine Learning e tecnologias modernas." />
@@ -144,7 +147,7 @@ const Certificacoes = () => {
                   backgroundClip: 'text',
                 }}
               >
-                Certificações
+                Certificações e Cursos Concluídos
               </Typography>
             </Typography>
 
@@ -384,6 +387,7 @@ const Certificacoes = () => {
                       cursor: 'pointer',
                       borderRadius: 3,
                       overflow: 'hidden',
+                      position: 'relative',
                       transition: 'all 0.3s ease',
                       background: darkMode
                         ? 'linear-gradient(135deg, rgba(25, 118, 210, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%)'
@@ -396,29 +400,80 @@ const Certificacoes = () => {
                           ? '0 8px 32px rgba(25, 118, 210, 0.15)'
                           : '0 8px 32px rgba(0, 0, 0, 0.08)',
                         borderColor: 'primary.main',
+                        '& .certificate-image': {
+                          transform: 'scale(1.05)',
+                        },
+                        '& .zoom-icon': {
+                          opacity: 1,
+                        },
                       },
                     }}
                     onClick={() => handleCertificateClick(certificate)}
                   >
-                    {/* Header com ícone */}
-                    <Box
-                      sx={{
-                        p: 3,
-                        backgroundColor: 'primary.main',
-                        color: 'white',
-                        textAlign: 'center',
-                        position: 'relative',
+                    {/* Imagem do Certificado */}
+                    {certificate.image ? (
+                      <CardMedia
+                        component="img"
+                        className="certificate-image"
+                        sx={{
+                          height: 200,
+                          maxHeight: 300,
+                          objectFit: 'cover',
+                          transition: 'transform 0.3s ease',
+                          backgroundColor: darkMode ? '#1e293b' : '#f8fafc',
+                        }}
+                        image={certificate.image}
+                        alt={`Certificado de ${certificate.title}`}
+                      />
+                    ) : (
+                      <Box
+                        sx={{
+                          height: 200,
+                          backgroundColor: darkMode ? '#334155' : '#e2e8f0',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexDirection: 'column',
+                          gap: 2,
+                        }}
+                      >
+                        <School sx={{ fontSize: 48, color: 'primary.main', opacity: 0.7 }} />
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: 'text.secondary',
+                            textAlign: 'center',
+                            px: 2,
+                          }}
+                        >
+                          Certificado
+                        </Typography>
+                      </Box>
+                    )}
+
+                    {/* Ícone de zoom para indicar que pode clicar */}
+                    <Box 
+                      className="zoom-icon"
+                      sx={{ 
+                        position: 'absolute', 
+                        top: 8, 
+                        right: 8,
+                        opacity: 0,
+                        transition: 'opacity 0.3s ease',
                       }}
                     >
-                      <School sx={{ fontSize: 40, mb: 1 }} />
-                      <Verified
+                      <IconButton 
+                        size="small"
                         sx={{
-                          position: 'absolute',
-                          top: 12,
-                          right: 12,
-                          color: 'success.light',
+                          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                          color: 'white',
+                          '&:hover': {
+                            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                          },
                         }}
-                      />
+                      >
+                        <ZoomIn sx={{ fontSize: 18 }} />
+                      </IconButton>
                     </Box>
 
                     <CardContent sx={{ p: 3, flex: 1 }}>
@@ -431,6 +486,10 @@ const Certificacoes = () => {
                           mb: 2,
                           color: 'text.primary',
                           lineHeight: 1.3,
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
                         }}
                       >
                         {certificate.title}
@@ -448,17 +507,31 @@ const Certificacoes = () => {
                         {certificate.institution}
                       </Typography>
 
-                      {/* Ano */}
-                      <Chip
-                        label={certificate.year}
-                        size="small"
-                        sx={{
-                          backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'grey.200',
-                          color: 'text.secondary',
-                          fontWeight: 600,
-                          mb: 3,
-                        }}
-                      />
+                      {/* Informações adicionais */}
+                      <Box sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}>
+                        <Chip
+                          label={certificate.year}
+                          size="small"
+                          icon={<Verified sx={{ fontSize: 16 }} />}
+                          sx={{
+                            backgroundColor: darkMode ? 'rgba(76, 175, 80, 0.2)' : 'success.light',
+                            color: darkMode ? 'success.light' : 'success.dark',
+                            fontWeight: 600,
+                          }}
+                        />
+                        {certificate.duration && (
+                          <Chip
+                            label={certificate.duration}
+                            size="small"
+                            icon={<AccessTime sx={{ fontSize: 16 }} />}
+                            sx={{
+                              backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'grey.200',
+                              color: 'text.secondary',
+                              fontWeight: 600,
+                            }}
+                          />
+                        )}
+                      </Box>
 
                       {/* Skills relacionadas */}
                       {certificate.skills && certificate.skills.length > 0 && (
@@ -473,6 +546,10 @@ const Certificacoes = () => {
                                 borderColor: 'divider',
                                 color: 'text.secondary',
                                 fontSize: '0.7rem',
+                                '&:hover': {
+                                  borderColor: 'primary.main',
+                                  color: 'primary.main',
+                                },
                               }}
                             />
                           ))}
@@ -509,77 +586,191 @@ const Certificacoes = () => {
           p: 2,
         }}
       >
-        <Box
-          sx={{
-            background: darkMode
-              ? 'linear-gradient(135deg, rgba(25, 118, 210, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%)'
-              : 'linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(156, 39, 176, 0.05) 100%)',
-            backdropFilter: 'blur(10px)',
-            border: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : theme.palette.divider}`,
-            borderRadius: 3,
-            boxShadow: 24,
-            p: 0,
-            maxWidth: '90vw',
-            maxHeight: '90vh',
-            overflow: 'hidden',
-            position: 'relative',
-          }}
-        >
-          {selectedCertificate && (
-            <>
-              {/* Header do modal */}
-              <Box
-                sx={{
-                  p: 3,
-                  borderBottom: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : theme.palette.divider}`,
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <Box>
-                  <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                    {selectedCertificate.title}
-                  </Typography>
-                  <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                    {selectedCertificate.institution} - {selectedCertificate.year}
-                  </Typography>
-                </Box>
-                <Box sx={{ display: 'flex', gap: 1 }}>
-                  {selectedCertificate.pdf && (
-                    <IconButton
-                      component="a"
-                      href={selectedCertificate.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Download PDF"
-                    >
-                      <Download />
-                    </IconButton>
-                  )}
-                  <IconButton onClick={handleCloseModal} aria-label="Fechar">
-                    <Close />
-                  </IconButton>
-                </Box>
-              </Box>
-
-              {/* Conteúdo do modal */}
-              <Box sx={{ p: 3, textAlign: 'center' }}>
-                <img
-                  src={selectedCertificate.image || placeholderImage}
-                  alt={selectedCertificate.title}
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '60vh',
-                    objectFit: 'contain',
-                    borderRadius: 8,
-                    border: `1px solid ${theme.palette.divider}`,
+        <Fade in={!!selectedCertificate}>
+          <Box
+            sx={{
+              background: darkMode
+                ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%)'
+                : 'linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(226, 232, 240, 0.95) 100%)',
+              backdropFilter: 'blur(20px)',
+              borderRadius: 4,
+              boxShadow: darkMode
+                ? '0 25px 50px rgba(0, 0, 0, 0.5)'
+                : '0 25px 50px rgba(0, 0, 0, 0.15)',
+              border: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
+              outline: 'none',
+              maxWidth: '90vw',
+              maxHeight: '90vh',
+              overflow: 'auto',
+              position: 'relative',
+            }}
+          >
+            {selectedCertificate && (
+              <>
+                {/* Botão fechar */}
+                <IconButton
+                  onClick={handleCloseModal}
+                  sx={{
+                    position: 'absolute',
+                    top: 16,
+                    right: 16,
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    color: 'white',
+                    zIndex: 10,
+                    '&:hover': {
+                      backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                    },
                   }}
-                />
-              </Box>
-            </>
-          )}
-        </Box>
+                >
+                  <Close />
+                </IconButton>
+
+                {/* Imagem do certificado em destaque */}
+                {selectedCertificate.image && (
+                  <Box
+                    sx={{
+                      width: '100%',
+                      maxWidth: 800,
+                      backgroundColor: darkMode ? '#1e293b' : '#f8fafc',
+                      borderRadius: '16px 16px 0 0',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <img
+                      src={selectedCertificate.image}
+                      alt={`Certificado de ${selectedCertificate.title}`}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        maxHeight: '60vh',
+                        objectFit: 'contain',
+                        display: 'block',
+                      }}
+                    />
+                  </Box>
+                )}
+
+                {/* Informações do certificado */}
+                <Box sx={{ p: 4 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                    <School
+                      sx={{
+                        fontSize: 32,
+                        color: 'primary.main',
+                        mt: 0.5,
+                      }}
+                    />
+                    <Box sx={{ flex: 1 }}>
+                      <Typography
+                        variant="h4"
+                        component="h2"
+                        sx={{
+                          fontWeight: 700,
+                          color: 'text.primary',
+                          mb: 1,
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {selectedCertificate.title}
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          color: 'primary.main',
+                          fontWeight: 600,
+                          mb: 2,
+                        }}
+                      >
+                        {selectedCertificate.institution}
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  {/* Informações adicionais */}
+                  <Box sx={{ display: 'flex', gap: 2, mb: 3, flexWrap: 'wrap' }}>
+                    <Chip
+                      icon={<Verified />}
+                      label={`Concluído em ${selectedCertificate.year}`}
+                      sx={{
+                        backgroundColor: darkMode ? 'rgba(76, 175, 80, 0.2)' : 'success.light',
+                        color: darkMode ? 'success.light' : 'success.dark',
+                        fontWeight: 600,
+                      }}
+                    />
+                    {selectedCertificate.duration && (
+                      <Chip
+                        icon={<AccessTime />}
+                        label={selectedCertificate.duration}
+                        sx={{
+                          backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'grey.200',
+                          color: 'text.secondary',
+                          fontWeight: 600,
+                        }}
+                      />
+                    )}
+                  </Box>
+
+                  {/* Skills e competências */}
+                  {selectedCertificate.skills && selectedCertificate.skills.length > 0 && (
+                    <Box sx={{ mb: 3 }}>
+                      <Typography
+                        variant="subtitle1"
+                        sx={{
+                          fontWeight: 600,
+                          color: 'text.primary',
+                          mb: 2,
+                        }}
+                      >
+                        Competências Desenvolvidas:
+                      </Typography>
+                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                        {selectedCertificate.skills.map((skill, index) => (
+                          <Chip
+                            key={index}
+                            label={skill}
+                            variant="outlined"
+                            sx={{
+                              borderColor: 'primary.main',
+                              color: 'primary.main',
+                              '&:hover': {
+                                backgroundColor: darkMode 
+                                  ? 'rgba(25, 118, 210, 0.1)' 
+                                  : 'rgba(25, 118, 210, 0.05)',
+                              },
+                            }}
+                          />
+                        ))}
+                      </Box>
+                    </Box>
+                  )}
+
+                  {/* Botão de download se disponível */}
+                  {selectedCertificate.pdf && (
+                    <Button
+                      variant="contained"
+                      startIcon={<Download />}
+                      onClick={() => window.open(selectedCertificate.pdf, '_blank')}
+                      sx={{
+                        background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+                        color: 'white',
+                        fontWeight: 600,
+                        px: 3,
+                        py: 1.5,
+                        borderRadius: 2,
+                        '&:hover': {
+                          transform: 'translateY(-2px)',
+                          boxShadow: '0 8px 25px rgba(25, 118, 210, 0.3)',
+                        },
+                      }}
+                    >
+                      Baixar Certificado PDF
+                    </Button>
+                  )}
+                </Box>
+              </>
+            )}
+          </Box>
+        </Fade>
       </Modal>
     </>
   );
