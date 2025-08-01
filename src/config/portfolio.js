@@ -18,6 +18,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/tiagodados",
   github: "https://github.com/tmarsbr",
   whatsapp: "https://wa.me/5511975429994",
+  resume: `${process.env.PUBLIC_URL}/certificates/Curriculo_Tiago_Santo_Formatado.pdf`,
   
   // Resumo para a página inicial (1-2 frases)
   homeIntro: "Atuo com a stack completa de dados — da engenharia de pipelines à análise estatística e modelos preditivos. Tenho paixão por transformar dados em decisões que geram impacto real nos negócios, sempre com foco em clareza, performance e valor.",

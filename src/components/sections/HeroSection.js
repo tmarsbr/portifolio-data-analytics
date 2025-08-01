@@ -462,7 +462,7 @@ const HeroSection = () => {
                     </Button>
 
                     <Button
-                      href="/cv.pdf"
+                      href={personalInfo.resume}
                       download
                       variant="outlined"
                       size="large"
