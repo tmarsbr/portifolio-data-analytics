@@ -96,7 +96,12 @@ const ExperienceCard = ({ experience, index, isLast }) => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
     >
-      <TimelineItem>
+      <TimelineItem
+        sx={{
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: 'flex-start',
+        }}
+      >
         {/* Conteúdo da data (lado oposto) */}
         <TimelineOppositeContent
           sx={{
@@ -105,7 +110,9 @@ const ExperienceCard = ({ experience, index, isLast }) => {
             color: 'text.secondary',
             fontSize: '0.875rem',
             fontWeight: 500,
-            flex: 0.3,
+            flex: { xs: 'none', md: 0.3 },
+            width: { xs: '100%', md: 'auto' },
+            textAlign: { xs: 'left', md: 'right' },
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -135,7 +142,7 @@ const ExperienceCard = ({ experience, index, isLast }) => {
         </TimelineOppositeContent>
 
         {/* Separador com ícone */}
-        <TimelineSeparator>
+        <TimelineSeparator sx={{ flexDirection: { xs: 'row', md: 'column' } }}>
           <TimelineDot
             sx={{
               bgcolor: getTypeColor(experience.type),
@@ -163,13 +170,15 @@ const ExperienceCard = ({ experience, index, isLast }) => {
                 width: 3,
                 borderRadius: 2,
                 opacity: 0.3,
+                mx: { xs: 1, md: 0 },
+                my: { xs: 0, md: 1 },
               }}
             />
           )}
         </TimelineSeparator>
 
         {/* Conteúdo principal */}
-        <TimelineContent sx={{ py: '12px', px: 2, flex: 1 }}>
+        <TimelineContent sx={{ py: '12px', px: 2, flex: 1, width: { xs: '100%', md: 'auto' } }}>
           <motion.div
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
