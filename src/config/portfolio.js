@@ -37,6 +37,30 @@ Porque no fim, seja no aço ou no algoritmo, o detalhe certo no lugar certo muda
 };
 
 /**
+ * Categorias de Projetos
+ * @description Lista de categorias principais para filtros
+ */
+export const PROJECT_CATEGORIES = [
+  'Todos',
+  'Análise de Dados',
+  'Engenharia de Dados',
+  'Ciência de Dados',
+  'API & Scraping'
+];
+
+/**
+ * Subcategorias por Categoria
+ * @description Subfiltros específicos para cada categoria principal
+ */
+export const PROJECT_SUBCATEGORIES = {
+  'Engenharia de Dados': ['IaC', 'CI/CD', 'ETL/ELT', 'Cloud AWS', 'DataOps'],
+  'Análise de Dados': ['EDA', 'Visualização', 'Estatística', 'Experimentação'],
+  'Ciência de Dados': ['ML Clássico', 'Deep Learning', 'MLOps', 'NLP'],
+  'API & Scraping': ['Scraping', 'API REST', 'Integrações'],
+  'Todos': []
+};
+
+/**
  * Habilidades Técnicas Organizadas por Categoria
  * @description Stack tecnológico com níveis de proficiência (0-100)
  * @structure { categoria: [{ name, level, icon }] }
@@ -140,6 +164,7 @@ export const projects = [
     longDescription: "Mergulhei no universo musical para responder uma pergunta intrigante: o que torna uma música irresistível? Usando dataset do Spotify com as faixas mais tocadas globalmente, conduzi uma análise exploratória completa que revelou insights surpreendentes. Descobri que características como 'danceability' e 'energy' têm correlações específicas com o sucesso, mas também identifiquei padrões temporais que mostram como o gosto musical evolui. O projeto culminou na criação de um 'mapa do sucesso musical' com 8 fatores-chave que podem prever a popularidade de uma música.",
     technologies: ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter"],
     category: "Análise Exploratória",
+    subcategories: ["EDA", "Visualização", "Estatística"],
     image: `${process.env.PUBLIC_URL}/projects/capa_spotify_analysis.png`,
     github: "https://github.com/tmarsbr/data-analyst-project",
     demo: "",
@@ -156,6 +181,7 @@ export const projects = [
     longDescription: "Este projeto nasceu de uma missão pessoal: usar dados para salvar vidas nas estradas. Analisando registros da Polícia Rodoviária Federal, criei visualizações interativas que revelam os pontos críticos de acidentes em todo território nacional. O mais impactante foi descobrir padrões inesperados entre localização de radares e redução de acidentes, gerando insights que podem influenciar políticas públicas de segurança. Mapiei 27 estados e identifiquei os horários, condições climáticas e trechos mais perigosos, criando um verdadeiro 'GPS da segurança' para as rodovias brasileiras.",
     technologies: ["Python", "Pandas", "Geopandas", "Plotly", "Folium"],
     category: "Análise Exploratória",
+    subcategories: ["EDA", "Visualização", "Estatística"],
     image: `${process.env.PUBLIC_URL}/projects/capa_prf_accidents.png`,
     github: "https://github.com/tmarsbr/analise-PRF-",
     demo: "",
@@ -172,6 +198,7 @@ export const projects = [
     longDescription: "Enfrentei um desafio real do mundo corporativo: duas clínicas médicas se fundiram e precisavam unificar seus dados de pacientes, históricos e procedimentos. O problema? Sistemas completamente diferentes, formatos incompatíveis e zero margem para erros - afinal, eram dados de saúde humana. Desenvolvi uma solução elegante usando programação orientada a objetos, criando um pipeline ETL modular que não apenas integrou os dados, mas também implementou validações rigorosas de qualidade. O resultado? Uma migração 100% bem-sucedida que permitiu à nova empresa operar desde o primeiro dia.",
     technologies: ["Python", "OOP", "ETL", "Data Quality", "Pandas"],
     category: "Engenharia de Dados",
+    subcategories: ["ETL/ELT"],
     image: `${process.env.PUBLIC_URL}/projects/capa_integracao_sistemas_medicos.png`,
     github: "https://github.com/tmarsbr/projeto_pipeline",
     demo: "",
@@ -188,6 +215,7 @@ export const projects = [
     longDescription: "Sistema automatizado para coleta e análise de dados de repositórios GitHub de grandes empresas de tecnologia. Utilizou API do GitHub para extrair informações sobre linguagens, atividade e tendências de desenvolvimento, gerando insights sobre o ecossistema tech.",
     technologies: ["Python", "GitHub API", "Pandas", "Requests", "JSON"],
     category: "API & Web Scraping",
+    subcategories: ["API REST", "Scraping"],
     image: `${process.env.PUBLIC_URL}/projects/capa_github_analysis.png`,
     github: "https://github.com/tmarsbr/Projeto_api",
     demo: "",
@@ -204,6 +232,7 @@ export const projects = [
     longDescription: "Desenvolvimento de pipeline completo para processamento de dados de e-commerce, integrando diferentes bases de dados. Solução automatizada para ETL entre MongoDB (dados não-estruturados) e MySQL (dados estruturados), com foco em performance e confiabilidade.",
     technologies: ["Python", "MongoDB", "MySQL", "ETL", "PyMongo"],
     category: "Engenharia de Dados",
+    subcategories: ["ETL/ELT"],
     image: `${process.env.PUBLIC_URL}/projects/capa_pipeline_mongo_mysql.png`,
     github: "https://github.com/tmarsbr/pipeline-python-mongo-mysql",
     demo: "",
@@ -220,6 +249,7 @@ export const projects = [
     longDescription: "Projeto de análise de crédito utilizando técnicas de machine learning para avaliação de risco. Em desenvolvimento com foco em algoritmos de classificação e análise de padrões de inadimplência.",
     technologies: ["Python", "Scikit-learn", "Pandas", "Machine Learning"],
     category: "Ciência de Dados",
+    subcategories: ["ML Clássico"],
     image: `${process.env.PUBLIC_URL}/projects/capa_credito_ml.png`,
     github: "",
     demo: "",
@@ -236,6 +266,7 @@ export const projects = [
     longDescription: "Projeto focado na aplicação de People Analytics para tomada de decisão em gestão de pessoas, incluindo análise de turnover, performance e engajamento de colaboradores.",
     technologies: ["Python", "Pandas", "Plotly", "Statistics"],
     category: "Ciência de Dados",
+    subcategories: ["ML Clássico"],
     image: `${process.env.PUBLIC_URL}/projects/capa_people_analytics.png`,
     github: "",
     demo: "",
@@ -252,6 +283,7 @@ export const projects = [
     longDescription: "Projeto focado em previsão de demandas utilizando algoritmos de série temporal avançados, incluindo ARIMA, Prophet e redes neurais para forecasting empresarial.",
     technologies: ["Python", "Prophet", "ARIMA", "TensorFlow"],
     category: "Ciência de Dados",
+    subcategories: ["ML Clássico"],
     image: `${process.env.PUBLIC_URL}/projects/capa_previsao_demandas.png`,
     github: "",
     demo: "",
@@ -268,6 +300,7 @@ export const projects = [
     longDescription: "Modelo de escore antifraude utilizando técnicas avançadas de machine learning para detectar padrões suspeitos e prevenir fraudes em transações financeiras.",
     technologies: ["Python", "Scikit-learn", "Anomaly Detection", "Deep Learning"],
     category: "Ciência de Dados",
+    subcategories: ["ML Clássico"],
     image: `${process.env.PUBLIC_URL}/projects/capa_fraude_financeira.png`,
     github: "",
     demo: "",
@@ -283,6 +316,7 @@ export const projects = [
     longDescription: "Implantação de arquitetura de streaming utilizando ferramentas modernas. Em breve detalhes completos.",
     technologies: ["Kafka"],
     category: "Engenharia de Dados",
+    subcategories: ["DataOps"],
     image: `${process.env.PUBLIC_URL}/projects/capa_streaming_kafka.png`,
     github: "",
     demo: "",
@@ -297,6 +331,7 @@ export const projects = [
     longDescription: "Projeto de bots para otimizar pipelines e rotinas de dados. Disponível em breve.",
     technologies: ["Python"],
     category: "Engenharia de Dados",
+    subcategories: ["DataOps"],
     image: `${process.env.PUBLIC_URL}/projects/capa_automacao_bots.png`,
     github: "",
     demo: "",
@@ -311,6 +346,7 @@ export const projects = [
     longDescription: "Criação de data lake escalável. Conteúdo e repositório serão publicados em breve.",
     technologies: ["Databricks"],
     category: "Engenharia de Dados",
+    subcategories: ["Cloud AWS"],
     image: `${process.env.PUBLIC_URL}/projects/capa_data_lake.png`,
     github: "",
     demo: "",
@@ -325,6 +361,7 @@ export const projects = [
     longDescription: "Estudos sobre conteinerização de projetos de dados utilizando Docker. Publicação em breve.",
     technologies: ["Docker"],
     category: "Engenharia de Dados",
+    subcategories: ["CI/CD"],
     image: `${process.env.PUBLIC_URL}/projects/capa_docker_deploy.png`,
     github: "",
     demo: "",
@@ -339,6 +376,7 @@ export const projects = [
     longDescription: "Projeto para acompanhar e analisar dados de refrigeração via streaming. Detalhes em breve.",
     technologies: ["Kafka"],
     category: "Engenharia de Dados",
+    subcategories: ["DataOps"],
     image: `${process.env.PUBLIC_URL}/projects/capa_monitoramento_refrigeracao_kafka.png`,
     github: "",
     demo: "",
@@ -353,6 +391,7 @@ export const projects = [
     longDescription: "Configuração de workflows de ETL utilizando Airflow. Projeto em desenvolvimento.",
     technologies: ["Airflow"],
     category: "Engenharia de Dados",
+    subcategories: ["ETL/ELT"],
     image: `${process.env.PUBLIC_URL}/projects/capa_automacao_etl.png`,
     github: "",
     demo: "",
@@ -367,6 +406,7 @@ export const projects = [
     longDescription: "Exploração de soluções de data lake utilizando Databricks. Documentação em breve.",
     technologies: ["Databricks"],
     category: "Engenharia de Dados",
+    subcategories: ["Cloud AWS"],
     image: `${process.env.PUBLIC_URL}/projects/capa_data_lake.png`,
     github: "",
     demo: "",
