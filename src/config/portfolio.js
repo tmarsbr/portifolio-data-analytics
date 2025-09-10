@@ -10,7 +10,7 @@
 export const personalInfo = {
   name: "Tiago da Silva e Santo",
   fullName: "Tiago Da Silva E Santo",
-  title: "Full Stack em Dados e Analytics",
+  title: "Eng. de Dados | Data Science",
   subtitle: "Transformando dados em insights estratégicos para negócios",
   location: "São Paulo, SP",
   email: "tiagomars233@gmail.com",
@@ -21,7 +21,7 @@ export const personalInfo = {
   resume: `${process.env.PUBLIC_URL}/certificates/Curriculo_Tiago_Santo_Formatado.pdf`,
   
   // Resumo para a página inicial (1-2 frases)
-  homeIntro: "Atuo com a stack completa de dados — da engenharia de pipelines à análise estatística e modelos preditivos. Tenho paixão por transformar dados em decisões que geram impacto real nos negócios, sempre com foco em clareza, performance e valor.",
+  homeIntro: "Desenho e opero pipelines ETL/ELT (Airflow, dbt, Spark), modelo dados para analytics e sirvo features para ML. Foco em escalabilidade, custo e qualidade com IaC, CI/CD e DataOps na AWS.",
   
   // Descrição expandida para a seção Sobre
   aboutDescription: `Da Oficina para os Dados
