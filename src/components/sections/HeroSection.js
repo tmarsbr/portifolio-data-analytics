@@ -30,7 +30,7 @@ import {
   Download,
   CloudQueue,
   BuildCircle,
-  Sync,
+  SyncAlt,
   DeviceHub,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
@@ -186,14 +186,17 @@ const HeroSection = () => {
     { label: 'Estatística', icon: '📈' },
   ];
 
-  // Segunda linha de especialidades — Engenharia de Dados (Home)
+  // Segunda linha de especialidades - Engenharia de Dados
   const specialtiesLine2 = [
-    { label: 'IaC', icon: <DeviceHub /> },
-    { label: 'CI/CD', icon: <BuildCircle /> },
-    { label: 'ETL/ELT', icon: <Sync /> },
-    { label: 'Cloud AWS', icon: <CloudQueue /> },
-    { label: 'DataOps', icon: '' },
+    { label: 'IaC', icon: <BuildCircle fontSize="small" /> },
+    { label: 'CI/CD', icon: <SyncAlt fontSize="small" /> },
+    { label: 'ETL/ELT', icon: <DeviceHub fontSize="small" /> },
+    { label: 'Cloud AWS', icon: <CloudQueue fontSize="small" /> },
+    { label: 'DataOps', icon: <BuildCircle fontSize="small" /> },
   ];
+
+  // Função utilitária para checar se é um emoji (string)
+  const isString = (v) => typeof v === 'string';
 
   // Iniciar animações
   useEffect(() => {
@@ -407,7 +410,8 @@ const HeroSection = () => {
                           whileHover={{ scale: 1.05 }}
                         >
                           <Chip
-                            label={`${specialty.icon} ${specialty.label}`}
+                            label={isString(specialty.icon) ? `${specialty.icon} ${specialty.label}` : specialty.label}
+                            icon={isString(specialty.icon) ? undefined : specialty.icon}
                             variant="filled"
                             sx={{
                               backgroundColor: darkMode 
