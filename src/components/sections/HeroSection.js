@@ -32,6 +32,7 @@ import {
   BuildCircle,
   SyncAlt,
   DeviceHub,
+  Hub,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -188,6 +189,7 @@ const HeroSection = () => {
 
   // Segunda linha de especialidades - Engenharia de Dados
   const specialtiesLine2 = [
+    { label: 'Engenharia de Dados', icon: <Hub fontSize="small" /> },
     { label: 'IaC', icon: <BuildCircle fontSize="small" /> },
     { label: 'CI/CD', icon: <SyncAlt fontSize="small" /> },
     { label: 'ETL/ELT', icon: <DeviceHub fontSize="small" /> },
