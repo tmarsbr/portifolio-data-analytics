@@ -646,16 +646,16 @@ export const themeConfig = {
  * @includes title, description, keywords, Open Graph, Twitter Cards
  */
 export const seoConfig = {
-  title: "Tiago Silva - Full Stack em Data & Analytics",
-  description: "Portfólio de Tiago Silva, Full Stack em Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
-  keywords: "data analytics, data science, python, machine learning, análise de dados, sql, portfolio, tiago silva",
+  title: "Tiago Silva — Eng. de Dados | Data Science",
+  description: "Engenharia de Dados e Data Science: ETL/ELT (Airflow, dbt, Spark), analytics e features para ML. IaC, CI/CD e DataOps na AWS.",
+  keywords: "engenharia de dados, data engineering, data science, analytics, python, machine learning, sql, aws, airflow, dbt, spark, tiago silva, portfólio",
   author: "Tiago Silva",
   url: "https://tmarsbr.github.io/portifolio-data-analytics", // URL do GitHub Pages
   image: `${process.env.PUBLIC_URL}/og-image.jpg`, // Adicione uma imagem de preview
   
   // Open Graph
-  ogTitle: "Tiago Silva - Data & Analytics Portfolio",
-  ogDescription: "Full Stack em Data & Analytics com projetos em Python, Machine Learning e visualização de dados. Veja meus projetos e entre em contato!",
+  ogTitle: "Tiago Silva — Eng. de Dados | Data Science",
+  ogDescription: "ETL/ELT (Airflow, dbt, Spark), modelagem para analytics e features de ML. IaC, CI/CD e DataOps na AWS.",
   twitterCard: "summary_large_image",
   twitterCreator: "@tiagodados" // Se tiver Twitter
 };
