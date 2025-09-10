@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -20,6 +20,7 @@ import {
   TrendingUp,
   Close,
 } from '@mui/icons-material';
+import { useLocation } from 'react-router-dom';
 
 import { projects, personalInfo, PROJECT_SUBCATEGORIES } from '../config/portfolio';
 import CategoryPills from '../components/common/CategoryPills';
@@ -44,9 +45,29 @@ import { useProjectFilter } from '../hooks/useProjectFilter';
  */
 const Projects = () => {
   const theme = useTheme();
+  const location = useLocation();
   const [selectedProject, setSelectedProject] = useState(null);
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [subcategoryFilter, setSubcategoryFilter] = useState('Todos');
+  const [techFilter, setTechFilter] = useState('');
+
+  // Ler parâmetros da querystring
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const cat = searchParams.get('cat');
+    const sub = searchParams.get('sub');
+    const tech = searchParams.get('tech');
+
+    if (cat) {
+      setCategoryFilter(cat);
+    }
+    if (sub) {
+      setSubcategoryFilter(sub);
+    }
+    if (tech) {
+      setTechFilter(tech);
+    }
+  }, [location.search]);
 
   const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23f5f5f5'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='14' fill='%23999'%3eImagem do Projeto%3c/text%3e%3c/svg%3e";
 
@@ -54,16 +75,29 @@ const Projects = () => {
   const categories = ['Todos', 'Análise de Dados', 'Engenharia de Dados', 'Ciência de Dados', 'API & Scraping'];
 
   // Usar hook para filtrar projetos
-  const { filtered: filteredProjects, count, total } = useProjectFilter(
+  const { filtered: baseFilteredProjects, total } = useProjectFilter(
     projects,
     categoryFilter === 'all' ? 'Todos' : categoryFilter,
     subcategoryFilter
   );
 
+  // Aplicar filtro adicional de tecnologia
+  const filteredProjects = techFilter
+    ? baseFilteredProjects.filter(project =>
+        project.technologies &&
+        project.technologies.some(tech =>
+          tech.toLowerCase().includes(techFilter.toLowerCase())
+        )
+      )
+    : baseFilteredProjects;
+
+  const count = filteredProjects.length;
+
   // Função para lidar com mudança de categoria
   const handleCategoryChange = (newCategory) => {
     setCategoryFilter(newCategory);
     setSubcategoryFilter('Todos'); // Resetar subcategoria ao mudar categoria
+    setTechFilter(''); // Resetar filtro de tecnologia
   };
 
   // Função para abrir modal do projeto

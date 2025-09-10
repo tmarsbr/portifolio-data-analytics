@@ -61,6 +61,21 @@ export const PROJECT_SUBCATEGORIES = {
 };
 
 /**
+ * Árvore de Skills - Tecnologias por Subcategoria
+ * @description Mapeamento de tecnologias específicas para cada subcategoria
+ * @structure { categoria: { subcategoria: [tecnologias] } }
+ */
+export const SKILL_TREE = {
+  'Engenharia de Dados': {
+    'IaC': ['Terraform', 'CloudFormation', 'Pulumi'],
+    'CI/CD': ['GitHub Actions', 'Docker', 'Kubernetes'],
+    'ETL/ELT': ['Airbyte', 'dbt', 'Apache Spark'],
+    'Cloud AWS': ['S3', 'EMR', 'Redshift', 'Glue'],
+    'DataOps': ['Great Expectations', 'OpenLineage', 'Apache Airflow']
+  }
+};
+
+/**
  * Habilidades Técnicas Organizadas por Categoria
  * @description Stack tecnológico com níveis de proficiência (0-100)
  * @structure { categoria: [{ name, level, icon }] }

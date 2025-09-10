@@ -34,11 +34,13 @@ import {
   DeviceHub,
   Hub,
 } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 
 import { personalInfo } from '../../config/portfolio';
+import { SKILL_TREE } from '../../config/portfolio';
+import ExpandableSkillChip from '../common/ExpandableSkillChip';
 
 // Componente para efeito de digitação
 const TypewriterEffect = ({ text, delay = 0 }) => {
@@ -176,6 +178,7 @@ const FloatingParticles = () => {
 
 const HeroSection = () => {
   const { darkMode } = useTheme();
+  const navigate = useNavigate();
   const [animationStarted, setAnimationStarted] = useState(false);
 
   // Primeira linha de especialidades - Ciência de Dados e Análise
@@ -187,18 +190,15 @@ const HeroSection = () => {
     { label: 'Estatística', icon: '📈' },
   ];
 
-  // Segunda linha de especialidades - Engenharia de Dados
-  const specialtiesLine2 = [
-    { label: 'Engenharia de Dados', icon: <Hub fontSize="small" /> },
-    { label: 'IaC', icon: <BuildCircle fontSize="small" /> },
-    { label: 'CI/CD', icon: <SyncAlt fontSize="small" /> },
-    { label: 'ETL/ELT', icon: <DeviceHub fontSize="small" /> },
-    { label: 'Cloud AWS', icon: <CloudQueue fontSize="small" /> },
-    { label: 'DataOps', icon: <BuildCircle fontSize="small" /> },
-  ];
-
-  // Função utilitária para checar se é um emoji (string)
-  const isString = (v) => typeof v === 'string';
+  // Handle clique em tecnologia específica
+  const handleSkillTechClick = (category, subcategory, tech) => {
+    const params = new URLSearchParams({
+      cat: category,
+      sub: subcategory,
+      tech: tech
+    });
+    navigate(`/projetos?${params.toString()}`);
+  };
 
   // Iniciar animações
   useEffect(() => {
@@ -403,35 +403,61 @@ const HeroSection = () => {
                     
                     {/* Segunda linha de especialidades */}
                     <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                      {specialtiesLine2.map((specialty, index) => (
-                        <motion.div
-                          key={specialty.label}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 2.5 + index * 0.1 }}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <Chip
-                            label={isString(specialty.icon) ? `${specialty.icon} ${specialty.label}` : specialty.label}
-                            icon={isString(specialty.icon) ? undefined : specialty.icon}
-                            variant="filled"
-                            sx={{
-                              backgroundColor: darkMode 
-                                ? 'rgba(77, 208, 225, 0.2)' 
-                                : 'rgba(0, 137, 123, 0.1)',
-                              color: darkMode ? '#e2e8f0' : '#1e293b',
-                              fontWeight: 500,
-                              fontSize: '0.875rem',
-                              height: '32px',
-                              '&:hover': {
-                                backgroundColor: darkMode 
-                                  ? 'rgba(77, 208, 225, 0.3)' 
-                                  : 'rgba(0, 137, 123, 0.2)',
-                              }
-                            }}
-                          />
-                        </motion.div>
-                      ))}
+                      {/* Chip principal de Engenharia de Dados */}
+                      <motion.div
+                        key="engenharia-dados-main"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 2.5 }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Chip
+                          label="Engenharia de Dados"
+                          icon={<Hub fontSize="small" />}
+                          variant="filled"
+                          sx={{
+                            backgroundColor: darkMode
+                              ? 'rgba(77, 208, 225, 0.2)'
+                              : 'rgba(0, 137, 123, 0.1)',
+                            color: darkMode ? '#e2e8f0' : '#1e293b',
+                            fontWeight: 500,
+                            fontSize: '0.875rem',
+                            height: '32px',
+                            '&:hover': {
+                              backgroundColor: darkMode
+                                ? 'rgba(77, 208, 225, 0.3)'
+                                : 'rgba(0, 137, 123, 0.2)',
+                            }
+                          }}
+                        />
+                      </motion.div>
+
+                      {/* Chips expansíveis para subcategorias */}
+                      {Object.entries(SKILL_TREE['Engenharia de Dados']).map(([subcategory, technologies], index) => {
+                        const iconMap = {
+                          'IaC': <BuildCircle fontSize="small" />,
+                          'CI/CD': <SyncAlt fontSize="small" />,
+                          'ETL/ELT': <DeviceHub fontSize="small" />,
+                          'Cloud AWS': <CloudQueue fontSize="small" />,
+                          'DataOps': <BuildCircle fontSize="small" />
+                        };
+
+                        return (
+                          <motion.div
+                            key={subcategory}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 2.6 + index * 0.1 }}
+                          >
+                            <ExpandableSkillChip
+                              label={subcategory}
+                              icon={iconMap[subcategory]}
+                              items={technologies}
+                              onItemClick={(tech) => handleSkillTechClick('Engenharia de Dados', subcategory, tech)}
+                            />
+                          </motion.div>
+                        );
+                      })}
                     </Stack>
                   </Stack>
                 </motion.div>
