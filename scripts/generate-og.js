@@ -37,6 +37,7 @@ async function generate() {
   const browser = await puppeteer.launch({
     headless: 'new',
     defaultViewport: { width: 1200, height: 630, deviceScaleFactor: 2 },
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   const page = await browser.newPage();
 
