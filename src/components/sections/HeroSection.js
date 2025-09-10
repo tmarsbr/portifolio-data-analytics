@@ -34,6 +34,13 @@ import {
   DeviceHub,
   Hub,
 } from '@mui/icons-material';
+import {
+  QueryStats,
+  DataObject,
+  Psychology,
+  Storage,
+  Calculate
+} from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -179,13 +186,33 @@ const HeroSection = () => {
   const { darkMode } = useTheme();
   const [animationStarted, setAnimationStarted] = useState(false);
 
-  // Primeira linha de especialidades - Ciência de Dados e Análise
+  // Primeira linha de especialidades com sub-skills (expansível)
   const specialtiesLine1 = [
-    { label: 'Data Science', icon: '📊' },
-    { label: 'Python', icon: '🐍' },
-    { label: 'Machine Learning', icon: '🤖' },
-    { label: 'SQL', icon: '🗃️' },
-    { label: 'Estatística', icon: '📈' },
+    {
+      label: 'Data Science',
+      icon: <QueryStats fontSize="small" />,
+      items: ['EDA', 'Visualização', 'Feature Engineering', 'Storytelling', 'Causalidade', 'Séries Temporais']
+    },
+    {
+      label: 'Python',
+      icon: <DataObject fontSize="small" />,
+      items: ['pandas', 'numpy', 'matplotlib', 'seaborn', 'plotly', 'scipy', 'polars', 'requests', 'jupyter']
+    },
+    {
+      label: 'Machine Learning',
+      icon: <Psychology fontSize="small" />,
+      items: ['scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'statsmodels', 'Optuna', 'OneHotEncoder', 'StandardScaler', 'Pipeline', 'Cross-Validation']
+    },
+    {
+      label: 'SQL',
+      icon: <Storage fontSize="small" />,
+      items: ['PostgreSQL', 'MySQL', 'SQLite', 'SQL Server', 'Oracle', 'Redshift', 'Athena', 'DuckDB']
+    },
+    {
+      label: 'Estatística',
+      icon: <Calculate fontSize="small" />,
+      items: ['Descritiva', 'Inferência', 'Testes de Hipótese', 'Regressão', 'ANOVA', 'P-valor', 'Intervalo de Confiança', 'Correlação', 'Séries Temporais']
+    },
   ];
 
   // Iniciar animações
@@ -357,7 +384,7 @@ const HeroSection = () => {
                 {/* Especialidades */}
                 <motion.div variants={itemVariants}>
                   <Stack spacing={2}>
-                    {/* Primeira linha de especialidades */}
+                    {/* Primeira linha de especialidades (expansível) */}
                     <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                       {specialtiesLine1.map((specialty, index) => (
                         <motion.div
@@ -365,25 +392,12 @@ const HeroSection = () => {
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 2 + index * 0.1 }}
-                          whileHover={{ scale: 1.05 }}
                         >
-                          <Chip
-                            label={`${specialty.icon} ${specialty.label}`}
-                            variant="filled"
-                            sx={{
-                              backgroundColor: darkMode 
-                                ? 'rgba(100, 181, 246, 0.2)' 
-                                : 'rgba(21, 101, 192, 0.1)',
-                              color: darkMode ? '#e2e8f0' : '#1e293b',
-                              fontWeight: 500,
-                              fontSize: '0.875rem',
-                              height: '32px',
-                              '&:hover': {
-                                backgroundColor: darkMode 
-                                  ? 'rgba(100, 181, 246, 0.3)' 
-                                  : 'rgba(21, 101, 192, 0.2)',
-                              }
-                            }}
+                          <HoverSkillChip
+                            label={specialty.label}
+                            icon={specialty.icon}
+                            items={specialty.items}
+                            placement="bottom-start"
                           />
                         </motion.div>
                       ))}

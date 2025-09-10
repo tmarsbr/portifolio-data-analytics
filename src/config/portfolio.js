@@ -10,7 +10,7 @@
 export const personalInfo = {
   name: "Tiago da Silva e Santo",
   fullName: "Tiago Da Silva E Santo",
-  title: "Full Stack em Dados e Analytics",
+  title: "Eng. de Dados | Data Science",
   subtitle: "Transformando dados em insights estratégicos para negócios",
   location: "São Paulo, SP",
   email: "tiagomars233@gmail.com",
@@ -21,7 +21,7 @@ export const personalInfo = {
   resume: `${process.env.PUBLIC_URL}/certificates/Curriculo_Tiago_Santo_Formatado.pdf`,
   
   // Resumo para a página inicial (1-2 frases)
-  homeIntro: "Atuo com a stack completa de dados — da engenharia de pipelines à análise estatística e modelos preditivos. Tenho paixão por transformar dados em decisões que geram impacto real nos negócios, sempre com foco em clareza, performance e valor.",
+  homeIntro: "Desenho e opero pipelines ETL/ELT (Airflow, dbt, Spark), modelo dados para analytics e sirvo features para ML. Foco em escalabilidade, custo e qualidade com IaC, CI/CD e DataOps na AWS.",
   
   // Descrição expandida para a seção Sobre
   aboutDescription: `Da Oficina para os Dados
@@ -646,16 +646,16 @@ export const themeConfig = {
  * @includes title, description, keywords, Open Graph, Twitter Cards
  */
 export const seoConfig = {
-  title: "Tiago Silva - Full Stack em Data & Analytics",
-  description: "Portfólio de Tiago Silva, Full Stack em Data & Analytics. Projetos em Python, Machine Learning, análise de dados e visualização. Transformando dados em insights estratégicos.",
-  keywords: "data analytics, data science, python, machine learning, análise de dados, sql, portfolio, tiago silva",
+  title: "Tiago Silva — Eng. de Dados | Data Science",
+  description: "Engenharia de Dados e Data Science: ETL/ELT (Airflow, dbt, Spark), analytics e features para ML. IaC, CI/CD e DataOps na AWS.",
+  keywords: "engenharia de dados, data engineering, data science, analytics, python, machine learning, sql, aws, airflow, dbt, spark, tiago silva, portfólio",
   author: "Tiago Silva",
   url: "https://tmarsbr.github.io/portifolio-data-analytics", // URL do GitHub Pages
   image: `${process.env.PUBLIC_URL}/og-image.jpg`, // Adicione uma imagem de preview
   
   // Open Graph
-  ogTitle: "Tiago Silva - Data & Analytics Portfolio",
-  ogDescription: "Full Stack em Data & Analytics com projetos em Python, Machine Learning e visualização de dados. Veja meus projetos e entre em contato!",
+  ogTitle: "Tiago Silva — Eng. de Dados | Data Science",
+  ogDescription: "ETL/ELT (Airflow, dbt, Spark), modelagem para analytics e features de ML. IaC, CI/CD e DataOps na AWS.",
   twitterCard: "summary_large_image",
   twitterCreator: "@tiagodados" // Se tiver Twitter
 };
