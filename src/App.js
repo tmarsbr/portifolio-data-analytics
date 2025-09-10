@@ -23,7 +23,7 @@ import Contact from './pages/Contact';
 import Certificacoes from './pages/Certificacoes';
 
 // Configurações
-import { seoConfig } from './config/portfolio';
+import { seoConfig, personalInfo } from './config/portfolio';
 
 /**
  * App - Componente raiz do portfólio
@@ -99,6 +99,30 @@ function AppContent() {
         {/* Outros meta tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href={seoConfig.url} />
+        {/* JSON-LD: Person */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: personalInfo.fullName || personalInfo.name,
+            jobTitle: personalInfo.title,
+            url: seoConfig.url,
+            email: `mailto:${personalInfo.email}`,
+            telephone: personalInfo.phone,
+            sameAs: [personalInfo.linkedin, personalInfo.github].filter(Boolean)
+          })}
+        </script>
+        {/* JSON-LD: WebSite */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: seoConfig.title,
+            url: seoConfig.url,
+            description: seoConfig.description,
+            inLanguage: 'pt-BR'
+          })}
+        </script>
       </Helmet>
       
       <div className="App">

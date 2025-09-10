@@ -29,7 +29,7 @@ Tudo começou com barulho de torno, cheiro de óleo e precisão milimétrica. Na
 
 Hoje, essa precisão virou código. Projeto pipelines, organizo dados brutos, crio dashboards, desenvolvo modelos preditivos e conto histórias com dados reais. Da engenharia à análise, passando pela ciência de dados, aplico o mesmo rigor técnico que aprendi na mecânica para transformar números em decisões inteligentes.
 
-Porque no fim, seja no aço ou no algoritmo, o detalhe certo no lugar certo muda tudo.`,
+Tolerância apertada e processo confiável geram qualidade — em aço e em dados.`,
 
 
   // Avatar/Foto (deixe vazio para usar placeholder)
@@ -72,6 +72,13 @@ export const SKILL_TREE = {
     'ETL/ELT': ['Airbyte', 'dbt', 'Apache Spark', 'Python'],
     'Cloud AWS': ['S3', 'EMR', 'Redshift', 'Glue', 'Athena', 'DynamoDB', 'QuickSight', 'SageMaker'],
     'DataOps': ['Apache Airflow']
+  },
+  'Data Science': {
+    'Data Science': ['EDA', 'Visualização', 'Feature Engineering', 'Storytelling', 'Causalidade', 'Séries Temporais'],
+    'Python': ['pandas', 'numpy', 'matplotlib', 'seaborn', 'plotly', 'scipy', 'polars', 'requests', 'jupyter'],
+    'Machine Learning': ['scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'statsmodels', 'Optuna', 'OneHotEncoder', 'StandardScaler', 'Pipeline', 'Cross-Validation'],
+    'SQL': ['PostgreSQL', 'MySQL', 'SQLite', 'SQL Server', 'Oracle', 'Redshift', 'Athena', 'DuckDB'],
+    'Estatística': ['Descritiva', 'Inferência', 'Testes de Hipótese', 'Regressão', 'ANOVA', 'P-valor', 'Intervalo de Confiança', 'Correlação', 'Séries Temporais']
   }
 };
 

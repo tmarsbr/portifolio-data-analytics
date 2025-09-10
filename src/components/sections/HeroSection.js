@@ -186,34 +186,20 @@ const HeroSection = () => {
   const { darkMode } = useTheme();
   const [animationStarted, setAnimationStarted] = useState(false);
 
-  // Primeira linha de especialidades com sub-skills (expansível)
-  const specialtiesLine1 = [
-    {
-      label: 'Data Science',
-      icon: <QueryStats fontSize="small" />,
-      items: ['EDA', 'Visualização', 'Feature Engineering', 'Storytelling', 'Causalidade', 'Séries Temporais']
-    },
-    {
-      label: 'Python',
-      icon: <DataObject fontSize="small" />,
-      items: ['pandas', 'numpy', 'matplotlib', 'seaborn', 'plotly', 'scipy', 'polars', 'requests', 'jupyter']
-    },
-    {
-      label: 'Machine Learning',
-      icon: <Psychology fontSize="small" />,
-      items: ['scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'statsmodels', 'Optuna', 'OneHotEncoder', 'StandardScaler', 'Pipeline', 'Cross-Validation']
-    },
-    {
-      label: 'SQL',
-      icon: <Storage fontSize="small" />,
-      items: ['PostgreSQL', 'MySQL', 'SQLite', 'SQL Server', 'Oracle', 'Redshift', 'Athena', 'DuckDB']
-    },
-    {
-      label: 'Estatística',
-      icon: <Calculate fontSize="small" />,
-      items: ['Descritiva', 'Inferência', 'Testes de Hipótese', 'Regressão', 'ANOVA', 'P-valor', 'Intervalo de Confiança', 'Correlação', 'Séries Temporais']
-    },
-  ];
+  // Primeira linha de especialidades com sub-skills (lidas do SKILL_TREE)
+  const dsIconMap = {
+    'Data Science': <QueryStats fontSize="small" />,
+    'Python': <DataObject fontSize="small" />,
+    'Machine Learning': <Psychology fontSize="small" />,
+    'SQL': <Storage fontSize="small" />,
+    'Estatística': <Calculate fontSize="small" />,
+  };
+
+  const specialtiesLine1 = Object.entries(SKILL_TREE['Data Science'] || {}).map(([label, items]) => ({
+    label,
+    icon: dsIconMap[label] || <QueryStats fontSize="small" />,
+    items,
+  }));
 
   // Iniciar animações
   useEffect(() => {
