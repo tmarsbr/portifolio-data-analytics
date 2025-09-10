@@ -11,7 +11,6 @@ import {
   Button,
   IconButton,
   Modal,
-  TextField,
   useTheme,
 } from '@mui/material';
 import { Helmet } from 'react-helmet';
@@ -20,11 +19,12 @@ import {
   Launch,
   TrendingUp,
   Close,
-  Search,
 } from '@mui/icons-material';
 
-import { projects, personalInfo } from '../config/portfolio';
+import { projects, personalInfo, PROJECT_SUBCATEGORIES } from '../config/portfolio';
 import CategoryPills from '../components/common/CategoryPills';
+import SubCategoryPills from '../components/common/SubCategoryPills';
+import { useProjectFilter } from '../hooks/useProjectFilter';
 
 /**
  * Projects - Portfólio de projetos
@@ -45,23 +45,28 @@ import CategoryPills from '../components/common/CategoryPills';
 const Projects = () => {
   const theme = useTheme();
   const [selectedProject, setSelectedProject] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
+  const [subcategoryFilter, setSubcategoryFilter] = useState('Todos');
 
   const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23f5f5f5'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='14' fill='%23999'%3eImagem do Projeto%3c/text%3e%3c/svg%3e";
 
   // Lista de categorias para os pills
   const categories = ['Todos', 'Análise de Dados', 'Engenharia de Dados', 'Ciência de Dados', 'API & Scraping'];
 
-  // Filtrar projetos
-  const filteredProjects = projects.filter(project => {
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesCategory = categoryFilter === 'all' || project.category === categoryFilter;
-    return matchesSearch && matchesCategory;
-  });
+  // Usar hook para filtrar projetos
+  const { filtered: filteredProjects, count, total } = useProjectFilter(
+    projects,
+    categoryFilter === 'all' ? 'Todos' : categoryFilter,
+    subcategoryFilter
+  );
 
+  // Função para lidar com mudança de categoria
+  const handleCategoryChange = (newCategory) => {
+    setCategoryFilter(newCategory);
+    setSubcategoryFilter('Todos'); // Resetar subcategoria ao mudar categoria
+  };
+
+  // Função para abrir modal do projeto
   const handleProjectClick = (project) => {
     setSelectedProject(project);
   };
@@ -198,46 +203,23 @@ const Projects = () => {
               alignItems: { xs: 'stretch', md: 'center' },
             }}
           >
-            {/* Busca */}
-            <TextField
-              placeholder="Buscar projetos, tecnologias..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              variant="outlined"
-              size="small"
-              sx={{
-                flex: 1,
-                maxWidth: { xs: '100%', md: 400 },
-                '& .MuiOutlinedInput-root': {
-                  backgroundColor: theme.palette.mode === 'dark' ? '#334155' : 'background.paper',
-                  color: theme.palette.mode === 'dark' ? '#f8fafc' : 'text.primary',
-                  '& fieldset': {
-                    borderColor: theme.palette.mode === 'dark' ? '#475569' : theme.palette.divider,
-                  },
-                  '&:hover fieldset': {
-                    borderColor: theme.palette.mode === 'dark' ? '#64748b' : theme.palette.primary.main,
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: theme.palette.primary.main,
-                  },
-                },
-                '& .MuiInputBase-input::placeholder': {
-                  color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary',
-                  opacity: 1,
-                },
-              }}
-              InputProps={{
-                startAdornment: <Search sx={{ mr: 1, color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary' }} />,
-              }}
-            />
           </Box>
 
           {/* Pills de categoria */}
           <CategoryPills
             categories={categories}
             active={categoryFilter}
-            onChange={setCategoryFilter}
+            onChange={handleCategoryChange}
           />
+
+          {/* Pills de subcategoria */}
+          {categoryFilter !== 'all' && (
+            <SubCategoryPills
+              subcategories={PROJECT_SUBCATEGORIES[categoryFilter] || []}
+              active={subcategoryFilter}
+              onChange={setSubcategoryFilter}
+            />
+          )}
 
           {/* Contador de resultados */}
           <Typography
@@ -249,9 +231,9 @@ const Projects = () => {
               fontWeight: 500,
             }}
           >
-            {filteredProjects.length === projects.length
-              ? `Mostrando todos os ${projects.length} projetos`
-              : `${filteredProjects.length} de ${projects.length} projetos encontrados`
+            {count === total
+              ? `Mostrando todos os ${total} projetos`
+              : `${count} de ${total} projetos encontrados`
             }
           </Typography>
         </Container>
@@ -293,8 +275,8 @@ const Projects = () => {
               <Button
                 variant="outlined"
                 onClick={() => {
-                  setSearchTerm('');
                   setCategoryFilter('all');
+                  setSubcategoryFilter('Todos');
                 }}
               >
                 Limpar Filtros
