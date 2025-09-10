@@ -182,13 +182,13 @@ const HeroSection = () => {
     { label: 'Estatística', icon: '📈' },
   ];
 
-  // Segunda linha de especialidades - Engenharia de Dados
+  // Segunda linha de especialidades — Engenharia de Dados (Home)
   const specialtiesLine2 = [
-    { label: 'Engenharia de Dados', icon: '🔄' },
-    { label: 'ETL/Data Pipeline', icon: '🔄' },
-    { label: 'Apache Spark', icon: '⚡' },
-    { label: 'Docker', icon: '🐳' },
-    { label: 'AWS/Cloud', icon: '☁️' },
+    { label: 'IaC', icon: '' },
+    { label: 'CI/CD', icon: '' },
+    { label: 'ETL/ELT', icon: '' },
+    { label: 'Cloud AWS', icon: '☁️' },
+    { label: 'DataOps', icon: '' },
   ];
 
   // Iniciar animações
