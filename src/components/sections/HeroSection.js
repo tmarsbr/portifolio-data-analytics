@@ -28,12 +28,19 @@ import {
   LinkedIn,
   Email,
   Download,
+  CloudQueue,
+  BuildCircle,
+  SyncAlt,
+  DeviceHub,
+  Hub,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 
 import { personalInfo } from '../../config/portfolio';
+import { SKILL_TREE } from '../../config/portfolio';
+import HoverSkillChip from '../common/HoverSkillChip';
 
 // Componente para efeito de digitação
 const TypewriterEffect = ({ text, delay = 0 }) => {
@@ -180,15 +187,6 @@ const HeroSection = () => {
     { label: 'Machine Learning', icon: '🤖' },
     { label: 'SQL', icon: '🗃️' },
     { label: 'Estatística', icon: '📈' },
-  ];
-
-  // Segunda linha de especialidades - Engenharia de Dados
-  const specialtiesLine2 = [
-    { label: 'Engenharia de Dados', icon: '🔄' },
-    { label: 'ETL/Data Pipeline', icon: '🔄' },
-    { label: 'Apache Spark', icon: '⚡' },
-    { label: 'Docker', icon: '🐳' },
-    { label: 'AWS/Cloud', icon: '☁️' },
   ];
 
   // Iniciar animações
@@ -394,34 +392,61 @@ const HeroSection = () => {
                     
                     {/* Segunda linha de especialidades */}
                     <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                      {specialtiesLine2.map((specialty, index) => (
-                        <motion.div
-                          key={specialty.label}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 2.5 + index * 0.1 }}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <Chip
-                            label={`${specialty.icon} ${specialty.label}`}
-                            variant="filled"
-                            sx={{
-                              backgroundColor: darkMode 
-                                ? 'rgba(77, 208, 225, 0.2)' 
-                                : 'rgba(0, 137, 123, 0.1)',
-                              color: darkMode ? '#e2e8f0' : '#1e293b',
-                              fontWeight: 500,
-                              fontSize: '0.875rem',
-                              height: '32px',
-                              '&:hover': {
-                                backgroundColor: darkMode 
-                                  ? 'rgba(77, 208, 225, 0.3)' 
-                                  : 'rgba(0, 137, 123, 0.2)',
-                              }
-                            }}
-                          />
-                        </motion.div>
-                      ))}
+                      {/* Chip principal de Engenharia de Dados */}
+                      <motion.div
+                        key="engenharia-dados-main"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 2.5 }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Chip
+                          label="Engenharia de Dados"
+                          icon={<Hub fontSize="small" />}
+                          variant="filled"
+                          sx={{
+                            backgroundColor: darkMode
+                              ? 'rgba(77, 208, 225, 0.2)'
+                              : 'rgba(0, 137, 123, 0.1)',
+                            color: darkMode ? '#e2e8f0' : '#1e293b',
+                            fontWeight: 500,
+                            fontSize: '0.875rem',
+                            height: '32px',
+                            '&:hover': {
+                              backgroundColor: darkMode
+                                ? 'rgba(77, 208, 225, 0.3)'
+                                : 'rgba(0, 137, 123, 0.2)',
+                            }
+                          }}
+                        />
+                      </motion.div>
+
+                      {/* Chips expansíveis para subcategorias */}
+                      {Object.entries(SKILL_TREE['Engenharia de Dados']).map(([subcategory, technologies], index) => {
+                        const iconMap = {
+                          'IaC': <BuildCircle fontSize="small" />,
+                          'CI/CD': <SyncAlt fontSize="small" />,
+                          'ETL/ELT': <DeviceHub fontSize="small" />,
+                          'Cloud AWS': <CloudQueue fontSize="small" />,
+                          'DataOps': <BuildCircle fontSize="small" />
+                        };
+
+                        return (
+                          <motion.div
+                            key={subcategory}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 2.6 + index * 0.1 }}
+                          >
+                            <HoverSkillChip
+                              label={subcategory}
+                              icon={iconMap[subcategory]}
+                              items={technologies}
+                              placement="bottom-start"
+                            />
+                          </motion.div>
+                        );
+                      })}
                     </Stack>
                   </Stack>
                 </motion.div>
