@@ -29,7 +29,7 @@ Tudo começou com barulho de torno, cheiro de óleo e precisão milimétrica. Na
 
 Hoje, essa precisão virou código. Projeto pipelines, organizo dados brutos, crio dashboards, desenvolvo modelos preditivos e conto histórias com dados reais. Da engenharia à análise, passando pela ciência de dados, aplico o mesmo rigor técnico que aprendi na mecânica para transformar números em decisões inteligentes.
 
-Porque no fim, seja no aço ou no algoritmo, o detalhe certo no lugar certo muda tudo.`,
+Tolerância apertada e processo confiável geram qualidade — em aço e em dados.`,
 
 
   // Avatar/Foto (deixe vazio para usar placeholder)

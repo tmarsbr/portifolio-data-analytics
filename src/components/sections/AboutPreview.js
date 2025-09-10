@@ -133,7 +133,7 @@ const AboutPreview = () => {
                   fontWeight: 500,
                 }}
               >
-                Porque no fim, seja no aço ou no algoritmo, o detalhe certo no lugar certo muda tudo.
+                Tolerância apertada e processo confiável geram qualidade — em aço e em dados.
               </Typography>
 
               <Button
