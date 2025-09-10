@@ -4,11 +4,7 @@ import { Helmet } from 'react-helmet';
 // Seções da página Home
 import HeroSection from '../components/sections/HeroSection';
 import AboutPreview from '../components/sections/AboutPreview';
-import SkillsSection from '../components/sections/SkillsSection';
-import ExperienceTimeline from '../components/sections/ExperienceTimeline';
 import ProjectsPreview from '../components/sections/ProjectsPreview';
-import CertificatesPreview from '../components/sections/CertificatesPreview';
-import ContactSection from '../components/sections/ContactSection';
 
 // Configurações
 import { seoConfig } from '../config/portfolio';
@@ -50,11 +46,7 @@ const Home = () => {
       {/* Página Home principal */}
       <HeroSection />
       <AboutPreview />
-      <SkillsSection />
-      <ExperienceTimeline />
       <ProjectsPreview />
-      <CertificatesPreview />
-      <ContactSection />
     </>
   );
 };
