@@ -40,7 +40,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 
 import { personalInfo } from '../../config/portfolio';
 import { SKILL_TREE } from '../../config/portfolio';
-import ExpandableSkillChip from '../common/ExpandableSkillChip';
+import HoverSkillChip from '../common/HoverSkillChip';
 
 // Componente para efeito de digitação
 const TypewriterEffect = ({ text, delay = 0 }) => {
@@ -438,10 +438,11 @@ const HeroSection = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 2.6 + index * 0.1 }}
                           >
-                            <ExpandableSkillChip
+                            <HoverSkillChip
                               label={subcategory}
                               icon={iconMap[subcategory]}
                               items={technologies}
+                              placement="bottom-start"
                             />
                           </motion.div>
                         );
