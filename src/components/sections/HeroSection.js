@@ -34,7 +34,7 @@ import {
   DeviceHub,
   Hub,
 } from '@mui/icons-material';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 
@@ -178,7 +178,6 @@ const FloatingParticles = () => {
 
 const HeroSection = () => {
   const { darkMode } = useTheme();
-  const navigate = useNavigate();
   const [animationStarted, setAnimationStarted] = useState(false);
 
   // Primeira linha de especialidades - Ciência de Dados e Análise
@@ -189,16 +188,6 @@ const HeroSection = () => {
     { label: 'SQL', icon: '🗃️' },
     { label: 'Estatística', icon: '📈' },
   ];
-
-  // Handle clique em tecnologia específica
-  const handleSkillTechClick = (category, subcategory, tech) => {
-    const params = new URLSearchParams({
-      cat: category,
-      sub: subcategory,
-      tech: tech
-    });
-    navigate(`/projetos?${params.toString()}`);
-  };
 
   // Iniciar animações
   useEffect(() => {
@@ -453,7 +442,6 @@ const HeroSection = () => {
                               label={subcategory}
                               icon={iconMap[subcategory]}
                               items={technologies}
-                              onItemClick={(tech) => handleSkillTechClick('Engenharia de Dados', subcategory, tech)}
                             />
                           </motion.div>
                         );

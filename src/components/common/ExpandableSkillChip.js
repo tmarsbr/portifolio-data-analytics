@@ -3,7 +3,6 @@ import {
   Chip,
   Collapse,
   Box,
-  Stack,
   useTheme,
 } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -13,14 +12,12 @@ import { motion } from 'framer-motion';
  * @param {string} label - Rótulo principal do chip
  * @param {ReactNode} icon - Ícone do chip principal
  * @param {string[]} items - Lista de sub-tecnologias
- * @param {function} onItemClick - Callback quando um sub-item é clicado
  * @param {boolean} defaultOpen - Se deve iniciar expandido
  */
 const ExpandableSkillChip = ({
   label,
   icon,
   items = [],
-  onItemClick,
   defaultOpen = false
 }) => {
   const theme = useTheme();
@@ -40,13 +37,6 @@ const ExpandableSkillChip = ({
       handleToggle();
     } else if (event.key === 'Escape' && isExpanded) {
       setIsExpanded(false);
-    }
-  };
-
-  // Handle click em sub-item
-  const handleItemClick = (item) => {
-    if (onItemClick) {
-      onItemClick(item);
     }
   };
 
@@ -136,13 +126,7 @@ const ExpandableSkillChip = ({
               minWidth: 200,
             }}
           >
-            <Stack
-              direction="row"
-              spacing={1}
-              flexWrap="wrap"
-              useFlexGap
-              sx={{ gap: 1 }}
-            >
+            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
               {items.map((item, index) => (
                 <motion.div
                   key={item}
@@ -157,24 +141,13 @@ const ExpandableSkillChip = ({
                     label={item}
                     size="small"
                     variant="outlined"
-                    onClick={() => handleItemClick(item)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        handleItemClick(item);
-                      }
-                    }}
-                    role="button"
-                    tabIndex={0}
                     sx={{
                       fontSize: '0.75rem',
                       height: '28px',
-                      cursor: 'pointer',
+                      cursor: 'default',
                       transition: 'all 0.2s ease-in-out',
                       '&:hover': {
-                        backgroundColor: theme.palette.primary.main,
-                        color: theme.palette.primary.contrastText,
-                        borderColor: theme.palette.primary.main,
+                        backgroundColor: theme.palette.action.hover,
                       },
                       '&:focus': {
                         outline: `2px solid ${theme.palette.primary.main}`,
@@ -184,7 +157,7 @@ const ExpandableSkillChip = ({
                   />
                 </motion.div>
               ))}
-            </Stack>
+            </Box>
           </Box>
         </motion.div>
       </Collapse>

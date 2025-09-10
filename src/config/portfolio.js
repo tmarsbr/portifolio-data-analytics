@@ -67,11 +67,11 @@ export const PROJECT_SUBCATEGORIES = {
  */
 export const SKILL_TREE = {
   'Engenharia de Dados': {
-    'IaC': ['Terraform', 'CloudFormation', 'Pulumi'],
+    'IaC': ['Terraform'],
     'CI/CD': ['GitHub Actions', 'Docker', 'Kubernetes'],
-    'ETL/ELT': ['Airbyte', 'dbt', 'Apache Spark'],
-    'Cloud AWS': ['S3', 'EMR', 'Redshift', 'Glue'],
-    'DataOps': ['Great Expectations', 'OpenLineage', 'Apache Airflow']
+    'ETL/ELT': ['Airbyte', 'dbt', 'Apache Spark', 'Python'],
+    'Cloud AWS': ['S3', 'EMR', 'Redshift', 'Glue', 'Athena', 'DynamoDB', 'QuickSight', 'SageMaker'],
+    'DataOps': ['Apache Airflow']
   }
 };
 
