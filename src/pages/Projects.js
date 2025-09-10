@@ -12,10 +12,6 @@ import {
   IconButton,
   Modal,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   useTheme,
 } from '@mui/material';
 import { Helmet } from 'react-helmet';
@@ -24,11 +20,11 @@ import {
   Launch,
   TrendingUp,
   Close,
-  FilterList,
   Search,
 } from '@mui/icons-material';
 
 import { projects, personalInfo } from '../config/portfolio';
+import CategoryPills from '../components/common/CategoryPills';
 
 /**
  * Projects - Portfólio de projetos
@@ -51,12 +47,11 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
-  const [showFilters, setShowFilters] = useState(false);
 
   const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23f5f5f5'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='14' fill='%23999'%3eImagem do Projeto%3c/text%3e%3c/svg%3e";
 
-  // Obter categorias únicas
-  const categories = ['all', ...new Set(projects.map(project => project.category))];
+  // Lista de categorias para os pills
+  const categories = ['Todos', 'Análise de Dados', 'Engenharia de Dados', 'Ciência de Dados', 'API & Scraping'];
 
   // Filtrar projetos
   const filteredProjects = projects.filter(project => {
@@ -235,87 +230,14 @@ const Projects = () => {
                 startAdornment: <Search sx={{ mr: 1, color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary' }} />,
               }}
             />
-
-            {/* Filtro de categoria */}
-            <FormControl size="small" sx={{ minWidth: 200 }}>
-              <InputLabel 
-                sx={{ 
-                  color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary',
-                  '&.Mui-focused': {
-                    color: theme.palette.primary.main,
-                  },
-                }}
-              >
-                Categoria
-              </InputLabel>
-              <Select
-                value={categoryFilter}
-                onChange={(e) => setCategoryFilter(e.target.value)}
-                label="Categoria"
-                sx={{
-                  backgroundColor: theme.palette.mode === 'dark' ? '#334155' : 'background.paper',
-                  color: theme.palette.mode === 'dark' ? '#f8fafc' : 'text.primary',
-                  '& .MuiOutlinedInput-notchedOutline': {
-                    borderColor: theme.palette.mode === 'dark' ? '#475569' : theme.palette.divider,
-                  },
-                  '&:hover .MuiOutlinedInput-notchedOutline': {
-                    borderColor: theme.palette.mode === 'dark' ? '#64748b' : theme.palette.primary.main,
-                  },
-                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                    borderColor: theme.palette.primary.main,
-                  },
-                  '& .MuiSvgIcon-root': {
-                    color: theme.palette.mode === 'dark' ? '#94a3b8' : 'text.secondary',
-                  },
-                }}
-                MenuProps={{
-                  PaperProps: {
-                    sx: {
-                      backgroundColor: theme.palette.mode === 'dark' ? '#334155' : 'background.paper',
-                      '& .MuiMenuItem-root': {
-                        color: theme.palette.mode === 'dark' ? '#f8fafc' : 'text.primary',
-                        '&:hover': {
-                          backgroundColor: theme.palette.mode === 'dark' ? '#475569' : 'action.hover',
-                        },
-                        '&.Mui-selected': {
-                          backgroundColor: theme.palette.mode === 'dark' ? '#475569' : 'action.selected',
-                          '&:hover': {
-                            backgroundColor: theme.palette.mode === 'dark' ? '#64748b' : 'action.selected',
-                          },
-                        },
-                      },
-                    },
-                  },
-                }}
-              >
-                {categories.map((category) => (
-                  <MenuItem key={category} value={category}>
-                    {category === 'all' ? 'Todas as Categorias' : category}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-
-            {/* Botão de filtros avançados */}
-            <Button
-              variant="outlined"
-              startIcon={<FilterList />}
-              onClick={() => setShowFilters(!showFilters)}
-              sx={{
-                minWidth: 'auto',
-                px: 3,
-                borderColor: theme.palette.mode === 'dark' ? '#475569' : theme.palette.divider,
-                color: theme.palette.mode === 'dark' ? '#f8fafc' : 'text.primary',
-                backgroundColor: theme.palette.mode === 'dark' ? '#334155' : 'transparent',
-                '&:hover': {
-                  borderColor: theme.palette.mode === 'dark' ? '#64748b' : theme.palette.primary.main,
-                  backgroundColor: theme.palette.mode === 'dark' ? '#475569' : 'action.hover',
-                },
-              }}
-            >
-              Filtros
-            </Button>
           </Box>
+
+          {/* Pills de categoria */}
+          <CategoryPills
+            categories={categories}
+            active={categoryFilter}
+            onChange={setCategoryFilter}
+          />
 
           {/* Contador de resultados */}
           <Typography
