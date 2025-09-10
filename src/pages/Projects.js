@@ -22,7 +22,7 @@ import {
 } from '@mui/icons-material';
 import { useLocation } from 'react-router-dom';
 
-import { projects, personalInfo, PROJECT_SUBCATEGORIES } from '../config/portfolio';
+import { projects, personalInfo, PROJECT_SUBCATEGORIES, seoConfig } from '../config/portfolio';
 import CategoryPills from '../components/common/CategoryPills';
 import SubCategoryPills from '../components/common/SubCategoryPills';
 import { useProjectFilter } from '../hooks/useProjectFilter';
@@ -116,6 +116,24 @@ const Projects = () => {
         <meta name="description" content={`Explore os projetos de Data & Analytics de ${personalInfo.name}. Soluções em Python, Machine Learning, análise de dados e visualização.`} />
         <meta property="og:title" content={`Projetos de Data & Analytics - ${personalInfo.name}`} />
         <meta property="og:description" content="Portfólio completo de projetos em Data Science, Machine Learning e análise de dados com tecnologias modernas." />
+        {/* JSON-LD: ItemList de projetos */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            itemListElement: projects.map((p, idx) => ({
+              '@type': 'ListItem',
+              position: idx + 1,
+              item: {
+                '@type': 'CreativeWork',
+                name: p.title,
+                description: p.description,
+                url: p.github || p.demo || seoConfig.url + '/projects',
+                image: p.image || undefined
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

@@ -72,6 +72,13 @@ export const SKILL_TREE = {
     'ETL/ELT': ['Airbyte', 'dbt', 'Apache Spark', 'Python'],
     'Cloud AWS': ['S3', 'EMR', 'Redshift', 'Glue', 'Athena', 'DynamoDB', 'QuickSight', 'SageMaker'],
     'DataOps': ['Apache Airflow']
+  },
+  'Data Science': {
+    'Data Science': ['EDA', 'Visualização', 'Feature Engineering', 'Storytelling', 'Causalidade', 'Séries Temporais'],
+    'Python': ['pandas', 'numpy', 'matplotlib', 'seaborn', 'plotly', 'scipy', 'polars', 'requests', 'jupyter'],
+    'Machine Learning': ['scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'statsmodels', 'Optuna', 'OneHotEncoder', 'StandardScaler', 'Pipeline', 'Cross-Validation'],
+    'SQL': ['PostgreSQL', 'MySQL', 'SQLite', 'SQL Server', 'Oracle', 'Redshift', 'Athena', 'DuckDB'],
+    'Estatística': ['Descritiva', 'Inferência', 'Testes de Hipótese', 'Regressão', 'ANOVA', 'P-valor', 'Intervalo de Confiança', 'Correlação', 'Séries Temporais']
   }
 };
 
