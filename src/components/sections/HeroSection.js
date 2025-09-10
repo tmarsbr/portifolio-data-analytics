@@ -38,8 +38,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 
-import { personalInfo } from '../../config/portfolio';
-import { SKILL_TREE } from '../../config/portfolio';
+import { personalInfo, SKILL_TREE } from '../../config/portfolio';
 import HoverSkillChip from '../common/HoverSkillChip';
 
 // Componente para efeito de digitação
