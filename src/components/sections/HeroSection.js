@@ -28,6 +28,10 @@ import {
   LinkedIn,
   Email,
   Download,
+  CloudQueue,
+  BuildCircle,
+  Sync,
+  DeviceHub,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -182,13 +186,13 @@ const HeroSection = () => {
     { label: 'Estatística', icon: '📈' },
   ];
 
-  // Segunda linha de especialidades - Engenharia de Dados
+  // Segunda linha de especialidades — Engenharia de Dados (Home)
   const specialtiesLine2 = [
-    { label: 'Engenharia de Dados', icon: '🔄' },
-    { label: 'ETL/Data Pipeline', icon: '🔄' },
-    { label: 'Apache Spark', icon: '⚡' },
-    { label: 'Docker', icon: '🐳' },
-    { label: 'AWS/Cloud', icon: '☁️' },
+    { label: 'IaC', icon: <DeviceHub /> },
+    { label: 'CI/CD', icon: <BuildCircle /> },
+    { label: 'ETL/ELT', icon: <Sync /> },
+    { label: 'Cloud AWS', icon: <CloudQueue /> },
+    { label: 'DataOps', icon: '' },
   ];
 
   // Iniciar animações
