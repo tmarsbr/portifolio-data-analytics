@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/portifolio-data-analytics/static/css/main.9ec696cb.css",
+    "main.js": "/portifolio-data-analytics/static/js/main.329e1281.js",
+    "index.html": "/portifolio-data-analytics/index.html",
+    "main.9ec696cb.css.map": "/portifolio-data-analytics/static/css/main.9ec696cb.css.map",
+    "main.329e1281.js.map": "/portifolio-data-analytics/static/js/main.329e1281.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ec696cb.css",
+    "static/js/main.329e1281.js"
+  ]
+}
