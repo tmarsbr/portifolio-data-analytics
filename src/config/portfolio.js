@@ -33,7 +33,7 @@ Tolerância apertada e processo confiável geram qualidade — em aço e em dado
 
 
   // Avatar/Foto (deixe vazio para usar placeholder)
-  avatar: "", // Adicione o caminho da sua foto aqui
+  avatar: `${process.env.PUBLIC_URL}/imagem/perfil.jpeg`, // Adicione o caminho da sua foto aqui
 };
 
 /**
@@ -236,7 +236,7 @@ export const projects = [
     description: "🐙 Sistema automatizado que extraiu e analisou dados de +1000 repositórios de 15 grandes empresas tech via API GitHub, revelando tendências de desenvolvimento.",
     longDescription: "Sistema automatizado para coleta e análise de dados de repositórios GitHub de grandes empresas de tecnologia. Utilizou API do GitHub para extrair informações sobre linguagens, atividade e tendências de desenvolvimento, gerando insights sobre o ecossistema tech.",
     technologies: ["Python", "GitHub API", "Pandas", "Requests", "JSON"],
-    category: "API & Web Scraping",
+    category: "Engenharia de Dados",
     subcategories: ["API REST", "Scraping"],
     image: `${process.env.PUBLIC_URL}/projects/capa_github_analysis.png`,
     github: "https://github.com/tmarsbr/Projeto_api",
@@ -262,6 +262,87 @@ export const projects = [
     featured: true,
     complexity: 4,
     date: "2024"
+  },
+  // Novos projetos de Engenharia de Dados
+  {
+    id: 100,
+    title: "Automatizando Infraestrutura de Processamento de Dados com AWS EMR e Apache Flink",
+    impactPhrase: "☁️ Infraestrutura Automatizada | Engenharia de Dados",
+    description: "Automatizei a criação de clusters EMR e pipelines de streaming com Apache Flink para processamento escalável de dados na AWS.",
+    longDescription: "Projeto focado em automação de infraestrutura de dados utilizando AWS EMR e Apache Flink. Criação de pipelines de streaming para processamento em tempo real, provisionamento automatizado com IaC e integração com serviços AWS.",
+    technologies: ["AWS EMR", "Apache Flink", "IaC", "Python"],
+    category: "Engenharia de Dados",
+    subcategories: ["Cloud AWS", "ETL/ELT"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_aws_emr_flink.png`,
+    github: "",
+    demo: "",
+    metrics: "Provisionamento automatizado, processamento em tempo real",
+    featured: false,
+    date: "2025"
+  },
+  {
+    id: 101,
+    title: "Pipeline PySpark Para Extrair, Transformar e Carregar Arquivos JSON em Banco de Dados",
+    impactPhrase: "⚡ ETL Escalável | Engenharia de Dados",
+    description: "Pipeline PySpark para ETL de grandes volumes de arquivos JSON, integrando dados em bancos relacionais.",
+    longDescription: "Desenvolvimento de pipeline ETL com PySpark para extração, transformação e carga de arquivos JSON em bancos de dados. Foco em performance, paralelismo e automação de processos.",
+    technologies: ["PySpark", "JSON", "ETL", "SQL"],
+    category: "Engenharia de Dados",
+    subcategories: ["ETL/ELT"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_pyspark_etl_json.png`,
+    github: "",
+    demo: "",
+    metrics: "Processamento de grandes volumes, automação de ETL",
+    featured: false,
+    date: "2025"
+  },
+  {
+    id: 102,
+    title: "Pipeline de Limpeza e Transformação Para Aplicações de IA com PySpark SQL",
+    impactPhrase: "🧠 IA & Dados Limpos | Engenharia de Dados",
+    description: "Pipeline PySpark SQL para limpeza e transformação de dados visando aplicações de IA.",
+    longDescription: "Criação de pipeline de dados com PySpark SQL para preparar datasets para aplicações de IA. Inclui limpeza, normalização, transformação e validação de dados em larga escala.",
+    technologies: ["PySpark SQL", "Data Cleaning", "Transformação de Dados", "IA"],
+    category: "Engenharia de Dados",
+    subcategories: ["ETL/ELT"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_pyspark_ai_pipeline.png`,
+    github: "",
+    demo: "",
+    metrics: "Preparação de dados para IA, validação em larga escala",
+    featured: false,
+    date: "2025"
+  },
+  {
+    id: 103,
+    title: "Automação de Testes de Modelos de Dados no dbt",
+    impactPhrase: "🧪 Testes Automatizados | Engenharia de Dados",
+    description: "Automatizei testes de qualidade e integridade de modelos de dados usando dbt.",
+    longDescription: "Projeto de automação de testes em modelos de dados utilizando dbt. Implementação de testes de integridade, qualidade e validação de dados em pipelines analíticos.",
+    technologies: ["dbt", "Testes de Dados", "Data Quality", "SQL"],
+    category: "Engenharia de Dados",
+    subcategories: ["ETL/ELT", "CI/CD"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_databricks_terraform.png`,
+    github: "",
+    demo: "",
+    metrics: "Testes automatizados, validação de modelos de dados",
+    featured: false,
+    date: "2025"
+  },
+  {
+    id: 104,
+    title: "Movimentação de Dados Entre Bancos de Dados com Airbyte",
+    impactPhrase: "🔄 Integração Automatizada | Engenharia de Dados",
+    description: "Automatizei a movimentação de dados entre diferentes bancos usando Airbyte, facilitando integrações complexas.",
+    longDescription: "Projeto de integração de dados entre múltiplos bancos utilizando Airbyte. Configuração de conectores, automação de transferências e monitoramento de pipelines de dados.",
+    technologies: ["Airbyte", "ETL", "Integração de Dados", "Python"],
+    category: "Engenharia de Dados",
+    subcategories: ["ETL/ELT"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_pipeline_mongo_mysql.png`,
+    github: "",
+    demo: "",
+    metrics: "Integração automatizada, múltiplos bancos de dados",
+    featured: false,
+    date: "2025"
   },
   {
     id: 6,
