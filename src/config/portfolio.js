@@ -119,6 +119,7 @@ export const skills = {
     { name: "Docker", level: 70, icon: "🐳" },
     { name: "Streamlit", level: 80, icon: "🚀" },
     { name: "APIs Python", level: 75, icon: "🔌" },
+    { name: "Apache Airflow", level: 75, icon: "🌊" },
     { name: "AWS", level: 70, icon: "☁️" },
   ],
 };
@@ -412,6 +413,23 @@ export const projects = [
     github: "https://github.com/tmarsbr/airbyte-data-movement",
     demo: "",
     metrics: "Sincronização automática entre DBs, integração de dados resiliente",
+    featured: true,
+    complexity: 4,
+    date: "2024"
+  },
+  {
+    id: 15,
+    title: "Pipeline de Dados Climáticos – Airflow",
+    impactPhrase: "🌤️ Orquestração | Engenharia de Dados",
+    description: "⚡ Pipeline automatizado com Apache Airflow que extrai dados meteorológicos da API Visual Crossing Weather, processa e estrutura datasets semanalmente para planejamento turístico em Boston.",
+    longDescription: "Desenvolvimento de um pipeline robusto de dados climáticos utilizando Apache Airflow para uma empresa de turismo em Boston. O sistema resolve o desafio de coletar e processar dados meteorológicos de forma consistente e automatizada, permitindo planejamento inteligente de roteiros turísticos baseados em condições climáticas. Implementa DAGs (Directed Acyclic Graphs) que extraem dados da API Visual Crossing Weather, processam informações meteorológicas e armazenam datasets organizados por semana. O pipeline inclui separação especializada de dados (temperaturas, condições climáticas) e execução semanal automatizada, capacitando decisões data-driven que melhoram a experiência do cliente e otimizam operações turísticas.",
+    technologies: ["Apache Airflow", "Python", "API Integration", "ETL", "pandas"],
+    category: "Engenharia de Dados",
+    subcategories: ["DataOps", "ETL/ELT"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_pipeline_climatico_airflow.png`,
+    github: "https://github.com/tmarsbr/airflowalura",
+    demo: "",
+    metrics: "Pipeline semanal automatizado, extração de dados meteorológicos estruturados",
     featured: true,
     complexity: 4,
     date: "2024"
