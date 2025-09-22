@@ -433,6 +433,23 @@ export const projects = [
     featured: true,
     complexity: 4,
     date: "2024"
+  },
+  {
+    id: 16,
+    title: "Pipeline ETL Distribuído com Apache Airflow e AWS EMR",
+    impactPhrase: "🚀 Enterprise-Ready | Big Data Engineering",
+    description: "⚡ Pipeline completo de ETL processando 5.8M registros de voos com Apache Airflow e AWS EMR, demonstrando arquitetura enterprise para processamento distribuído em escala.",
+    longDescription: "Projeto completo de Data Engineering de nível profissional que implementa um pipeline ETL robusto para processamento de big data. O sistema processa 5,819,079 registros de voos (564.96 MB) convertendo dados de CSV para formato Parquet otimizado, utilizando Apache Airflow 2.8.2 para orquestração e AWS EMR 6.15.0 com Spark 3.4.1 para processamento distribuído. Inclui containerização com Docker Compose, storage otimizado no S3 com particionamento por ano/mês/dia, e configuração completa de VPC + IAM para segurança enterprise. O projeto demonstra resolução de desafios técnicos reais incluindo compatibilidade de instâncias AWS (m5→m4), configuração VPC obrigatória, permissões IAM corretas, capacidade de zona e correção de tipos de dados no Spark. Documentação completa para diferentes audiências (técnica e executiva) e práticas de produção com monitoramento, logs detalhados e auto-terminação para otimização de custos.",
+    technologies: ["Apache Airflow", "AWS EMR", "Apache Spark", "Docker", "S3", "Parquet", "VPC"],
+    category: "Engenharia de Dados",
+    subcategories: ["Cloud AWS", "DataOps", "ETL/ELT"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_airflow_emr_pipeline.png`,
+    github: "https://github.com/tmarsbr/apache-airflow-emr-pipeline",
+    demo: "",
+    metrics: "5.8M registros processados, 564.96 MB otimizados, pipeline enterprise-ready",
+    featured: true,
+    complexity: 5,
+    date: "2024"
   }
 ];
 
