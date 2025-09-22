@@ -392,7 +392,7 @@ export const projects = [
     technologies: ["dbt", "SQL", "Data Testing", "DataOps", "CI/CD"],
     category: "Engenharia de Dados",
     subcategories: ["DataOps"],
-    image: `${process.env.PUBLIC_URL}/projects/capa_data_warehouse_local.png`,
+    image: `${process.env.PUBLIC_URL}/projects/capa_dbt_automated_testing.png`,
     github: "https://github.com/tmarsbr/dbt-automated-testing",
     demo: "",
     metrics: "Framework de testes automatizados, qualidade de dados garantida",
