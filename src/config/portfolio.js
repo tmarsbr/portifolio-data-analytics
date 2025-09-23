@@ -342,7 +342,7 @@ export const projects = [
     category: "Engenharia de Dados",
     subcategories: ["Cloud AWS", "IaC"],
     image: `${process.env.PUBLIC_URL}/projects/capa_aws_emr_flink.png`,
-    github: "https://github.com/tmarsbr/aws-emr-flink-terraform",
+    github: "https://github.com/tmarsbr/aws-emr-flink-portfolio",
     demo: "",
     metrics: "Infraestrutura 100% automatizada, processamento em tempo real",
     featured: true,
