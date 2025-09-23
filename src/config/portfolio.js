@@ -410,7 +410,7 @@ export const projects = [
     category: "Engenharia de Dados",
     subcategories: ["ETL/ELT"],
     image: `${process.env.PUBLIC_URL}/projects/capa_automacao_etl.png`,
-    github: "https://github.com/tmarsbr/airbyte-data-movement",
+    github: "https://github.com/tmarsbr/airbyte-etl-portfolio",
     demo: "",
     metrics: "Sincronização automática entre DBs, integração de dados resiliente",
     featured: true,
