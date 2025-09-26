@@ -450,6 +450,23 @@ export const projects = [
     featured: true,
     complexity: 5,
     date: "2024"
+  },
+  {
+    id: 17,
+    title: "Construção de um Datalake e Lakehouse do Zero – AWS & Databricks",
+    impactPhrase: "🏗️ Data Lakehouse | Engenharia de Dados",
+    description: "🏛️ Arquitetura moderna de dados implementando Datalake e Lakehouse do zero com AWS e Databricks, organizando dados em camadas RAW → BRONZE → SILVER → GOLD.",
+    longDescription: "Projeto completo de construção de uma arquitetura de dados moderna implementando conceitos de Datalake e Lakehouse utilizando AWS e Databricks. A solução organiza dados em camadas (RAW → BRONZE → SILVER → GOLD) com CDC (Change Data Capture) e CDF (Change Data Feed) para ingestão e transformação contínua. Inclui processamento em tempo real, governança de dados, e criação de cubos analíticos na camada GOLD para alimentar dashboards e análises de negócio. Demonstra domínio em arquiteturas modernas de dados com foco em escalabilidade, performance e governança.",
+    technologies: ["AWS", "Databricks", "Delta Lake", "CDC", "CDF", "Spark", "Data Lakehouse"],
+    category: "Engenharia de Dados",
+    subcategories: ["Cloud AWS", "Databricks", "ETL/ELT", "Streaming", "Data Lakehouse", "DataOps", "Dashboard"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_neon_data_lakehouse.png`,
+    github: "",
+    demo: "",
+    metrics: "Arquitetura Lakehouse completa, processamento em tempo real com CDC/CDF",
+    featured: true,
+    complexity: 5,
+    date: "2024"
   }
 ];
 
