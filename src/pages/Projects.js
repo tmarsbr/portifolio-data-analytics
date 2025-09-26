@@ -72,7 +72,7 @@ const Projects = () => {
   const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23f5f5f5'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='14' fill='%23999'%3eImagem do Projeto%3c/text%3e%3c/svg%3e";
 
   // Lista de categorias para os pills
-  const categories = ['Todos', 'Análise de Dados', 'Engenharia de Dados', 'Ciência de Dados', 'API & Scraping'];
+  const categories = ['Todos', 'Análise Exploratória', 'Engenharia de Dados', 'Ciência de Dados'];
 
   // Usar hook para filtrar projetos
   const { filtered: baseFilteredProjects, total } = useProjectFilter(
@@ -203,7 +203,7 @@ const Projects = () => {
               {[
                 { number: projects.length, label: 'Projetos Completos' },
                 { number: categories.length - 1, label: 'Categorias' },
-                { number: '10+', label: 'Tecnologias' },
+                { number: '40+', label: 'Tecnologias' },
               ].map((stat, index) => (
                 <Grid item xs={4} key={index}>
                   <Typography
