@@ -480,7 +480,7 @@ export const projects = [
     image: `${process.env.PUBLIC_URL}/projects/capa_data_lake.png`,
     github: "https://github.com/TeoMeWhy/cdc-kaggle",
     demo: "",
-    metrics: "70% redução de tamanho, 3+ tabelas com CDC automático, processamento 100% incremental",
+    metrics: "1.5GB/mês processados, 24 exec./dia, 3-5min tempo médio, 70% economia storage, 99.9% uptime",
     featured: true,
     complexity: 4,
     date: "2024"
