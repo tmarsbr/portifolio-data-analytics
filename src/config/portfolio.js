@@ -467,6 +467,23 @@ export const projects = [
     featured: true,
     complexity: 5,
     date: "2024"
+  },
+  {
+    id: 18,
+    title: "Pipeline CDC - Ingestão Automatizada Kaggle → AWS S3",
+    impactPhrase: "🔄 Change Data Capture | Engenharia de Dados",
+    description: "📊 Sistema de ETL automatizado com CDC que detecta mudanças em datasets do Kaggle, gerando arquivos Parquet otimizados para alimentar Data Lake na AWS S3.",
+    longDescription: "Pipeline de ingestão incremental que implementa Change Data Capture (CDC) para detectar e capturar mudanças em datasets do Kaggle. O sistema processa automaticamente apenas as alterações (Insert/Update/Delete), gerando arquivos Parquet com compressão Snappy e metadados CDC para a camada RAW do Data Lake. Utilizando Python Schedule para orquestração, o pipeline alcança 70% de redução no tamanho dos arquivos comparado a CSV tradicional. Demonstra expertise em processamento incremental, otimização de storage cloud-native e automação de pipelines ETL com foco em eficiência.",
+    technologies: ["Python", "Pandas", "AWS S3", "Parquet", "Kaggle API", "CDC", "boto3", "PyArrow"],
+    category: "Engenharia de Dados",
+    subcategories: ["ETL/ELT", "Cloud AWS", "DataOps"],
+    image: `${process.env.PUBLIC_URL}/projects/capa_data_lake.png`,
+    github: "https://github.com/TeoMeWhy/cdc-kaggle",
+    demo: "",
+    metrics: "70% redução de tamanho, 3+ tabelas com CDC automático, processamento 100% incremental",
+    featured: true,
+    complexity: 4,
+    date: "2024"
   }
 ];
 
