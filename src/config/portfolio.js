@@ -477,7 +477,7 @@ export const projects = [
     technologies: ["Python", "Pandas", "AWS S3", "Parquet", "Kaggle API", "CDC", "boto3", "PyArrow"],
     category: "Engenharia de Dados",
     subcategories: ["ETL/ELT", "Cloud AWS", "DataOps"],
-    image: `${process.env.PUBLIC_URL}/projects/capa_data_lake.png`,
+    image: `${process.env.PUBLIC_URL}/projects/capa_pipeline_cdc_kaggle.png`,
     github: "https://github.com/TeoMeWhy/cdc-kaggle",
     demo: "",
     metrics: "1.5GB/mês processados, 24 exec./dia, 3-5min tempo médio, 70% economia storage, 99.9% uptime",
