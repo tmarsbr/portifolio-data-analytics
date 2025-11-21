@@ -296,19 +296,45 @@ const Header = ({ elevation = 0 }) => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
-                      <Button
-                        component={Link}
-                        to={item.path}
-                        className="nav-button"
-                        sx={getLinkStyle(item.path)}
-                      >
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                          <Typography sx={{ fontSize: '1rem' }}>
-                            {item.icon}
-                          </Typography>
+                      {item.text === 'Contato' ? (
+                        <Button
+                          component={Link}
+                          to={item.path}
+                          variant="outlined"
+                          color="primary"
+                          sx={{
+                            ml: 2,
+                            borderRadius: '20px',
+                            textTransform: 'none',
+                            fontWeight: 600,
+                            borderWidth: '2px',
+                            '&:hover': {
+                              borderWidth: '2px',
+                              backgroundColor: 'primary.main',
+                              color: 'white',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 4px 12px rgba(25, 118, 210, 0.3)',
+                            },
+                            transition: 'all 0.3s ease',
+                          }}
+                        >
                           {item.text}
-                        </Box>
-                      </Button>
+                        </Button>
+                      ) : (
+                        <Button
+                          component={Link}
+                          to={item.path}
+                          className="nav-button"
+                          sx={getLinkStyle(item.path)}
+                        >
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Typography sx={{ fontSize: '1rem' }}>
+                              {item.icon}
+                            </Typography>
+                            {item.text}
+                          </Box>
+                        </Button>
+                      )}
                     </motion.div>
                   ))}
                   

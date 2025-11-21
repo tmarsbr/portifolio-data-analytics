@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import HeroSection from '../components/sections/HeroSection';
 import AboutPreview from '../components/sections/AboutPreview';
 import ProjectsPreview from '../components/sections/ProjectsPreview';
+import ContactSection from '../components/sections/ContactSection';
 
 // Configurações
 import { seoConfig } from '../config/portfolio';
@@ -47,6 +48,7 @@ const Home = () => {
       <HeroSection />
       <AboutPreview />
       <ProjectsPreview />
+      <ContactSection />
     </>
   );
 };
