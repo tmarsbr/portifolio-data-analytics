@@ -33,7 +33,7 @@ Tolerância apertada e processo confiável geram qualidade — em aço e em dado
 
 
   // Avatar/Foto (deixe vazio para usar placeholder)
-  avatar: `${process.env.PUBLIC_URL}/imagem/perfil.jpeg`, // Adicione o caminho da sua foto aqui
+  avatar: `${process.env.PUBLIC_URL}/imagem/perfil.png`, // Adicione o caminho da sua foto aqui
 };
 
 /**
