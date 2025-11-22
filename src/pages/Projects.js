@@ -22,7 +22,7 @@ import {
 } from '@mui/icons-material';
 import { useLocation } from 'react-router-dom';
 
-import { projects, personalInfo, PROJECT_SUBCATEGORIES, seoConfig } from '../config/portfolio';
+import { projects, personalInfo, PROJECT_SUBCATEGORIES, PROJECT_CATEGORIES, seoConfig, projectsPageConfig } from '../config/portfolio';
 import CategoryPills from '../components/common/CategoryPills';
 import SubCategoryPills from '../components/common/SubCategoryPills';
 import { useProjectFilter } from '../hooks/useProjectFilter';
@@ -72,7 +72,7 @@ const Projects = () => {
   const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%23f5f5f5'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='14' fill='%23999'%3eImagem do Projeto%3c/text%3e%3c/svg%3e";
 
   // Lista de categorias para os pills
-  const categories = ['Todos', 'Análise Exploratória', 'Engenharia de Dados', 'Ciência de Dados'];
+  const categories = PROJECT_CATEGORIES;
 
   // Usar hook para filtrar projetos
   const { filtered: baseFilteredProjects, total } = useProjectFilter(
@@ -84,11 +84,11 @@ const Projects = () => {
   // Aplicar filtro adicional de tecnologia
   const filteredProjects = techFilter
     ? baseFilteredProjects.filter(project =>
-        project.technologies &&
-        project.technologies.some(tech =>
-          tech.toLowerCase().includes(techFilter.toLowerCase())
-        )
+      project.technologies &&
+      project.technologies.some(tech =>
+        tech.toLowerCase().includes(techFilter.toLowerCase())
       )
+    )
     : baseFilteredProjects;
 
   const count = filteredProjects.length;
@@ -156,7 +156,7 @@ const Projects = () => {
                 mb: 2,
               }}
             >
-              Portfólio Completo
+              {projectsPageConfig.subtitle}
             </Typography>
 
             <Typography
@@ -168,19 +168,7 @@ const Projects = () => {
                 color: 'text.primary',
               }}
             >
-              Projetos em{' '}
-              <Typography
-                component="span"
-                variant="inherit"
-                sx={{
-                  background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                Data & Analytics
-              </Typography>
+              {projectsPageConfig.title}
             </Typography>
 
             <Typography
@@ -194,8 +182,29 @@ const Projects = () => {
                 mb: 4,
               }}
             >
-              Cada projeto representa uma solução completa para problemas reais de negócio, 
-              desde a coleta e processamento de dados até insights acionáveis e implementação.
+              {projectsPageConfig.description}
+            </Typography>
+
+            {/* Philosophy/Process Section */}
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: '0.95rem',
+                color: 'text.primary',
+                maxWidth: '600px',
+                mx: 'auto',
+                lineHeight: 1.6,
+                mb: 4,
+                fontStyle: 'italic',
+                opacity: 0.8,
+                borderLeft: `3px solid ${theme.palette.primary.main}`,
+                pl: 2,
+                py: 1,
+                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.02)',
+                borderRadius: '0 8px 8px 0',
+              }}
+            >
+              "{projectsPageConfig.philosophy}"
             </Typography>
 
             {/* Estatísticas */}
@@ -239,8 +248,8 @@ const Projects = () => {
           backgroundColor: theme.palette.mode === 'dark' ? '#1e293b' : '#f8fafc',
           borderBottom: `1px solid ${theme.palette.divider}`,
           borderRadius: { xs: 0, md: '0.5rem' },
-          boxShadow: theme.palette.mode === 'dark' 
-            ? '0 1px 3px rgba(0,0,0,0.3)' 
+          boxShadow: theme.palette.mode === 'dark'
+            ? '0 1px 3px rgba(0,0,0,0.3)'
             : '0 1px 2px rgba(0,0,0,0.05)',
           mx: { xs: 0, md: 2 },
           my: { xs: 0, md: 2 },
@@ -386,7 +395,7 @@ const Projects = () => {
                           transition: 'transform 0.3s ease',
                         }}
                       />
-                      
+
                       {/* Chip de categoria */}
                       <Chip
                         label={project.category}

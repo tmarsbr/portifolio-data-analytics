@@ -19,10 +19,10 @@ export const personalInfo = {
   github: "https://github.com/tmarsbr",
   whatsapp: "https://wa.me/5511975429994",
   resume: `${process.env.PUBLIC_URL}/certificates/Curriculo_Tiago_Santo_Formatado.pdf`,
-  
+
   // Resumo para a página inicial (1-2 frases)
   homeIntro: "Desenho e opero pipelines ETL/ELT (Airflow, dbt, Spark), modelo dados para analytics e sirvo features para ML. Foco em escalabilidade, custo e qualidade com IaC, CI/CD e DataOps na AWS.",
-  
+
   // Descrição expandida para a seção Sobre
   aboutDescription: `Da Oficina para os Dados
 Tudo começou com barulho de torno, cheiro de óleo e precisão milimétrica. Na usinagem, aprendi que um erro de um décimo pode custar caro. Foi lá que desenvolvi o olhar clínico, a paciência e o gosto por resolver problemas com método.
@@ -186,7 +186,7 @@ export const projects = [
     description: "🎵 Transformei +50k músicas em insights visuais que revelam padrões de sucesso no Spotify usando Python e visualizações com Seaborn.",
     longDescription: "Mergulhei no universo musical para responder uma pergunta intrigante: o que torna uma música irresistível? Usando dataset do Spotify com as faixas mais tocadas globalmente, conduzi uma análise exploratória completa que revelou insights surpreendentes. Descobri que características como 'danceability' e 'energy' têm correlações específicas com o sucesso, mas também identifiquei padrões temporais que mostram como o gosto musical evolui. O projeto culminou na criação de um 'mapa do sucesso musical' com 8 fatores-chave que podem prever a popularidade de uma música.",
     technologies: ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter"],
-    category: "Análise Exploratória",
+    category: "Análise de Dados",
     subcategories: ["EDA", "Visualização", "Estatística"],
     image: `${process.env.PUBLIC_URL}/projects/capa_spotify_analysis.png`,
     github: "https://github.com/tmarsbr/data-analyst-project",
@@ -199,11 +199,11 @@ export const projects = [
   {
     id: 2,
     title: "Análise dos Acidentes nas Rodovias Brasileiras",
-    impactPhrase: "🎯 Projeto Social | Geoanálise",
+    impactPhrase: "🎯 Projeto Social | Análise de Dados",
     description: "🛣️ Analisei +100k registros de acidentes da PRF criando um mapa inteligente de segurança viária que identifica pontos críticos em 27 estados brasileiros.",
     longDescription: "Este projeto nasceu de uma missão pessoal: usar dados para salvar vidas nas estradas. Analisando registros da Polícia Rodoviária Federal, criei visualizações interativas que revelam os pontos críticos de acidentes em todo território nacional. O mais impactante foi descobrir padrões inesperados entre localização de radares e redução de acidentes, gerando insights que podem influenciar políticas públicas de segurança. Mapiei 27 estados e identifiquei os horários, condições climáticas e trechos mais perigosos, criando um verdadeiro 'GPS da segurança' para as rodovias brasileiras.",
     technologies: ["Python", "Pandas", "Geopandas", "Plotly", "Folium"],
-    category: "Análise Exploratória",
+    category: "Análise de Dados",
     subcategories: ["EDA", "Visualização", "Estatística"],
     image: `${process.env.PUBLIC_URL}/projects/capa_prf_accidents.png`,
     github: "https://github.com/tmarsbr/analise-PRF-",
@@ -233,12 +233,12 @@ export const projects = [
   {
     id: 4,
     title: "Extração e Análise - Repositórios GitHub",
-    impactPhrase: "🔥 Automatização | Engenharia de Dados",
+    impactPhrase: "🔥 Automatização | API & Scraping",
     description: "🐙 Sistema automatizado que extraiu e analisou dados de +1000 repositórios de 15 grandes empresas tech via API GitHub, revelando tendências de desenvolvimento.",
     longDescription: "Sistema automatizado para coleta e análise de dados de repositórios GitHub de grandes empresas de tecnologia. Utilizou API do GitHub para extrair informações sobre linguagens, atividade e tendências de desenvolvimento, gerando insights sobre o ecossistema tech.",
     technologies: ["Python", "GitHub API", "Pandas", "Requests", "JSON"],
-    category: "Engenharia de Dados",
-    subcategories: ["ETL/ELT"],
+    category: "API & Scraping",
+    subcategories: ["Scraping", "API REST"],
     image: `${process.env.PUBLIC_URL}/projects/capa_github_analysis.png`,
     github: "https://github.com/tmarsbr/Projeto_api",
     demo: "",
@@ -488,6 +488,27 @@ export const projects = [
 ];
 
 /**
+ * Configuração da Seção de Projetos
+ * @description Textos e limites para a seção de projetos na Home
+ */
+export const projectsConfig = {
+  title: "Projetos em Destaque",
+  description: "Uma vitrine com os projetos que mostram minha evolução prática em dados — da coleta à modelagem, com impacto real.",
+  maxProjects: 3
+};
+
+/**
+ * Configuração da Página de Projetos
+ * @description Textos e storytelling da página de projetos
+ */
+export const projectsPageConfig = {
+  title: "Projetos de Impacto",
+  subtitle: "Data & Analytics",
+  description: "Mais do que código, construo soluções. Cada projeto aqui é uma resposta a um problema de negócio, desenhado com rigor técnico e foco em resultados.",
+  philosophy: "Minha abordagem combina engenharia robusta com análise profunda para transformar dados brutos em decisões estratégicas."
+};
+
+/**
  * Certificações e Formações Acadêmicas
  * @description Certificados obtidos em cursos e formações
  * @structure Array com dados dos certificados e links para PDFs
@@ -648,12 +669,12 @@ export const themeConfig = {
     shadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
     hoverShadow: "0 12px 40px rgba(0, 0, 0, 0.5)"
   },
-  
+
   // Tipografia aprimorada com Google Fonts
   fontFamily: "'Inter', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif",
   fontSize: {
     xs: "0.75rem",
-    small: "0.875rem", 
+    small: "0.875rem",
     medium: "1rem",
     large: "1.25rem",
     xlarge: "2rem",
@@ -667,7 +688,7 @@ export const themeConfig = {
     semibold: 600,
     bold: 700
   },
-  
+
   // Espaçamentos seguindo o padrão 8px
   spacing: {
     xs: "4px",
@@ -678,7 +699,7 @@ export const themeConfig = {
     xxl: "48px",
     xxxl: "64px"
   },
-  
+
   // Border radius padronizado
   borderRadius: {
     small: "6px",
@@ -687,11 +708,11 @@ export const themeConfig = {
     xl: "24px",
     round: "50%"
   },
-  
+
   // Animações e transições
   transitions: {
     fast: "0.15s ease-out",
-    normal: "0.3s ease-in-out", 
+    normal: "0.3s ease-in-out",
     slow: "0.5s ease-in-out"
   }
 };
@@ -708,7 +729,7 @@ export const seoConfig = {
   author: "Tiago Silva",
   url: "https://tmarsbr.github.io/portifolio-data-analytics", // URL do GitHub Pages
   image: `${process.env.PUBLIC_URL}/og-image.jpg`, // Adicione uma imagem de preview
-  
+
   // Open Graph
   ogTitle: "Tiago Silva — Eng. de Dados | Data Science",
   ogDescription: "ETL/ELT (Airflow, dbt, Spark), modelagem para analytics e features de ML. IaC, CI/CD e DataOps na AWS.",
@@ -735,6 +756,8 @@ const portfolioConfig = {
   skills,
   experiences,
   projects,
+  projectsConfig,
+  projectsPageConfig,
   certificates,
   themeConfig,
   seoConfig,

@@ -45,7 +45,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 
-import { projects } from '../../config/portfolio';
+import { projects, projectsConfig } from '../../config/portfolio';
 
 // Componente para card de projeto aprimorado
 const ProjectCard = ({ project, index }) => {
@@ -91,16 +91,16 @@ const ProjectCard = ({ project, index }) => {
           position: 'relative',
           overflow: 'hidden',
           cursor: 'pointer',
-          background: darkMode 
+          background: darkMode
             ? 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'
             : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
           border: `1px solid ${darkMode ? '#334155' : '#e2e8f0'}`,
-          boxShadow: darkMode 
+          boxShadow: darkMode
             ? '0 4px 20px rgba(0, 0, 0, 0.3)'
             : '0 4px 20px rgba(0, 0, 0, 0.08)',
           transition: 'all 0.3s ease',
           '&:hover': {
-            boxShadow: darkMode 
+            boxShadow: darkMode
               ? '0 20px 60px rgba(0, 0, 0, 0.5)'
               : '0 20px 60px rgba(0, 0, 0, 0.15)',
             border: `1px solid ${theme.palette.primary.main}`,
@@ -139,7 +139,7 @@ const ProjectCard = ({ project, index }) => {
             component="div"
             sx={{
               height: 200,
-              background: project.image 
+              background: project.image
                 ? `url(${project.image}) center/cover`
                 : `linear-gradient(45deg, ${getCategoryColor(project.category)} 30%, ${theme.palette.primary.main} 90%)`,
               display: 'flex',
@@ -246,8 +246,8 @@ const ProjectCard = ({ project, index }) => {
         </Box>
 
         {/* Conteúdo do card */}
-        <CardContent sx={{ 
-          flex: 1, 
+        <CardContent sx={{
+          flex: 1,
           p: 3,
           backgroundColor: project.inDevelopment ? (darkMode ? 'rgba(156, 163, 175, 0.1)' : 'rgba(107, 114, 128, 0.05)') : 'transparent'
         }}>
@@ -262,7 +262,7 @@ const ProjectCard = ({ project, index }) => {
                   fontSize: '0.75rem',
                   textTransform: 'uppercase',
                   letterSpacing: 0.5,
-                  backgroundColor: project.inDevelopment 
+                  backgroundColor: project.inDevelopment
                     ? (darkMode ? 'rgba(156, 163, 175, 0.2)' : 'rgba(107, 114, 128, 0.1)')
                     : (darkMode ? 'rgba(100, 181, 246, 0.15)' : 'rgba(21, 101, 192, 0.1)'),
                   px: 1.5,
@@ -499,7 +499,7 @@ const ProjectsPreview = () => {
       color: theme.palette.primary.main,
     },
     {
-      key: 'Análise Exploratória',
+      key: 'Análise de Dados',
       label: 'Análise de Dados',
       icon: <Analytics />,
       color: '#2196f3',
@@ -517,7 +517,7 @@ const ProjectsPreview = () => {
       color: '#e91e63',
     },
     {
-      key: 'API & Web Scraping',
+      key: 'API & Scraping',
       label: 'API & Scraping',
       icon: <Code />,
       color: '#ff9800',
@@ -525,16 +525,16 @@ const ProjectsPreview = () => {
   ];
 
   // Função para filtrar projetos por categoria
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects.slice(0, 6) // Mostrar apenas 6 projetos em destaque na home
-    : projects.filter(project => project.category === selectedCategory).slice(0, 6);
+  const filteredProjects = selectedCategory === 'all'
+    ? projects.slice(0, projectsConfig.maxProjects) // Mostrar apenas projetos configurados na home
+    : projects.filter(project => project.category === selectedCategory).slice(0, projectsConfig.maxProjects);
 
   return (
     <Box
       id="projects"
       sx={{
         py: { xs: 8, md: 12 },
-        background: darkMode 
+        background: darkMode
           ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
           : 'linear-gradient(to bottom, rgb(241, 245, 249) 0%, white 50%, rgb(248, 250, 252) 100%)',
         position: 'relative',
@@ -548,7 +548,7 @@ const ProjectsPreview = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: darkMode 
+          background: darkMode
             ? 'radial-gradient(ellipse at top, rgba(100, 181, 246, 0.05) 0%, transparent 50%)'
             : 'radial-gradient(ellipse at top, rgba(21, 101, 192, 0.05) 0%, transparent 50%)',
           pointerEvents: 'none',
@@ -577,7 +577,7 @@ const ProjectsPreview = () => {
                 letterSpacing: '-0.02em',
               }}
             >
-              Projetos em Destaque
+              {projectsConfig.title}
             </Typography>
             <Typography
               variant="h6"
@@ -590,7 +590,7 @@ const ProjectsPreview = () => {
                 fontSize: { xs: '1rem', md: '1.25rem' },
               }}
             >
-              Uma vitrine com os projetos que mostram minha evolução prática em dados — da coleta à modelagem, com impacto real.
+              {projectsConfig.description}
             </Typography>
 
             {/* Filtros por categoria aprimorados */}

@@ -36,7 +36,7 @@ const CategoryPills = ({ categories, active, onChange }) => {
       color: theme.palette.primary.main,
     },
     'Análise de Dados': {
-      key: 'Análise Exploratória',
+      key: 'Análise de Dados',
       icon: <Analytics />,
       color: '#2196f3',
     },
@@ -51,7 +51,7 @@ const CategoryPills = ({ categories, active, onChange }) => {
       color: '#e91e63',
     },
     'API & Scraping': {
-      key: 'API & Web Scraping',
+      key: 'API & Scraping',
       icon: <Code />,
       color: '#ff9800',
     },
