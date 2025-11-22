@@ -502,10 +502,10 @@ export const projectsConfig = {
  * @description Textos e storytelling da página de projetos
  */
 export const projectsPageConfig = {
-  title: "Projetos de Impacto",
-  subtitle: "Data & Analytics",
-  description: "Mais do que código, construo soluções. Cada projeto aqui é uma resposta a um problema de negócio, desenhado com rigor técnico e foco em resultados.",
-  philosophy: "Minha abordagem combina engenharia robusta com análise profunda para transformar dados brutos em decisões estratégicas."
+  title: "Data & Analytics",
+  subtitle: "Arquiteturas Escaláveis • Pipelines Robustos • Insights Reais",
+  description: "Da ingestão bruta à inteligência de negócio. Cada projeto demonstra minha capacidade de desenhar arquiteturas resilientes, automatizar fluxos complexos e entregar dados confiáveis para tomada de decisão.",
+  philosophy: "Código limpo, documentação clara e foco em resolver problemas reais. Minha stack é apenas a ferramenta; o objetivo é gerar valor através dos dados."
 };
 
 /**
@@ -516,123 +516,43 @@ export const projectsPageConfig = {
 export const certificates = [
   {
     id: 1,
-    title: "Nivelamento em Matemática, Estatística e Programação para Big Data & Analytics",
+    title: "Formação Full Stack Dados & Analytics",
     institution: "PoD Academy",
     year: "2024",
-    duration: "120h",
-    image: `${process.env.PUBLIC_URL}/certificates/1.png`,
-    pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2026662A6157507713239070.pdf`,
-    skills: ["Matemática", "Estatística", "Programação", "Big Data"]
+    duration: "Completo",
+    image: `${process.env.PUBLIC_URL}/certificates/fullstackdataanalytics.png`,
+    pdf: `${process.env.PUBLIC_URL}/certificates/Formação-full-stack-data-analytics.pdf`,
+    skills: ["Engenharia de Dados", "Ciência de Dados", "Analytics", "Business"]
   },
   {
     id: 2,
-    title: "Ciências Aplicadas: Matemática e Estatística",
+    title: "Formação Engenharia de Dados",
     institution: "PoD Academy",
-    year: "2025",
-    duration: "80h",
-    image: `${process.env.PUBLIC_URL}/certificates/4.png`,
-    pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2427912AD2AF41E914203880.pdf`,
-    skills: ["Matemática Aplicada", "Estatística Aplicada", "Dados"]
+    year: "2024",
+    duration: "Especialização",
+    image: `${process.env.PUBLIC_URL}/certificates/engenhariadedados.png`,
+    pdf: `${process.env.PUBLIC_URL}/certificates/formação-engenheiro-de-dados.pdf`,
+    skills: ["Big Data", "Spark", "Airflow", "Cloud AWS", "IaC"]
   },
   {
     id: 3,
-    title: "Formação em Análise de Dados",
+    title: "Formação Ciência de Dados",
     institution: "PoD Academy",
     year: "2024",
-    duration: "100h",
-    image: `${process.env.PUBLIC_URL}/certificates/3.png`,
-    pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2184196A1D520FC214203880.pdf`,
-    skills: ["Análise de Dados", "CRISP-DM", "Estatística", "Visualização"]
+    duration: "Especialização",
+    image: `${process.env.PUBLIC_URL}/certificates/cienciadedados.png`,
+    pdf: `${process.env.PUBLIC_URL}/certificates/Formação-em-ciencia-de-dados.pdf`,
+    skills: ["Machine Learning", "Estatística", "Python", "Modelagem"]
   },
   {
     id: 4,
-    title: "Cloud Computing",
+    title: "Formação Análise de Dados",
     institution: "PoD Academy",
     year: "2024",
-    duration: "60h",
-    image: `${process.env.PUBLIC_URL}/certificates/2.png`,
-    pdf: `${process.env.PUBLIC_URL}/certificates/certificado-2181848AF6E35A5F13239070.pdf`,
-    skills: ["Cloud Computing", "AWS", "Azure", "GCP"]
-  },
-  {
-    id: 5,
-    title: "Análise de Negócios",
-    institution: "Formação em Ciência de Dados",
-    year: "2024",
-    duration: "40h",
-    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_analise_negocios.png`,
-    pdf: "",
-    skills: ["Análise de Negócios", "KPIs", "Métricas", "Estratégia"]
-  },
-  {
-    id: 6,
-    title: "Regressão Linear - Python",
-    institution: "Data Viking",
-    year: "2024",
-    duration: "20h",
-    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_regressao_linear.png`,
-    pdf: "",
-    skills: ["Python", "Regressão Linear", "Machine Learning", "Estatística"]
-  },
-  {
-    id: 7,
-    title: "Floresta Aleatória (Random Forest)",
-    institution: "Data Viking",
-    year: "2024",
-    duration: "25h",
-    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_random_forest.png`,
-    pdf: "",
-    skills: ["Random Forest", "Machine Learning", "Python", "Algoritmos"]
-  },
-  {
-    id: 8,
-    title: "Regressão Logística - Python",
-    institution: "Data Viking",
-    year: "2024",
-    duration: "22h",
-    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_regressao_logistica.png`,
-    pdf: "",
-    skills: ["Regressão Logística", "Python", "Machine Learning", "Classificação"]
-  },
-  {
-    id: 9,
-    title: "SQL com Python",
-    institution: "Data Viking",
-    year: "2024",
-    duration: "30h",
-    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_sql_python.png`,
-    pdf: "",
-    skills: ["SQL", "Python", "Banco de Dados", "SQLite"]
-  },
-  {
-    id: 10,
-    title: "Formação Python Impressionador",
-    institution: "Hashtag Treinamentos",
-    year: "2024",
-    duration: "50h",
-    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_python_impressionador.png`,
-    pdf: "",
-    skills: ["Python", "Automação", "Data Science", "Pandas"]
-  },
-  {
-    id: 11,
-    title: "Formação SQL Impressionador",
-    institution: "Hashtag Treinamentos",
-    year: "2024",
-    duration: "45h",
-    image: `${process.env.PUBLIC_URL}/certificates/capa_certificado_sql_impressionador.png`,
-    pdf: "",
-    skills: ["SQL", "Banco de Dados", "Consultas Avançadas", "Performance"]
-  },
-  {
-    id: 12,
-    title: "Git e GitHub Essencial",
-    institution: "DIO",
-    year: "2023",
-    duration: "15h",
-    image: "",
-    pdf: "",
-    skills: ["Git", "GitHub", "Controle de Versão", "Colaboração"]
+    duration: "Especialização",
+    image: `${process.env.PUBLIC_URL}/certificates/analisededados.png`,
+    pdf: `${process.env.PUBLIC_URL}/certificates/Formação-analise-de-dados.pdf`,
+    skills: ["Storytelling", "Visualização", "SQL", "KPIs"]
   }
 ];
 

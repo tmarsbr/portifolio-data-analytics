@@ -7,6 +7,7 @@ import {
   Avatar,
   Paper,
   Chip,
+  Button,
   useTheme,
 } from '@mui/material';
 import { Helmet } from 'react-helmet';
@@ -17,7 +18,7 @@ import {
   Psychology,
 } from '@mui/icons-material';
 
-import { personalInfo } from '../config/portfolio';
+import { personalInfo, certificates } from '../config/portfolio';
 
 
 /**
@@ -240,7 +241,7 @@ const About = () => {
                 lineHeight: 1.7,
               }}
             >
-              Características desenvolvidas ao longo da minha jornada profissional 
+              Características desenvolvidas ao longo da minha jornada profissional
               que aplicam diretamente ao trabalho com dados.
             </Typography>
           </Box>
@@ -344,7 +345,7 @@ const About = () => {
                 lineHeight: 1.7,
               }}
             >
-              Os marcos principais da minha trajetória, desde a usinagem 
+              Os marcos principais da minha trajetória, desde a usinagem
               até a especialização em Data & Analytics.
             </Typography>
           </Box>
@@ -439,6 +440,149 @@ const About = () => {
         </Container>
       </Box>
 
+      {/* Certificações */}
+      <Box
+        sx={{
+          py: { xs: 8, md: 12 },
+          backgroundColor: 'background.default',
+        }}
+      >
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: 8 }} data-aos="fade-up">
+            <Typography
+              variant="h3"
+              component="h2"
+              sx={{
+                fontWeight: 700,
+                mb: 3,
+                color: 'text.primary',
+              }}
+            >
+              Certificações & Especializações
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: '1.1rem',
+                color: 'text.secondary',
+                maxWidth: '600px',
+                mx: 'auto',
+                lineHeight: 1.7,
+              }}
+            >
+              Validação técnica e aprendizado contínuo através de formações especializadas.
+            </Typography>
+          </Box>
+
+          <Grid container spacing={4}>
+            {certificates.map((cert, index) => (
+              <Grid
+                item
+                xs={12}
+                md={6}
+                lg={3}
+                key={cert.id}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <Paper
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                    border: `1px solid ${theme.palette.divider}`,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: theme.shadows[8],
+                      borderColor: 'primary.main',
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      height: 160,
+                      overflow: 'hidden',
+                      position: 'relative',
+                      backgroundColor: 'background.paper',
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src={cert.image}
+                      alt={cert.title}
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.5s ease',
+                        '&:hover': {
+                          transform: 'scale(1.05)',
+                        },
+                      }}
+                    />
+                  </Box>
+                  <Box sx={{ p: 3, flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: 'primary.main',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        mb: 1,
+                        display: 'block',
+                      }}
+                    >
+                      {cert.institution}
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 700,
+                        mb: 2,
+                        fontSize: '1rem',
+                        lineHeight: 1.4,
+                        flex: 1,
+                      }}
+                    >
+                      {cert.title}
+                    </Typography>
+
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mb: 3 }}>
+                      {cert.skills.slice(0, 3).map((skill, i) => (
+                        <Chip
+                          key={i}
+                          label={skill}
+                          size="small"
+                          sx={{
+                            height: 20,
+                            fontSize: '0.65rem',
+                            backgroundColor: theme.palette.action.hover,
+                          }}
+                        />
+                      ))}
+                    </Box>
+
+                    <Button
+                      variant="outlined"
+                      fullWidth
+                      href={cert.pdf}
+                      target="_blank"
+                      size="small"
+                      sx={{ mt: 'auto' }}
+                    >
+                      Ver Certificado
+                    </Button>
+                  </Box>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
       {/* Call to Action */}
       <Box
         sx={{
@@ -467,11 +611,11 @@ const About = () => {
                 lineHeight: 1.7,
               }}
             >
-              Estou sempre aberto para discussões sobre projetos, oportunidades 
-              de colaboração ou apenas para trocar experiências sobre Data & Analytics. 
+              Estou sempre aberto para discussões sobre projetos, oportunidades
+              de colaboração ou apenas para trocar experiências sobre Data & Analytics.
               Vamos conversar sobre como posso contribuir para o seu próximo projeto!
             </Typography>
-            
+
             {/* Estatísticas finais */}
             <Grid container spacing={4} sx={{ mt: 4 }}>
               {[
