@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -54,29 +54,9 @@ function HideOnScroll({ children }) {
 
 const Header = ({ elevation = 0 }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const { theme, darkMode } = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
-
-  // Lista de navegação com ícones
-  const navItems = [
-    { text: 'Home', path: '/', icon: '🏠' },
-    { text: 'Sobre', path: '/about', icon: '👨‍💻' },
-    { text: 'Projetos', path: '/projects', icon: '💼' },
-    { text: 'Contato', path: '/contact', icon: '📬' },
-  ];
-
-  // Efeito de scroll melhorado para mudança de estilo do header
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      setScrolled(isScrolled);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Função para fechar o menu mobile
   const handleDrawerToggle = () => {
@@ -88,16 +68,30 @@ const Header = ({ elevation = 0 }) => {
     setMobileOpen(false);
   };
 
+  // Lista de navegação com ícones
+  const navItems = [
+    { text: 'Home', path: '/', icon: '🏠' },
+    { text: 'Sobre', path: '/about', icon: '👨‍💻' },
+    { text: 'Projetos', path: '/projects', icon: '💼' },
+    { text: 'Contato', path: '/contact', icon: '📬' },
+  ];
+
+  // Trigger para detectar scroll e mudar estilo
+  const scrollTrigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 20,
+  });
+
   // Estilo dinâmico baseado no scroll
   const headerStyle = {
-    backgroundColor: scrolled 
+    backgroundColor: scrollTrigger
       ? (darkMode ? 'rgba(15, 23, 42, 0.95)' : 'rgba(255, 255, 255, 0.95)')
       : (darkMode ? 'rgba(15, 23, 42, 0.8)' : 'rgba(255, 255, 255, 0.8)'),
     backdropFilter: 'blur(20px)',
-    borderBottom: scrolled 
+    borderBottom: scrollTrigger
       ? `1px solid ${darkMode ? 'rgba(71, 85, 105, 0.3)' : 'rgba(226, 232, 240, 0.8)'}`
       : 'none',
-    boxShadow: scrolled 
+    boxShadow: scrollTrigger
       ? (darkMode ? '0 4px 20px rgba(0, 0, 0, 0.3)' : '0 4px 20px rgba(0, 0, 0, 0.08)')
       : 'none',
     transition: 'all 0.3s ease-in-out',
@@ -110,8 +104,8 @@ const Header = ({ elevation = 0 }) => {
     borderRadius: '8px',
     transition: 'all 0.3s ease',
     fontWeight: location.pathname === path ? 600 : 500,
-    color: location.pathname === path 
-      ? theme.palette.primary.main 
+    color: location.pathname === path
+      ? theme.palette.primary.main
       : theme.palette.text.primary,
     '&:hover': {
       backgroundColor: darkMode ? 'rgba(100, 181, 246, 0.08)' : 'rgba(25, 118, 210, 0.04)',
@@ -132,10 +126,10 @@ const Header = ({ elevation = 0 }) => {
 
   // Componente do menu mobile aprimorado
   const drawer = (
-    <Box sx={{ 
-      width: 280, 
-      height: '100%', 
-      background: darkMode 
+    <Box sx={{
+      width: 280,
+      height: '100%',
+      background: darkMode
         ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
         : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
     }}>
@@ -154,11 +148,11 @@ const Header = ({ elevation = 0 }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <Typography 
-            variant="h6" 
-            component="div" 
-            sx={{ 
-              color: 'primary.main', 
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              color: 'primary.main',
               fontWeight: 'bold',
               display: 'flex',
               alignItems: 'center',
@@ -169,7 +163,7 @@ const Header = ({ elevation = 0 }) => {
             {personalInfo.fullName}
           </Typography>
         </motion.div>
-        
+
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <ThemeToggle />
           <IconButton
@@ -199,9 +193,9 @@ const Header = ({ elevation = 0 }) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
-              <ListItem 
-                button 
-                component={Link} 
+              <ListItem
+                button
+                component={Link}
                 to={item.path}
                 onClick={handleNavigation}
                 sx={{
@@ -210,7 +204,7 @@ const Header = ({ elevation = 0 }) => {
                   mx: 2,
                   mb: 1,
                   borderRadius: 2,
-                  backgroundColor: location.pathname === item.path 
+                  backgroundColor: location.pathname === item.path
                     ? (darkMode ? 'rgba(100, 181, 246, 0.1)' : 'rgba(25, 118, 210, 0.08)')
                     : 'transparent',
                   '&:hover': {
@@ -224,12 +218,12 @@ const Header = ({ elevation = 0 }) => {
                   <Typography sx={{ fontSize: '1.2rem' }}>
                     {item.icon}
                   </Typography>
-                  <ListItemText 
+                  <ListItemText
                     primary={item.text}
                     primaryTypographyProps={{
                       fontWeight: location.pathname === item.path ? 600 : 500,
-                      color: location.pathname === item.path 
-                        ? theme.palette.primary.main 
+                      color: location.pathname === item.path
+                        ? theme.palette.primary.main
                         : theme.palette.text.primary,
                     }}
                   />
@@ -337,7 +331,7 @@ const Header = ({ elevation = 0 }) => {
                       )}
                     </motion.div>
                   ))}
-                  
+
                   {/* Toggle de tema */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}

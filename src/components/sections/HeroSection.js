@@ -76,13 +76,13 @@ const TypewriterEffect = ({ text, delay = 0 }) => {
       {displayText}
       <motion.span
         animate={{ opacity: [1, 0] }}
-        transition={{ 
-          duration: 0.6, 
-          repeat: Infinity, 
+        transition={{
+          duration: 0.6,
+          repeat: Infinity,
           ease: "easeInOut",
           repeatType: "reverse"
         }}
-        style={{ 
+        style={{
           color: 'currentColor',
           fontSize: '1em',
           fontWeight: 'bold',
@@ -112,11 +112,11 @@ const BlinkingText = ({ text, delay = 0 }) => {
 
   return (
     <motion.span
-      animate={{ 
+      animate={{
         opacity: [1, 0.1, 1, 0.1, 1],
         scale: [1, 0.98, 1, 0.98, 1]
       }}
-      transition={{ 
+      transition={{
         duration: 1.5,
         repeat: Infinity,
         ease: "easeInOut",
@@ -134,12 +134,12 @@ const BlinkingText = ({ text, delay = 0 }) => {
 // Componente para partículas flutuantes
 const FloatingParticles = () => {
   const { darkMode } = useTheme();
-  
+
   const particles = Array.from({ length: 20 }, (_, i) => (
     <motion.div
       key={i}
       className="particle"
-      initial={{ 
+      initial={{
         opacity: 0,
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
@@ -250,7 +250,7 @@ const HeroSection = () => {
       component="section"
       sx={{
         minHeight: '100vh',
-        background: darkMode 
+        background: darkMode
           ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)'
           : 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%)',
         position: 'relative',
@@ -295,16 +295,16 @@ const HeroSection = () => {
                   <Typography
                     variant="h6"
                     sx={{
-                      color: darkMode 
-                        ? 'rgba(100, 181, 246, 0.9)' 
+                      color: darkMode
+                        ? 'rgba(100, 181, 246, 0.9)'
                         : 'rgba(21, 101, 192, 0.9)',
                       fontWeight: 500,
                       letterSpacing: '0.02em',
                     }}
                   >
                     {animationStarted && (
-                      <BlinkingText 
-                        text="👋 Olá, seja bem-vindo(a) ao meu portifolio!" 
+                      <BlinkingText
+                        text="👋 Olá, seja bem-vindo(a) ao meu portifolio!"
                         delay={200}
                       />
                     )}
@@ -344,8 +344,8 @@ const HeroSection = () => {
                     }}
                   >
                     {animationStarted && (
-                      <TypewriterEffect 
-                        text={personalInfo.title} 
+                      <TypewriterEffect
+                        text={personalInfo.title}
                         delay={1800}
                       />
                     )}
@@ -388,7 +388,7 @@ const HeroSection = () => {
                         </motion.div>
                       ))}
                     </Stack>
-                    
+
                     {/* Segunda linha de especialidades */}
                     <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                       {/* Chip principal de Engenharia de Dados */}
@@ -452,9 +452,9 @@ const HeroSection = () => {
 
                 {/* Botões de ação */}
                 <motion.div variants={itemVariants}>
-                  <Stack 
-                    direction={{ xs: 'column', sm: 'row' }} 
-                    spacing={2} 
+                  <Stack
+                    direction={{ xs: 'column', sm: 'row' }}
+                    spacing={2}
                     sx={{ mt: 2 }}
                   >
                     <Button
@@ -475,7 +475,7 @@ const HeroSection = () => {
                         '&:hover': {
                           backgroundColor: darkMode ? '#2563eb' : '#0d47a1',
                           transform: 'translateY(-2px)',
-                          boxShadow: darkMode 
+                          boxShadow: darkMode
                             ? '0 10px 25px rgba(59, 130, 246, 0.4)'
                             : '0 10px 25px rgba(21, 101, 192, 0.4)',
                         },
@@ -502,8 +502,8 @@ const HeroSection = () => {
                         fontSize: '1rem',
                         borderWidth: '2px',
                         '&:hover': {
-                          backgroundColor: darkMode 
-                            ? 'rgba(16, 185, 129, 0.1)' 
+                          backgroundColor: darkMode
+                            ? 'rgba(16, 185, 129, 0.1)'
                             : 'rgba(5, 150, 105, 0.1)',
                           borderColor: darkMode ? '#059669' : '#047857',
                           transform: 'translateY(-2px)',
@@ -532,8 +532,8 @@ const HeroSection = () => {
                         fontSize: '1rem',
                         borderWidth: '2px',
                         '&:hover': {
-                          backgroundColor: darkMode 
-                            ? 'rgba(100, 181, 246, 0.1)' 
+                          backgroundColor: darkMode
+                            ? 'rgba(100, 181, 246, 0.1)'
                             : 'rgba(21, 101, 192, 0.1)',
                           borderColor: darkMode ? '#3b82f6' : '#0d47a1',
                           transform: 'translateY(-2px)',
@@ -554,14 +554,15 @@ const HeroSection = () => {
                       href={personalInfo.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="GitHub"
                       sx={{
                         minWidth: 'auto',
                         p: 1.5,
                         borderRadius: '50%',
                         color: darkMode ? '#94a3b8' : '#64748b',
                         '&:hover': {
-                          backgroundColor: darkMode 
-                            ? 'rgba(100, 181, 246, 0.1)' 
+                          backgroundColor: darkMode
+                            ? 'rgba(100, 181, 246, 0.1)'
                             : 'rgba(21, 101, 192, 0.1)',
                           color: darkMode ? '#64b5f6' : '#1565c0',
                           transform: 'translateY(-2px)',
@@ -576,14 +577,15 @@ const HeroSection = () => {
                       href={personalInfo.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="LinkedIn"
                       sx={{
                         minWidth: 'auto',
                         p: 1.5,
                         borderRadius: '50%',
                         color: darkMode ? '#94a3b8' : '#64748b',
                         '&:hover': {
-                          backgroundColor: darkMode 
-                            ? 'rgba(100, 181, 246, 0.1)' 
+                          backgroundColor: darkMode
+                            ? 'rgba(100, 181, 246, 0.1)'
                             : 'rgba(21, 101, 192, 0.1)',
                           color: darkMode ? '#64b5f6' : '#1565c0',
                           transform: 'translateY(-2px)',
@@ -596,14 +598,15 @@ const HeroSection = () => {
 
                     <Button
                       href={`mailto:${personalInfo.email}`}
+                      aria-label="Email"
                       sx={{
                         minWidth: 'auto',
                         p: 1.5,
                         borderRadius: '50%',
                         color: darkMode ? '#94a3b8' : '#64748b',
                         '&:hover': {
-                          backgroundColor: darkMode 
-                            ? 'rgba(100, 181, 246, 0.1)' 
+                          backgroundColor: darkMode
+                            ? 'rgba(100, 181, 246, 0.1)'
                             : 'rgba(21, 101, 192, 0.1)',
                           color: darkMode ? '#64b5f6' : '#1565c0',
                           transform: 'translateY(-2px)',
@@ -633,7 +636,7 @@ const HeroSection = () => {
                 variants={avatarVariants}
                 initial="hidden"
                 animate="visible"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   rotate: 5,
                   transition: { duration: 0.3 }
@@ -655,11 +658,11 @@ const HeroSection = () => {
 
               {/* Elementos decorativos ao redor do avatar */}
               <motion.div
-                animate={{ 
+                animate={{
                   rotate: 360,
                   scale: [1, 1.1, 1]
                 }}
-                transition={{ 
+                transition={{
                   rotate: { duration: 20, repeat: Infinity, ease: "linear" },
                   scale: { duration: 4, repeat: Infinity }
                 }}
