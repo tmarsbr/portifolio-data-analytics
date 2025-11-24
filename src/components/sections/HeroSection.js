@@ -158,7 +158,7 @@ const FloatingParticles = () => {
         position: 'absolute',
         width: Math.random() * 4 + 2,
         height: Math.random() * 4 + 2,
-        backgroundColor: darkMode ? '#64b5f6' : '#1565c0',
+        backgroundColor: darkMode ? '#3b82f6' : '#3b82f6',
         borderRadius: '50%',
         zIndex: 1,
       }}
@@ -251,8 +251,8 @@ const HeroSection = () => {
       sx={{
         minHeight: '100vh',
         background: darkMode
-          ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)'
-          : 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%)',
+          ? 'linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%)' // Midnight Gradient
+          : 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f1f5f9 100%)', // Gradiente azulado sutil (Sky/Slate)
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
@@ -272,10 +272,10 @@ const HeroSection = () => {
           right: 0,
           bottom: 0,
           background: darkMode
-            ? `radial-gradient(circle at 20% 50%, rgba(100, 181, 246, 0.1) 0%, transparent 50%),
-               radial-gradient(circle at 80% 20%, rgba(77, 208, 225, 0.1) 0%, transparent 50%)`
-            : `radial-gradient(circle at 20% 50%, rgba(21, 101, 192, 0.1) 0%, transparent 50%),
-               radial-gradient(circle at 80% 20%, rgba(0, 137, 123, 0.1) 0%, transparent 50%)`,
+            ? `radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+               radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)`
+            : `radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+               radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 50%)`,
           zIndex: 1,
         }}
       />
@@ -648,10 +648,10 @@ const HeroSection = () => {
                   sx={{
                     width: { xs: 200, md: 280, lg: 320 },
                     height: { xs: 200, md: 280, lg: 320 },
-                    border: `4px solid ${darkMode ? '#3b82f6' : '#1565c0'}`,
+                    border: `4px solid ${darkMode ? '#3b82f6' : '#2563eb'}`,
                     boxShadow: darkMode
-                      ? '0 20px 40px rgba(59, 130, 246, 0.3)'
-                      : '0 20px 40px rgba(21, 101, 192, 0.3)',
+                      ? '0 0 40px rgba(59, 130, 246, 0.6)' // Neon Glow
+                      : '0 20px 40px rgba(37, 99, 235, 0.2)',
                   }}
                 />
               </motion.div>
@@ -670,7 +670,7 @@ const HeroSection = () => {
                   position: 'absolute',
                   width: '100%',
                   height: '100%',
-                  border: `2px dashed ${darkMode ? 'rgba(100, 181, 246, 0.3)' : 'rgba(21, 101, 192, 0.3)'}`,
+                  border: `2px dashed ${darkMode ? 'rgba(59, 130, 246, 0.5)' : 'rgba(37, 99, 235, 0.2)'}`,
                   borderRadius: '50%',
                   zIndex: -1,
                 }}
