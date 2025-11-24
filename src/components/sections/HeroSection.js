@@ -256,7 +256,7 @@ const HeroSection = () => {
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
-        py: { xs: 8, md: 0 },
+        py: { xs: 4, md: 0 },
         overflow: 'hidden',
       }}
     >
@@ -289,7 +289,7 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
             >
-              <Stack spacing={2}>
+              <Stack spacing={{ xs: 1.5, md: 2 }}>
                 {/* Saudação */}
                 <motion.div variants={itemVariants}>
                   <Typography
@@ -316,7 +316,7 @@ const HeroSection = () => {
                   <Typography
                     variant="h1"
                     sx={{
-                      fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
+                      fontSize: { xs: '2rem', md: '3.5rem', lg: '4rem' },
                       fontWeight: 700,
                       lineHeight: 1.1,
                       background: darkMode
@@ -337,7 +337,7 @@ const HeroSection = () => {
                   <Typography
                     variant="h4"
                     sx={{
-                      fontSize: { xs: '1.5rem', md: '2rem' },
+                      fontSize: { xs: '1.2rem', md: '2rem' },
                       fontWeight: 600,
                       color: darkMode ? '#94a3b8' : '#475569',
                       minHeight: '3rem',
@@ -549,7 +549,7 @@ const HeroSection = () => {
 
                 {/* Links sociais */}
                 <motion.div variants={itemVariants}>
-                  <Stack direction="row" spacing={2} sx={{ mt: 3 }}>
+                  <Stack direction="row" spacing={{ xs: 1, md: 2 }} sx={{ mt: 3 }}>
                     <Button
                       href={personalInfo.github}
                       target="_blank"
@@ -646,8 +646,8 @@ const HeroSection = () => {
                   src={personalInfo.avatar}
                   alt={personalInfo.name}
                   sx={{
-                    width: { xs: 200, md: 280, lg: 320 },
-                    height: { xs: 200, md: 280, lg: 320 },
+                    width: { xs: 160, md: 280, lg: 320 },
+                    height: { xs: 160, md: 280, lg: 320 },
                     border: `4px solid ${darkMode ? '#3b82f6' : '#2563eb'}`,
                     boxShadow: darkMode
                       ? '0 0 40px rgba(59, 130, 246, 0.6)' // Neon Glow

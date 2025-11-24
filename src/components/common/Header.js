@@ -132,6 +132,7 @@ const Header = ({ elevation = 0 }) => {
       background: darkMode
         ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)'
         : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+      backdropFilter: 'blur(10px)',
     }}>
       {/* Header do menu mobile */}
       <Box
