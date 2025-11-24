@@ -33,20 +33,22 @@ Um portfólio moderno e responsivo desenvolvido em React para showcase de projet
 - **💾 Persistência** - Salva preferência do usuário automaticamente
 - **🔧 Configuração Dinâmica** - Dados centralizados em arquivo de configuração
 
-## 🌗 Modo Escuro - Destaques
+## � UX/UI Premium
 
-### Funcionalidades Avançadas
-- **Toggle Visual**: Ícone sol/lua com animação de rotação
-- **Detecção Automática**: Respeita preferência do sistema operacional
-- **Persistência Local**: Mantém escolha entre sessões
-- **Transições Suaves**: Mudança instantânea sem recarga
-- **Paleta Otimizada**: Cores cientificamente escolhidas para conforto visual
+### ☀️ Modo Claro (Royal & Slate)
+- **Visual Clean**: Fundo branco puro com acentos em "Royal Blue".
+- **Hero Section**: Gradiente suave "Sky Blue" para um início impactante.
+- **Legibilidade**: Tipografia otimizada com alto contraste.
 
-### Design Profissional
-- **Contraste Perfeito**: WCAG AA/AAA compliant
-- **Cores Harmoniosas**: Paleta especial para fundo escuro
-- **Componentes Adaptados**: Todos os elementos respondem ao tema
-- **Micro-interações**: Feedbacks visuais refinados
+### 🌙 Modo Escuro (Midnight & Neon)
+- **Tema Midnight**: Fundo profundo em tons de "Slate" (`#020617`).
+- **Acentos Neon**: Detalhes em "Electric Blue" e "Cyan" que brilham.
+- **Glow Effects**: Sombras e bordas com efeito de brilho suave.
+
+### 📱 Experiência Mobile
+- **Layout Otimizado**: Padding e margens ajustados para telas pequenas.
+- **Menu Moderno**: Navegação lateral com efeito **Backdrop Blur**.
+- **Touch-First**: Botões e interações pensados para o toque.
 
 ## 🛠️ Instalação e Execução
 
@@ -86,10 +88,14 @@ src/
 │   ├── sections/       # Seções específicas (About, Projects, etc.)
 │   └── ui/            # Componentes de interface
 ├── pages/             # Páginas da aplicação
-├── config/            # Arquivos de configuração
-│   └── portfolio.js   # Dados do portfólio (EDITE AQUI)
+├── config/            # Arquivos de configuração (MODULAR)
+│   ├── portfolio.js   # Arquivo principal (exporta tudo)
+│   ├── personal.js    # Dados pessoais e biografia
+│   ├── projects.js    # Projetos e categorias
+│   ├── skills.js      # Habilidades e Tech Tree
+│   └── theme.js       # Configuração de temas (Cores, Fontes)
 ├── assets/            # Imagens, ícones e arquivos estáticos
-├── styles/            # Estilos globais e temas
+├── styles/            # Estilos globais
 └── utils/             # Utilitários e helpers
 ```
 
@@ -97,72 +103,62 @@ src/
 
 ### Editando Informações Pessoais
 
-Para atualizar suas informações, edite o arquivo `src/config/portfolio.js`:
+Para atualizar suas informações, edite o arquivo `src/config/personal.js`:
 
 ```javascript
-// Informações básicas
+// src/config/personal.js
 export const personalInfo = {
   name: "Seu Nome",
   title: "Especialista em Data & Analytics",
-  email: "seuemail@gmail.com",
-  // ... outras configurações
+  // ...
 };
 ```
 
 ### Adicionando Novos Projetos
 
-No arquivo `src/config/portfolio.js`, seção `projects`:
+No arquivo `src/config/projects.js`:
 
 ```javascript
+// src/config/projects.js
 export const projects = [
   {
     id: 1,
     title: "Nome do Projeto",
-    description: "Descrição detalhada...",
-    technologies: ["Python", "Pandas", "Matplotlib"],
-    image: "/path/to/image.jpg",
-    github: "https://github.com/user/repo",
-    demo: "https://demo-url.com",
-    metrics: "Métrica de resultado"
-  },
-  // ... outros projetos
+    // ...
+  }
 ];
 ```
 
-### Atualizando Certificados
+### Atualizando Habilidades
 
-Na seção `certificates` do mesmo arquivo:
+No arquivo `src/config/skills.js`:
 
 ```javascript
-export const certificates = [
-  {
-    id: 1,
-    title: "Nome do Certificado",
-    institution: "Instituição",
-    year: "2024",
-    image: "/path/to/certificate.jpg",
-    pdf: "/path/to/certificate.pdf"
-  },
-  // ... outros certificados
-];
+// src/config/skills.js
+export const SKILL_TREE = {
+  "Data Science": {
+    "Python": ["Pandas", "NumPy"],
+    // ...
+  }
+};
 ```
 
 ### Modificando Cores e Tema
 
-Edite o arquivo `src/styles/theme.js`:
+Edite o arquivo `src/config/theme.js` para ajustar as paletas Light e Dark:
 
 ```javascript
-export const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1976d2', // Cor principal
-    },
-    secondary: {
-      main: '#dc004e', // Cor de destaque
-    },
-    // ... outras cores
+// src/config/theme.js
+export const themeConfig = {
+  light: {
+    primaryColor: "#2563eb",
+    // ...
   },
-});
+  dark: {
+    primaryColor: "#3b82f6",
+    // ...
+  }
+};
 ```
 
 ## 📊 Analytics (Opcional)
