@@ -6,7 +6,9 @@
  * @returns {Object} { filtered: Array, count: number, total: number }
  */
 export const useProjectFilter = (projects, category, subcategory) => {
-  const filtered = projects.filter(project => {
+  const visibleProjects = projects.filter(project => !project.hidden);
+
+  const filtered = visibleProjects.filter(project => {
     // Filtro por categoria
     const categoryMatch = category === 'Todos' || project.category === category;
 
@@ -20,6 +22,6 @@ export const useProjectFilter = (projects, category, subcategory) => {
   return {
     filtered,
     count: filtered.length,
-    total: projects.length
+    total: visibleProjects.length
   };
 };

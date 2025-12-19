@@ -511,12 +511,6 @@ const ProjectsPreview = () => {
       color: '#4caf50',
     },
     {
-      key: 'Ciência de Dados',
-      label: 'Ciência de Dados',
-      icon: <TrendingUp />,
-      color: '#e91e63',
-    },
-    {
       key: 'API & Scraping',
       label: 'API & Scraping',
       icon: <Code />,
@@ -525,9 +519,13 @@ const ProjectsPreview = () => {
   ];
 
   // Função para filtrar projetos por categoria
+  const visibleProjects = projects.filter(project => !project.hidden);
+
   const filteredProjects = selectedCategory === 'all'
-    ? projects.slice(0, projectsConfig.maxProjects) // Mostrar apenas projetos configurados na home
-    : projects.filter(project => project.category === selectedCategory).slice(0, projectsConfig.maxProjects);
+    ? visibleProjects.slice(0, projectsConfig.maxProjects) // Mostrar apenas projetos configurados na home
+    : visibleProjects
+      .filter(project => project.category === selectedCategory)
+      .slice(0, projectsConfig.maxProjects);
 
   return (
     <Box

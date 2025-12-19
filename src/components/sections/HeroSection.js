@@ -29,17 +29,11 @@ import {
   Email,
   Download,
   CloudQueue,
-  BuildCircle,
-  SyncAlt,
   DeviceHub,
   Hub,
 } from '@mui/icons-material';
 import {
-  QueryStats,
-  DataObject,
-  Psychology,
   Storage,
-  Calculate
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -186,20 +180,23 @@ const HeroSection = () => {
   const { darkMode } = useTheme();
   const [animationStarted, setAnimationStarted] = useState(false);
 
-  // Primeira linha de especialidades com sub-skills (lidas do SKILL_TREE)
-  const dsIconMap = {
-    'Data Science': <QueryStats fontSize="small" />,
-    'Python': <DataObject fontSize="small" />,
-    'Machine Learning': <Psychology fontSize="small" />,
-    'SQL': <Storage fontSize="small" />,
-    'Estatística': <Calculate fontSize="small" />,
-  };
-
-  const specialtiesLine1 = Object.entries(SKILL_TREE['Data Science'] || {}).map(([label, items]) => ({
-    label,
-    icon: dsIconMap[label] || <QueryStats fontSize="small" />,
-    items,
-  }));
+  const mainStacks = [
+    {
+      label: 'ETL/ELT',
+      icon: <DeviceHub fontSize="small" />,
+      items: SKILL_TREE?.['Engenharia de Dados']?.['ETL/ELT'] || [],
+    },
+    {
+      label: 'Cloud AWS',
+      icon: <CloudQueue fontSize="small" />,
+      items: SKILL_TREE?.['Engenharia de Dados']?.['Cloud AWS'] || [],
+    },
+    {
+      label: 'SQL',
+      icon: <Storage fontSize="small" />,
+      items: SKILL_TREE?.['Data Science']?.['SQL'] || [],
+    },
+  ];
 
   // Iniciar animações
   useEffect(() => {
@@ -370,26 +367,7 @@ const HeroSection = () => {
                 {/* Especialidades */}
                 <motion.div variants={itemVariants}>
                   <Stack spacing={2}>
-                    {/* Primeira linha de especialidades (expansível) */}
-                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                      {specialtiesLine1.map((specialty, index) => (
-                        <motion.div
-                          key={specialty.label}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 2 + index * 0.1 }}
-                        >
-                          <HoverSkillChip
-                            label={specialty.label}
-                            icon={specialty.icon}
-                            items={specialty.items}
-                            placement="bottom-start"
-                          />
-                        </motion.div>
-                      ))}
-                    </Stack>
-
-                    {/* Segunda linha de especialidades */}
+                    {/* Stacks principais */}
                     <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                       {/* Chip principal de Engenharia de Dados */}
                       <motion.div
@@ -420,32 +398,21 @@ const HeroSection = () => {
                         />
                       </motion.div>
 
-                      {/* Chips expansíveis para subcategorias */}
-                      {Object.entries(SKILL_TREE['Engenharia de Dados']).map(([subcategory, technologies], index) => {
-                        const iconMap = {
-                          'IaC': <BuildCircle fontSize="small" />,
-                          'CI/CD': <SyncAlt fontSize="small" />,
-                          'ETL/ELT': <DeviceHub fontSize="small" />,
-                          'Cloud AWS': <CloudQueue fontSize="small" />,
-                          'DataOps': <BuildCircle fontSize="small" />
-                        };
-
-                        return (
-                          <motion.div
-                            key={subcategory}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 2.6 + index * 0.1 }}
-                          >
-                            <HoverSkillChip
-                              label={subcategory}
-                              icon={iconMap[subcategory]}
-                              items={technologies}
-                              placement="bottom-start"
-                            />
-                          </motion.div>
-                        );
-                      })}
+                      {mainStacks.map((stack, index) => (
+                        <motion.div
+                          key={stack.label}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 2.6 + index * 0.1 }}
+                        >
+                          <HoverSkillChip
+                            label={stack.label}
+                            icon={stack.icon}
+                            items={stack.items}
+                            placement="bottom-start"
+                          />
+                        </motion.div>
+                      ))}
                     </Stack>
                   </Stack>
                 </motion.div>

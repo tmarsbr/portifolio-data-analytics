@@ -6,7 +6,6 @@ export const PROJECT_CATEGORIES = [
     'Todos',
     'Análise de Dados',
     'Engenharia de Dados',
-    'Ciência de Dados',
     'API & Scraping'
 ];
 
@@ -15,9 +14,8 @@ export const PROJECT_CATEGORIES = [
  * @description Subfiltros específicos para cada categoria principal
  */
 export const PROJECT_SUBCATEGORIES = {
-    'Engenharia de Dados': ['IaC', 'CI/CD', 'ETL/ELT', 'Cloud AWS', 'DataOps'],
+    'Engenharia de Dados': ['ETL/ELT', 'Cloud AWS', 'SQL'],
     'Análise de Dados': ['EDA', 'Visualização', 'Estatística', 'Experimentação'],
-    'Ciência de Dados': ['ML Clássico', 'Deep Learning', 'MLOps', 'NLP'],
     'API & Scraping': ['Scraping', 'API REST', 'Integrações'],
     'Todos': []
 };
@@ -105,7 +103,7 @@ export const projects = [
         longDescription: "Desenvolvimento de pipeline completo para processamento de dados de e-commerce, integrando diferentes bases de dados. Solução automatizada para ETL entre MongoDB (dados não-estruturados) e MySQL (dados estruturados), com foco em performance e confiabilidade.",
         technologies: ["Python", "MongoDB", "MySQL", "ETL", "PyMongo"],
         category: "Engenharia de Dados",
-        subcategories: ["ETL/ELT"],
+        subcategories: ["ETL/ELT", "SQL"],
         image: `${process.env.PUBLIC_URL}/projects/capa_pipeline_mongo_mysql.png`,
         github: "https://github.com/tmarsbr/pipeline-python-mongo-mysql",
         demo: "",
@@ -122,6 +120,7 @@ export const projects = [
         longDescription: "Projeto de análise de crédito utilizando técnicas de machine learning para avaliação de risco. Em desenvolvimento com foco em algoritmos de classificação e análise de padrões de inadimplência.",
         technologies: ["Python", "Scikit-learn", "Pandas", "Machine Learning"],
         category: "Ciência de Dados",
+        hidden: true,
         subcategories: ["ML Clássico"],
         image: `${process.env.PUBLIC_URL}/projects/capa_credito_ml.png`,
         github: "",
@@ -139,6 +138,7 @@ export const projects = [
         longDescription: "Projeto focado na aplicação de People Analytics para tomada de decisão em gestão de pessoas, incluindo análise de turnover, performance e engajamento de colaboradores.",
         technologies: ["Python", "Pandas", "Plotly", "Statistics"],
         category: "Ciência de Dados",
+        hidden: true,
         subcategories: ["ML Clássico"],
         image: `${process.env.PUBLIC_URL}/projects/capa_people_analytics.png`,
         github: "",
@@ -156,6 +156,7 @@ export const projects = [
         longDescription: "Projeto focado em previsão de demandas utilizando algoritmos de série temporal avançados, incluindo ARIMA, Prophet e redes neurais para forecasting empresarial.",
         technologies: ["Python", "Prophet", "ARIMA", "TensorFlow"],
         category: "Ciência de Dados",
+        hidden: true,
         subcategories: ["ML Clássico"],
         image: `${process.env.PUBLIC_URL}/projects/capa_previsao_demandas.png`,
         github: "",
@@ -173,6 +174,7 @@ export const projects = [
         longDescription: "Modelo de escore antifraude utilizando técnicas avançadas de machine learning para detectar padrões suspeitos e prevenir fraudes em transações financeiras.",
         technologies: ["Python", "Scikit-learn", "Anomaly Detection", "Deep Learning"],
         category: "Ciência de Dados",
+        hidden: true,
         subcategories: ["ML Clássico"],
         image: `${process.env.PUBLIC_URL}/projects/capa_fraude_financeira.png`,
         github: "",
@@ -190,6 +192,7 @@ export const projects = [
         longDescription: "Projeto focado na automação completa de infraestrutura de processamento de dados em nuvem. Utilizando AWS EMR (Elastic MapReduce) para clusters gerenciados e Apache Flink para processamento de streams em tempo real, toda a infraestrutura é provisionada via Terraform seguindo práticas de IaC (Infrastructure as Code). O sistema inclui auto-scaling, monitoramento integrado e otimização de custos, demonstrando como construir pipelines de dados robustos e escaláveis na AWS.",
         technologies: ["AWS EMR", "Apache Flink", "Terraform", "IaC", "Python"],
         category: "Engenharia de Dados",
+        hidden: true,
         subcategories: ["Cloud AWS", "IaC"],
         image: `${process.env.PUBLIC_URL}/projects/capa_aws_emr_flink.png`,
         github: "https://github.com/tmarsbr/aws-emr-flink-portfolio",
@@ -207,6 +210,7 @@ export const projects = [
         longDescription: "Imagine uma empresa que coleta dados de APIs, logs de aplicações ou sensores IoT, todos em formato JSON. Esses dados precisam ser extraídos, limpos, transformados e carregados em um banco de dados relacional ou NoSQL para análises posteriores. Como engenheiro de dados, meu desafio era criar um pipeline escalável que pudesse processar grandes volumes de JSONs, garantindo integridade, performance e facilidade de manutenção.",
         technologies: ["PySpark", "Apache Spark", "JSON", "ETL", "SQL", "Processamento Distribuído"],
         category: "Engenharia de Dados",
+        hidden: true,
         subcategories: ["ETL/ELT", "PySpark", "DataOps", "Docker", "SQL/NoSQL"],
         image: `${process.env.PUBLIC_URL}/projects/capa_pyspark_etl_json.png`,
         github: "https://github.com/tmarsbr/pipeline-pyspark-etl-json",
@@ -224,6 +228,7 @@ export const projects = [
         longDescription: "Pipeline avançado de preparação de dados especificamente desenhado para alimentar aplicações de Inteligência Artificial. Utilizando PySpark SQL para operações eficientes, o sistema implementa técnicas sofisticadas de limpeza, detecção de anomalias, feature engineering e normalização. Inclui validações automatizadas de qualidade, tratamento inteligente de valores ausentes e geração de estatísticas descritivas para garantir que os dados estejam prontos para treinamento de modelos de ML.",
         technologies: ["PySpark", "Spark SQL", "Feature Engineering", "Data Quality"],
         category: "Engenharia de Dados",
+        hidden: true,
         subcategories: ["ETL/ELT"],
         image: `${process.env.PUBLIC_URL}/projects/capa_pyspark_ai_pipeline.png`,
         github: "https://github.com/tmarsbr/pyspark-ai-data-pipeline",
@@ -241,6 +246,7 @@ export const projects = [
         longDescription: "Implementação de um framework robusto de testes automatizados para modelos de dados utilizando dbt (data build tool). O sistema inclui testes de integridade referencial, validações de qualidade de dados, testes de regressão e monitoramento contínuo. Desenvolvido com foco em DataOps, o projeto demonstra como implementar CI/CD para dados, incluindo testes unitários para transformações SQL, validações de schema e alertas automáticos para anomalias nos dados.",
         technologies: ["dbt", "SQL", "Data Testing", "DataOps", "CI/CD"],
         category: "Engenharia de Dados",
+        hidden: true,
         subcategories: ["DataOps"],
         image: `${process.env.PUBLIC_URL}/projects/capa_dbt_automated_testing.png`,
         github: "https://github.com/tmarsbr/dbt-automated-testing",
@@ -258,6 +264,7 @@ export const projects = [
         longDescription: "Implementação de uma solução completa de integração de dados utilizando Airbyte para orquestrar a movimentação entre diferentes sistemas de banco de dados. O projeto demonstra como configurar conectores personalizados, implementar transformações durante a sincronização e garantir a consistência dos dados entre ambientes. Inclui monitoramento de performance, tratamento de falhas e estratégias de recuperação, mostrando como construir pipelines de dados resilientes e escaláveis.",
         technologies: ["Airbyte", "PostgreSQL", "MySQL", "Data Integration", "ETL"],
         category: "Engenharia de Dados",
+        hidden: true,
         subcategories: ["ETL/ELT"],
         image: `${process.env.PUBLIC_URL}/projects/capa_automacao_etl.png`,
         github: "https://github.com/tmarsbr/airbyte-etl-portfolio",
@@ -292,6 +299,7 @@ export const projects = [
         longDescription: "Projeto completo de Data Engineering de nível profissional que implementa um pipeline ETL robusto para processamento de big data. O sistema processa 5,819,079 registros de voos (564.96 MB) convertendo dados de CSV para formato Parquet otimizado, utilizando Apache Airflow 2.8.2 para orquestração e AWS EMR 6.15.0 com Spark 3.4.1 para processamento distribuído. Inclui containerização com Docker Compose, storage otimizado no S3 com particionamento por ano/mês/dia, e configuração completa de VPC + IAM para segurança enterprise. O projeto demonstra resolução de desafios técnicos reais incluindo compatibilidade de instâncias AWS (m5→m4), configuração VPC obrigatória, permissões IAM corretas, capacidade de zona e correção de tipos de dados no Spark. Documentação completa para diferentes audiências (técnica e executiva) e práticas de produção com monitoramento, logs detalhados e auto-terminação para otimização de custos.",
         technologies: ["Apache Airflow", "AWS EMR", "Apache Spark", "Docker", "S3", "Parquet", "VPC"],
         category: "Engenharia de Dados",
+        hidden: true,
         subcategories: ["Cloud AWS", "DataOps", "ETL/ELT"],
         image: `${process.env.PUBLIC_URL}/projects/capa_airflow_emr_pipeline.png`,
         github: "https://github.com/tmarsbr/apache-airflow-emr-pipeline",

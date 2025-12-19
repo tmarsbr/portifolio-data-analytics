@@ -7,7 +7,6 @@ import {
   DataObject,
   Analytics,
   Engineering,
-  TrendingUp,
   Code,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
@@ -44,11 +43,6 @@ const CategoryPills = ({ categories, active, onChange }) => {
       key: 'Engenharia de Dados',
       icon: <Engineering />,
       color: '#4caf50',
-    },
-    'Ciência de Dados': {
-      key: 'Ciência de Dados',
-      icon: <TrendingUp />,
-      color: '#e91e63',
     },
     'API & Scraping': {
       key: 'API & Scraping',

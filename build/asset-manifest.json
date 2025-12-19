@@ -1,13 +1,29 @@
 {
   "files": {
     "main.css": "/portifolio-data-analytics/static/css/main.9ec696cb.css",
-    "main.js": "/portifolio-data-analytics/static/js/main.271a5bca.js",
+    "main.js": "/portifolio-data-analytics/static/js/main.44824f16.js",
+    "static/js/587.e1861937.chunk.js": "/portifolio-data-analytics/static/js/587.e1861937.chunk.js",
+    "static/js/564.0f048107.chunk.js": "/portifolio-data-analytics/static/js/564.0f048107.chunk.js",
+    "static/js/915.41f22931.chunk.js": "/portifolio-data-analytics/static/js/915.41f22931.chunk.js",
+    "static/js/615.93d4867f.chunk.js": "/portifolio-data-analytics/static/js/615.93d4867f.chunk.js",
+    "static/js/941.e756efeb.chunk.js": "/portifolio-data-analytics/static/js/941.e756efeb.chunk.js",
+    "static/js/384.08aa024a.chunk.js": "/portifolio-data-analytics/static/js/384.08aa024a.chunk.js",
+    "static/js/180.57422a42.chunk.js": "/portifolio-data-analytics/static/js/180.57422a42.chunk.js",
+    "static/js/837.6d85ee70.chunk.js": "/portifolio-data-analytics/static/js/837.6d85ee70.chunk.js",
     "index.html": "/portifolio-data-analytics/index.html",
     "main.9ec696cb.css.map": "/portifolio-data-analytics/static/css/main.9ec696cb.css.map",
-    "main.271a5bca.js.map": "/portifolio-data-analytics/static/js/main.271a5bca.js.map"
+    "main.44824f16.js.map": "/portifolio-data-analytics/static/js/main.44824f16.js.map",
+    "587.e1861937.chunk.js.map": "/portifolio-data-analytics/static/js/587.e1861937.chunk.js.map",
+    "564.0f048107.chunk.js.map": "/portifolio-data-analytics/static/js/564.0f048107.chunk.js.map",
+    "915.41f22931.chunk.js.map": "/portifolio-data-analytics/static/js/915.41f22931.chunk.js.map",
+    "615.93d4867f.chunk.js.map": "/portifolio-data-analytics/static/js/615.93d4867f.chunk.js.map",
+    "941.e756efeb.chunk.js.map": "/portifolio-data-analytics/static/js/941.e756efeb.chunk.js.map",
+    "384.08aa024a.chunk.js.map": "/portifolio-data-analytics/static/js/384.08aa024a.chunk.js.map",
+    "180.57422a42.chunk.js.map": "/portifolio-data-analytics/static/js/180.57422a42.chunk.js.map",
+    "837.6d85ee70.chunk.js.map": "/portifolio-data-analytics/static/js/837.6d85ee70.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9ec696cb.css",
-    "static/js/main.271a5bca.js"
+    "static/js/main.44824f16.js"
   ]
 }
