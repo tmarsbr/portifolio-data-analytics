@@ -16,15 +16,17 @@ export const personalInfo = {
   resume: `${process.env.PUBLIC_URL}/certificates/Curriculo_Tiago_Santo_Formatado.pdf`,
 
   // Resumo para a página inicial (1-2 frases)
-  homeIntro: "Engenharia de dados end-to-end: orquestração (Airflow), transformação (dbt, Spark), ingestão (Airbyte), analytics (SQL, DuckDB) e cloud (AWS).",
+  homeIntro: "Da precisão da usinagem ao rigor dos pipelines: projeto soluções de dados end-to-end com Airflow, dbt, Spark e Airbyte — tudo cloud-native na AWS.",
 
   // Descrição expandida para a seção Sobre
   aboutDescription: `Da Oficina para os Dados
 Tudo começou com barulho de torno, cheiro de óleo e precisão milimétrica. Na usinagem, aprendi que um erro de um décimo pode custar caro. Foi lá que desenvolvi o olhar clínico, a paciência e o gosto por resolver problemas com método.
 
-Hoje, essa precisão virou código. Projeto pipelines, organizo dados brutos, crio dashboards, desenvolvo modelos preditivos e conto histórias com dados reais. Da engenharia à análise, passando pela ciência de dados, aplico o mesmo rigor técnico que aprendi na mecânica para transformar números em decisões inteligentes.
+Hoje, essa precisão virou código. Projeto pipelines robustos, transformo dados brutos em ativos confiáveis e entrego soluções que movem decisões de negócio. Do Airflow ao dbt, do SQL ao Spark — cada etapa com a mesma atenção ao detalhe que aprendi calibrando peças.
 
-Tolerância apertada e processo confiável geram qualidade — em aço e em dados.`,
+Tolerância apertada e processo confiável geram qualidade — em aço e em dados.
+
+Agora, busco oportunidades onde possa aplicar essa mentalidade para construir pipelines que fazem a diferença.`,
 
 
   // Avatar/Foto (deixe vazio para usar placeholder)
@@ -43,8 +45,8 @@ export const experiences = [
     title: "Auxiliar de Produção",
     company: "LJ Correia Equipamentos LTDA",
     period: "01/02/2018 - 07/05/2021",
-    description: "Apoio à linha de produção industrial com foco em organização, controle de qualidade e eficiência operacional.",
-    skills: ["Produção Industrial", "Controle de Qualidade", "Organização"],
+    description: "Aprendi a operar sob pressão e garantir qualidade em escala — habilidades que hoje aplico no design de pipelines de dados confiáveis e processos automatizados.",
+    skills: ["Produção Industrial", "Controle de Qualidade", "Processos"],
     icon: "⚡"
   },
   {
@@ -53,8 +55,8 @@ export const experiences = [
     title: "Torneiro Mecânico",
     company: "Cilintec Cilindros para Impressões LTDA",
     period: "15/07/2022 - 02/09/2023",
-    description: "Usinagem de peças metálicas de precisão utilizando tornos CNC e convencionais. Foco em qualidade, atendimento técnico e entrega conforme especificações rigorosas.",
-    skills: ["Torno CNC", "Leitura de Desenho Técnico", "Controle de Qualidade"],
+    description: "Trabalhava com tolerâncias de centésimos de milímetro em peças de precisão. Esse rigor técnico hoje se traduz em validações de qualidade de dados e pipelines com zero margem para erro.",
+    skills: ["Precisão Técnica", "Especificações Rigorosas", "Qualidade"],
     icon: "🔧"
   },
   {
@@ -63,8 +65,8 @@ export const experiences = [
     title: "Torneiro Mecânico Autônomo",
     company: "Trabalho Autônomo",
     period: "09/2023 - Presente",
-    description: "Especialista em usinagem de cadinhos de grafite para fundição, atendendo demandas personalizadas de clientes. Responsável por todo o processo, desde o planejamento até a entrega final.",
-    skills: ["Usinagem de Precisão", "Gestão de Projetos", "Atendimento ao Cliente"],
+    description: "Responsável pelo ciclo completo: do planejamento à entrega. Essa visão end-to-end é a mesma que aplico em projetos de dados — entender o problema, desenhar a solução e entregar com qualidade.",
+    skills: ["Visão End-to-End", "Gestão de Projetos", "Entrega de Qualidade"],
     icon: "⚙️"
   },
   {
@@ -72,9 +74,9 @@ export const experiences = [
     type: "education",
     title: "Transição para Data & Analytics",
     company: "Pod Academy",
-    period: "1/12/2023 - 8/12/2025",
-    description: "A Formação Full Stack Dados & Analytics é a trilha completa de Dados & Analytics, com Engenharia de Dados, Tecnologia, Computação em Nuvem, Negócios e Ciência de Dados do nível básico até o especialista.",
-    skills: ["Engenharia de Dados", "Computação em Nuvem", "Ciência de Dados", "Negócios"],
+    period: "12/2023 - 12/2025",
+    description: "Formação intensiva Full Stack em Dados: do básico ao especialista em Engenharia de Dados, Cloud AWS, Analytics e Ciência de Dados. Onde a precisão da mecânica encontrou o poder dos dados.",
+    skills: ["Engenharia de Dados", "Cloud AWS", "Analytics", "Python"],
     icon: "📊"
   }
 ];
