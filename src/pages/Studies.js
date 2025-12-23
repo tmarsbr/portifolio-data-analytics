@@ -33,8 +33,8 @@ import { personalInfo } from '../config/portfolio';
  */
 const Studies = () => {
     const theme = useTheme();
-    const [selectedFormation, setSelectedFormation] = useState('all');
-    const [selectedCourse, setSelectedCourse] = useState('all');
+    const [selectedFormation, setSelectedFormation] = useState('engenharia-dados-4');
+    const [selectedCourse, setSelectedCourse] = useState('iac-terraform');
 
     const placeholderImage = "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='%231a1a2e'/%3e%3ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial' font-size='12' fill='%23666'%3eData Engineering%3c/text%3e%3c/svg%3e";
 
@@ -295,10 +295,6 @@ const Studies = () => {
                                 },
                             }}
                         >
-                            <Tab 
-                                label={`🎓 Todas Formações (${studies.length})`} 
-                                value="all" 
-                            />
                             {FORMATIONS.map((formation) => (
                                 <Tab
                                     key={formation.id}
@@ -342,10 +338,6 @@ const Studies = () => {
                                 },
                             }}
                         >
-                            <Tab 
-                                label={`📚 Todos os Cursos (${selectedFormation === 'all' ? studies.length : getStudiesForFormation(selectedFormation).length})`} 
-                                value="all" 
-                            />
                             {availableCourses.map((course) => (
                             <Tab
                                 key={course.id}

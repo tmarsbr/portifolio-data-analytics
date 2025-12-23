@@ -25,6 +25,15 @@ export const FORMATIONS = [
         color: '#FF6B35',
         institution: 'Pod Academy',
         description: 'Formação completa em Engenharia de Dados do zero ao book de variáveis.'
+    },
+    {
+        id: 'ciencia-dados-pod',
+        name: 'Ciência de Dados',
+        fullName: 'Ciência de Dados - Pod Academy',
+        icon: '🔬',
+        color: '#9B59B6',
+        institution: 'Pod Academy',
+        description: 'Formação em Ciência de Dados abrangendo análise exploratória, modelagem preditiva e machine learning.'
     }
 ];
 
