@@ -1,0 +1,565 @@
+/**
+ * Configuração de Estudos - Estrutura Hierárquica
+ * @description Formações > Cursos > Labs/Projetos
+ */
+
+/**
+ * Lista de Formações (Nível Superior)
+ * Adicione novas formações aqui
+ */
+export const FORMATIONS = [
+    {
+        id: 'engenharia-dados-4',
+        name: 'Engenharia de Dados 4.0',
+        fullName: 'Formação Engenharia de Dados 4.0 - Data Science Academy',
+        icon: '🎓',
+        color: '#00D4AA',
+        institution: 'Data Science Academy',
+        description: 'Formação completa em Engenharia de Dados abrangendo desde infraestrutura como código até processamento de dados em tempo real.'
+    },
+    {
+        id: 'engenheiro-dados-pod',
+        name: 'Engenheiro de Dados',
+        fullName: 'Engenheiro de Dados do Zero ao Book de Variáveis - Pod Academy',
+        icon: '📊',
+        color: '#FF6B35',
+        institution: 'Pod Academy',
+        description: 'Formação completa em Engenharia de Dados do zero ao book de variáveis.'
+    }
+];
+
+/**
+ * Lista de Cursos organizados por Formação
+ */
+export const COURSES = [
+    // ========================================
+    // FORMAÇÃO: Engenharia de Dados 4.0 - DSA
+    // ========================================
+    {
+        id: 'iac-terraform',
+        name: 'Infraestrutura Como Código',
+        fullName: 'Infraestrutura Como Código com Terraform, AWS, Azure e Databricks',
+        icon: '🏗️',
+        color: '#7B42BC', // Terraform purple
+        formation: 'engenharia-dados-4'
+    },
+    {
+        id: 'data-warehouse',
+        name: 'Data Warehouses',
+        fullName: 'Modelagem, Implementação e Governança de Data Warehouses',
+        icon: '🏢',
+        color: '#4285F4', // Google Blue
+        formation: 'engenharia-dados-4'
+    },
+    {
+        id: 'airbyte-dbt',
+        name: 'Airbyte, DBT e SQL',
+        fullName: 'Engenharia de Dados com Airbyte, DBT e SQL',
+        icon: '🔄',
+        color: '#FF6B35', // DBT Orange
+        formation: 'engenharia-dados-4'
+    },
+    {
+        id: 'data-lake',
+        name: 'Data Lake & Lakehouse',
+        fullName: 'Armazenamento e Gestão de Dados com Data Lake e Data Lakehouse',
+        icon: '🌊',
+        color: '#00D4AA', // Delta Lake Green
+        formation: 'engenharia-dados-4'
+    },
+    {
+        id: 'pyspark-kafka',
+        name: 'PySpark e Kafka',
+        fullName: 'PySpark e Apache Kafka Para Processamento de Dados em Batch e Streaming',
+        icon: '⚡',
+        color: '#E25A1C', // Spark Orange
+        formation: 'engenharia-dados-4'
+    }
+    // Adicione cursos de outras formações aqui
+];
+
+/**
+ * Helper: Obter cursos de uma formação específica
+ */
+export const getCoursesByFormation = (formationId) => {
+    return COURSES.filter(course => course.formation === formationId);
+};
+
+/**
+ * Categorias para filtro
+ */
+export const STUDY_CATEGORIES = [
+    'Todos',
+    ...COURSES.map(c => c.name)
+];
+
+/**
+ * Configuração da página de Estudos
+ */
+export const studiesPageConfig = {
+    title: "Estudos",
+    subtitle: "// Jornada de Aprendizado Contínuo",
+    description: "Laboratórios e projetos práticos desenvolvidos durante minhas formações em diversas instituições de tecnologia, abrangendo Engenharia de Dados, Data Science, Machine Learning e muito mais.",
+    // Lista de instituições onde estudo
+    institutions: [
+        { name: "Data Science Academy", icon: "🎓" },
+        { name: "Pod Academy", icon: "📊" },
+    ]
+};
+
+/**
+ * Lista completa de Estudos organizados por curso
+ */
+export const studies = [
+    // ========================================
+    // CURSO 1: Infraestrutura Como Código
+    // ========================================
+    {
+        id: 101,
+        title: "Estudo de Caso - Deploy de App com Docker e Agente de IA Para Provisionamento de Infraestrutura com IaC",
+        type: "Estudo de Caso",
+        description: "Deploy de aplicação containerizada com Docker e uso de Agente de IA para automatizar o provisionamento de infraestrutura utilizando Infrastructure as Code.",
+        technologies: ["Docker", "Terraform", "IA", "IaC"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_estudo_caso.png`,
+        github: "https://github.com/tmarsbr/estudo-caso-docker-ia-iac",
+        date: "2024"
+    },
+    {
+        id: 102,
+        title: "Lab 1 - Automatizando a Infraestrutura de Instâncias EC2 na Nuvem AWS com Terraform",
+        type: "Laboratório",
+        description: "Automação de provisionamento de instâncias EC2 na AWS utilizando Terraform para Infrastructure as Code.",
+        technologies: ["Terraform", "AWS", "EC2", "IaC"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_lab1.png`,
+        github: "https://github.com/tmarsbr/Lab-1-",
+        date: "2024"
+    },
+    {
+        id: 103,
+        title: "Lab 2 - Automatizando a Infraestrutura na Nuvem AWS com Variáveis no Terraform",
+        type: "Laboratório",
+        description: "Uso avançado de variáveis no Terraform para criar infraestrutura flexível e reutilizável na AWS.",
+        technologies: ["Terraform", "AWS", "Variáveis", "IaC"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_lab2.png`,
+        github: "https://github.com/tmarsbr/Lab-2-IaC-Stack-Variaveis-Terraform",
+        date: "2024"
+    },
+    {
+        id: 104,
+        title: "Lab 3 - Usando Terraform Provisioners e Outras Tarefas de Automação",
+        type: "Laboratório",
+        description: "Exploração de Terraform Provisioners para executar scripts e comandos durante o provisionamento de recursos.",
+        technologies: ["Terraform", "Provisioners", "AWS", "Automação"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_lab3.png`,
+        github: "https://github.com/tmarsbr/Lab-3-IaC-Stack-Terraform-Provisioners",
+        date: "2024"
+    },
+    {
+        id: 105,
+        title: "Lab 4 - Deploy de Infraestrutura e API Para Aplicação de Data Science na AWS com Terraform",
+        type: "Laboratório",
+        description: "Deploy completo de infraestrutura e API REST para aplicações de Data Science na AWS utilizando Terraform.",
+        technologies: ["Terraform", "AWS", "API", "Data Science"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_lab4.png`,
+        github: "https://github.com/tmarsbr/Lab-4-IaC-AWS-Infra-API-Data-Science",
+        date: "2024"
+    },
+    {
+        id: 106,
+        title: "Lab 5 - IaC com Terraform Para Deploy de Aplicação Web em Container Docker no AWS ECS",
+        type: "Laboratório",
+        description: "Deploy de aplicação web containerizada no AWS ECS (Elastic Container Service) utilizando Terraform.",
+        technologies: ["Terraform", "AWS ECS", "Docker", "IaC"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_lab5.png`,
+        github: "https://github.com/tmarsbr/Lab-5-IaC-AWS-ECS-Docker-WebApp",
+        date: "2024"
+    },
+    {
+        id: 107,
+        title: "Projeto 1 - Automatizando Infraestrutura de Processamento de Dados com AWS EMR e Apache Flink",
+        type: "Projeto",
+        description: "Automação de cluster AWS EMR com Apache Flink para processamento de dados em larga escala.",
+        technologies: ["Terraform", "AWS EMR", "Apache Flink", "Big Data"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_projeto1.png`,
+        github: "https://github.com/tmarsbr/aws-emr-flink-portfolio",
+        date: "2024"
+    },
+    {
+        id: 108,
+        title: "Projeto 2 - Deploy do Stack de Treinamento Distribuído de ML com PySpark no Amazon EMR",
+        type: "Projeto",
+        description: "Deploy de infraestrutura para treinamento distribuído de modelos de Machine Learning utilizando PySpark no Amazon EMR.",
+        technologies: ["Terraform", "AWS EMR", "PySpark", "Machine Learning"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_projeto2.png`,
+        github: "https://github.com/tmarsbr/Projeto-2-AWS-EMR-PySpark-ML",
+        date: "2024"
+    },
+    {
+        id: 109,
+        title: "Projeto 3 - Deploy do Stack de Infraestrutura de Dados no Azure com Terraform",
+        type: "Projeto",
+        description: "Provisionamento de infraestrutura de dados completa no Microsoft Azure utilizando Terraform.",
+        technologies: ["Terraform", "Azure", "Data Engineering", "IaC"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_projeto3.png`,
+        github: "https://github.com/tmarsbr/Projeto-3-Azure-Terraform-Data-Infra",
+        date: "2024"
+    },
+    {
+        id: 110,
+        title: "Projeto 4 - AWS e Azure Multi-Cloud Deploy com Terraform",
+        type: "Projeto",
+        description: "Deploy multi-cloud combinando recursos da AWS e Azure em uma única configuração Terraform.",
+        technologies: ["Terraform", "AWS", "Azure", "Multi-Cloud"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_projeto4.png`,
+        github: "https://github.com/tmarsbr/Projeto-4-Multi-Cloud-AWS-Azure-Terraform",
+        date: "2024"
+    },
+    {
+        id: 111,
+        title: "Projeto 5 - Databricks Cluster Deploy com Terraform Para Processamento Distribuído",
+        type: "Projeto",
+        description: "Deploy automatizado de cluster Databricks com Terraform para processamento de dados distribuído.",
+        technologies: ["Terraform", "Databricks", "Spark", "Data Engineering"],
+        course: "iac-terraform",
+        courseName: "Infraestrutura Como Código",
+        image: `${process.env.PUBLIC_URL}/projects/iac_projeto5.png`,
+        github: "https://github.com/tmarsbr/projeto5-databricks-terraform",
+        date: "2024"
+    },
+
+    // ========================================
+    // CURSO 2: Modelagem e Data Warehouses
+    // ========================================
+    {
+        id: 201,
+        title: "Lab 1 - Automação da Infraestrutura de Consultas SQL com Terraform e BigQuery no GCP",
+        type: "Laboratório",
+        description: "Automação de infraestrutura de consultas SQL utilizando Terraform e BigQuery no Google Cloud Platform.",
+        technologies: ["Terraform", "BigQuery", "GCP", "SQL"],
+        course: "data-warehouse",
+        courseName: "Data Warehouses",
+        image: `${process.env.PUBLIC_URL}/projects/dw_lab1.png`,
+        github: "https://github.com/tmarsbr/DWH-Lab-1-GCP-BigQuery-Terraform",
+        date: "2024"
+    },
+    {
+        id: 202,
+        title: "Lab 2 - Usando o ChatGPT Para Construir Um Modelo Dimensional de Forma Segura",
+        type: "Laboratório",
+        description: "Utilização de IA generativa (ChatGPT) como ferramenta auxiliar para construção de modelos dimensionais seguindo boas práticas.",
+        technologies: ["ChatGPT", "Modelagem Dimensional", "Data Warehouse", "IA"],
+        course: "data-warehouse",
+        courseName: "Data Warehouses",
+        image: `${process.env.PUBLIC_URL}/projects/dw_lab2.png`,
+        github: "https://github.com/tmarsbr/DWH-Lab-2-ChatGPT-Modelo-Dimensional-Seguro",
+        date: "2024"
+    },
+    {
+        id: 203,
+        title: "Lab 3 - Airbyte e SQL Para ETL no Data Warehouse em Ambiente Local",
+        type: "Laboratório",
+        description: "Implementação de pipeline ETL utilizando Airbyte e SQL em ambiente local de Data Warehouse.",
+        technologies: ["Airbyte", "SQL", "ETL", "Docker"],
+        course: "data-warehouse",
+        courseName: "Data Warehouses",
+        image: `${process.env.PUBLIC_URL}/projects/dw_lab3.png`,
+        github: "https://github.com/tmarsbr/DWH-Lab-3-Airbyte-SQL-ETL-Local",
+        date: "2024"
+    },
+    {
+        id: 204,
+        title: "Lab 4 - Processo de Governança e Qualidade de Dados no Data Warehouse",
+        type: "Laboratório",
+        description: "Implementação de processos de governança e qualidade de dados em ambiente de Data Warehouse.",
+        technologies: ["Governança", "Qualidade de Dados", "Data Warehouse", "SQL"],
+        course: "data-warehouse",
+        courseName: "Data Warehouses",
+        image: `${process.env.PUBLIC_URL}/projects/dw_lab4.png`,
+        github: "https://github.com/tmarsbr/DWH-Lab-4-Governanca-Qualidade-Dados-DWH",
+        date: "2024"
+    },
+    {
+        id: 205,
+        title: "Lab 5 - Migração de Data Warehouse Local Para a Nuvem",
+        type: "Laboratório",
+        description: "Processo completo de migração de Data Warehouse de ambiente local para infraestrutura em nuvem.",
+        technologies: ["Migração", "Cloud", "Data Warehouse", "ETL"],
+        course: "data-warehouse",
+        courseName: "Data Warehouses",
+        image: `${process.env.PUBLIC_URL}/projects/dw_lab5.png`,
+        github: "https://github.com/tmarsbr/DWH-Lab-5-Migracao-Local-Para-Nuvem",
+        date: "2024"
+    },
+    {
+        id: 206,
+        title: "Estudo de Caso - O Que é e Como Implementar ETL Reverso?",
+        type: "Estudo de Caso",
+        description: "Estudo sobre ETL Reverso (Reverse ETL) - conceitos, casos de uso e implementação prática.",
+        technologies: ["Reverse ETL", "Data Warehouse", "Integração", "Analytics"],
+        course: "data-warehouse",
+        courseName: "Data Warehouses",
+        image: `${process.env.PUBLIC_URL}/projects/dw_estudo_caso.png`,
+        github: "https://github.com/tmarsbr/DWH-Estudo-de-Caso-ETL-Reverso",
+        date: "2024"
+    },
+    {
+        id: 207,
+        title: "Projeto 1 - Modelagem e Implementação de Um Data Warehouse Local",
+        type: "Projeto",
+        description: "Projeto completo de modelagem dimensional e implementação de Data Warehouse em ambiente local.",
+        technologies: ["Modelagem Dimensional", "PostgreSQL", "ETL", "Data Warehouse"],
+        course: "data-warehouse",
+        courseName: "Data Warehouses",
+        image: `${process.env.PUBLIC_URL}/projects/dw_projeto1.png`,
+        github: "https://github.com/tmarsbr/DWH-Projeto-1-Data-Warehouse-Local",
+        date: "2024"
+    },
+    {
+        id: 208,
+        title: "Projeto 2 - Modelagem e Implementação de Data Warehouse na Nuvem com Amazon Redshift e Terraform",
+        type: "Projeto",
+        description: "Deploy de Data Warehouse na nuvem utilizando Amazon Redshift provisionado com Terraform.",
+        technologies: ["Amazon Redshift", "Terraform", "AWS", "Data Warehouse"],
+        course: "data-warehouse",
+        courseName: "Data Warehouses",
+        image: `${process.env.PUBLIC_URL}/projects/dw_projeto2.png`,
+        github: "https://github.com/tmarsbr/DWH-Projeto-2-Redshift-Terraform",
+        date: "2024"
+    },
+
+    // ========================================
+    // CURSO 3: Engenharia de Dados com Airbyte, DBT e SQL
+    // ========================================
+    {
+        id: 301,
+        title: "Lab 1 - Movimentação de Dados Entre Bancos de Dados com Airbyte",
+        type: "Laboratório",
+        description: "Configuração e execução de pipelines de movimentação de dados entre diferentes bancos de dados usando Airbyte.",
+        technologies: ["Airbyte", "PostgreSQL", "MySQL", "EL"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab1.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-1-Movimentacao-Entre-Bancos",
+        date: "2024"
+    },
+    {
+        id: 302,
+        title: "Lab 2 - Construindo Pipeline EL(T) com Change Data Capture (CDC)",
+        type: "Laboratório",
+        description: "Implementação de pipeline ELT com captura de mudanças de dados (CDC) para sincronização em tempo real.",
+        technologies: ["Airbyte", "CDC", "ELT", "Debezium"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab2.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-2-Pipeline-ELT-CDC",
+        date: "2024"
+    },
+    {
+        id: 303,
+        title: "Lab 3 - Carga e Sincronização Incremental de Dados com Airbyte",
+        type: "Laboratório",
+        description: "Configuração de cargas incrementais e sincronização de dados para otimização de pipelines.",
+        technologies: ["Airbyte", "Incremental Sync", "ETL", "Otimização"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab3.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-3-Carga-Sincronizacao-Incremental",
+        date: "2024"
+    },
+    {
+        id: 304,
+        title: "Lab 4 - Plano de Execução e Otimização de Consultas em Pipelines de Engenharia de Dados",
+        type: "Laboratório",
+        description: "Análise de planos de execução e técnicas de otimização de consultas SQL em pipelines de dados.",
+        technologies: ["SQL", "Query Optimization", "EXPLAIN", "Performance"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab4.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-4-Plano-Execucao-Otimizacao-Consultas",
+        date: "2024"
+    },
+    {
+        id: 305,
+        title: "Lab 5 - Modelagem de Dados Para Engenharia de Dados em Sistemas de IA",
+        type: "Laboratório",
+        description: "Técnicas de modelagem de dados otimizadas para alimentar sistemas de Inteligência Artificial.",
+        technologies: ["Modelagem", "IA", "Feature Engineering", "SQL"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab5.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-5-Modelagem-Dados-IA",
+        date: "2024"
+    },
+    {
+        id: 306,
+        title: "Lab 6 - Deploy e Re-Deploy do Primeiro Modelo com DBT",
+        type: "Laboratório",
+        description: "Primeiros passos com DBT: criação, deploy e re-deploy de modelos de transformação de dados.",
+        technologies: ["DBT", "SQL", "Data Modeling", "Deploy"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab6.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-6-Deploy-Primeiro-Modelo-DBT",
+        date: "2024"
+    },
+    {
+        id: 307,
+        title: "Lab 7 - Criação de Macros, Refatoramento e Deploy em Produção com DBT",
+        type: "Laboratório",
+        description: "Desenvolvimento de macros reutilizáveis, refatoramento de código e deploy em ambiente de produção com DBT.",
+        technologies: ["DBT", "Macros", "Jinja", "Produção"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab7.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-7-Macros-Refatoramento-Deploy-Producao",
+        date: "2024"
+    },
+    {
+        id: 308,
+        title: "Lab 8 - Automação de Testes de Modelos de Dados no DBT",
+        type: "Laboratório",
+        description: "Implementação de testes automatizados para garantir qualidade e integridade dos modelos DBT.",
+        technologies: ["DBT", "Testes", "Data Quality", "CI/CD"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab8.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-8-Automacao-Testes-DBT",
+        date: "2024"
+    },
+    {
+        id: 309,
+        title: "Lab 9 - Analytics Engineering e Linhagem de Dados com Python, DBT, BigQuery e Looker Studio",
+        type: "Laboratório",
+        description: "Pipeline completo de Analytics Engineering com rastreamento de linhagem de dados usando DBT, BigQuery e visualização no Looker Studio.",
+        technologies: ["DBT", "BigQuery", "Looker Studio", "Python"],
+        course: "airbyte-dbt",
+        courseName: "Airbyte, DBT e SQL",
+        image: `${process.env.PUBLIC_URL}/projects/dbt_lab9.png`,
+        github: "https://github.com/tmarsbr/ED-Airbyte-DBT-SQL-Lab-9-Analytics-Engineering-Linhagem",
+        date: "2024"
+    },
+
+    // ========================================
+    // CURSO 4: Data Lake e Data Lakehouse
+    // ========================================
+    {
+        id: 401,
+        title: "Lab 1 - Plano de Custo Para Implementar Data Lakes e Data Lakehouses em Diferentes Cenários",
+        type: "Laboratório",
+        description: "Análise e planejamento de custos para implementação de Data Lakes e Data Lakehouses em diversos cenários de negócio.",
+        technologies: ["Cost Analysis", "Data Lake", "Lakehouse", "Cloud"],
+        course: "data-lake",
+        courseName: "Data Lake & Lakehouse",
+        image: `${process.env.PUBLIC_URL}/projects/lake_lab1.png`,
+        github: "https://github.com/tmarsbr/DL-Lakehouse-Lab-1-Plano-Custo",
+        date: "2024"
+    },
+    {
+        id: 402,
+        title: "Lab 2 - Design e Implementação de Data Lake Local Para Armazenamento e Processamento Distribuído",
+        type: "Laboratório",
+        description: "Arquitetura e implementação de Data Lake em ambiente local com capacidade de processamento distribuído.",
+        technologies: ["Data Lake", "MinIO", "Spark", "Delta Lake"],
+        course: "data-lake",
+        courseName: "Data Lake & Lakehouse",
+        image: `${process.env.PUBLIC_URL}/projects/lake_lab2.png`,
+        github: "https://github.com/tmarsbr/DL-Lakehouse-Lab-2-Data-Lake-Local",
+        date: "2024"
+    },
+    {
+        id: 403,
+        title: "Lab 3 - Design e Implementação de Data Lake na Nuvem com IaC e Terraform",
+        type: "Laboratório",
+        description: "Provisionamento automatizado de Data Lake em nuvem utilizando Infrastructure as Code com Terraform.",
+        technologies: ["Terraform", "AWS S3", "Data Lake", "IaC"],
+        course: "data-lake",
+        courseName: "Data Lake & Lakehouse",
+        image: `${process.env.PUBLIC_URL}/projects/lake_lab3.png`,
+        github: "https://github.com/tmarsbr/DL-Lakehouse-Lab-3-Data-Lake-Nuvem-Terraform",
+        date: "2024"
+    },
+    {
+        id: 404,
+        title: "Lab 4 - Linhagem, Observabilidade, Qualidade, Enriquecimento e Governança de Dados no Data Lake",
+        type: "Laboratório",
+        description: "Implementação completa de práticas de governança incluindo linhagem, observabilidade e qualidade de dados no Data Lake.",
+        technologies: ["Data Governance", "Data Quality", "Lineage", "Observability"],
+        course: "data-lake",
+        courseName: "Data Lake & Lakehouse",
+        image: `${process.env.PUBLIC_URL}/projects/lake_lab4.png`,
+        github: "https://github.com/tmarsbr/DL-Lakehouse-Lab-4-Linhagem-Observabilidade-Governanca",
+        date: "2024"
+    },
+
+    // ========================================
+    // CURSO 5: PySpark e Apache Kafka
+    // ========================================
+    {
+        id: 501,
+        title: "Projeto 1 - Pipeline PySpark Para Extrair, Transformar e Carregar Arquivos JSON em Banco de Dados",
+        type: "Projeto",
+        description: "Pipeline ETL completo com PySpark para processamento de arquivos JSON e carga em banco de dados.",
+        technologies: ["PySpark", "JSON", "ETL", "PostgreSQL"],
+        course: "pyspark-kafka",
+        courseName: "PySpark e Kafka",
+        image: `${process.env.PUBLIC_URL}/projects/spark_projeto1.png`,
+        github: "https://github.com/tmarsbr/Spark-Kafka-Projeto-1-Pipeline-JSON-DB",
+        date: "2024"
+    },
+    {
+        id: 502,
+        title: "Projeto 2 - 50 Scripts de Otimização de Processamento e Análise de Dados em Cluster Spark",
+        type: "Projeto",
+        description: "Coleção de 50 scripts otimizados para processamento e análise de dados em clusters Spark.",
+        technologies: ["PySpark", "Otimização", "Performance", "Big Data"],
+        course: "pyspark-kafka",
+        courseName: "PySpark e Kafka",
+        image: `${process.env.PUBLIC_URL}/projects/spark_projeto2.png`,
+        github: "https://github.com/tmarsbr/Spark-Kafka-Projeto-2-50-Scripts-Otimizacao",
+        date: "2024"
+    },
+    {
+        id: 503,
+        title: "Projeto 3 - Pipeline de Limpeza e Transformação Para Aplicações de IA com PySpark SQL",
+        type: "Projeto",
+        description: "Pipeline de preparação de dados para Machine Learning utilizando PySpark SQL para limpeza e transformação.",
+        technologies: ["PySpark SQL", "Data Cleaning", "Feature Engineering", "ML"],
+        course: "pyspark-kafka",
+        courseName: "PySpark e Kafka",
+        image: `${process.env.PUBLIC_URL}/projects/spark_projeto3.png`,
+        github: "https://github.com/tmarsbr/Spark-Kafka-Projeto-3-Pipeline-Limpeza-IA-PySparkSQL",
+        date: "2024"
+    },
+    {
+        id: 504,
+        title: "Projeto 4 - Processamento e Análise de Dados em Tempo Real com PySpark Streaming",
+        type: "Projeto",
+        description: "Sistema de processamento de dados em tempo real utilizando PySpark Streaming e Apache Kafka.",
+        technologies: ["PySpark Streaming", "Apache Kafka", "Real-time", "Big Data"],
+        course: "pyspark-kafka",
+        courseName: "PySpark e Kafka",
+        image: `${process.env.PUBLIC_URL}/projects/spark_projeto4.png`,
+        github: "https://github.com/tmarsbr/Spark-Kafka-Projeto-4-Streaming-Tempo-Real",
+        date: "2024"
+    }
+];
