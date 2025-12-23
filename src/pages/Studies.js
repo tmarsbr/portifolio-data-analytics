@@ -42,15 +42,11 @@ const Studies = () => {
     const getFilteredStudies = () => {
         let filtered = studies;
         
-        if (selectedFormation !== 'all') {
-            const formationCourses = getCoursesByFormation(selectedFormation);
-            const courseIds = formationCourses.map(c => c.id);
-            filtered = filtered.filter(study => courseIds.includes(study.course));
-        }
+        const formationCourses = getCoursesByFormation(selectedFormation);
+        const courseIds = formationCourses.map(c => c.id);
+        filtered = filtered.filter(study => courseIds.includes(study.course));
         
-        if (selectedCourse !== 'all') {
-            filtered = filtered.filter(study => study.course === selectedCourse);
-        }
+        filtered = filtered.filter(study => study.course === selectedCourse);
         
         return filtered;
     };
@@ -58,9 +54,7 @@ const Studies = () => {
     const filteredStudies = getFilteredStudies();
 
     // Cursos disponíveis baseado na formação selecionada
-    const availableCourses = selectedFormation === 'all' 
-        ? COURSES 
-        : getCoursesByFormation(selectedFormation);
+    const availableCourses = getCoursesByFormation(selectedFormation);
 
     // Agrupar estudos por curso para exibição
     const getStudiesByCourse = (courseId) => {
@@ -114,7 +108,9 @@ const Studies = () => {
 
     const handleFormationChange = (event, newValue) => {
         setSelectedFormation(newValue);
-        setSelectedCourse('all'); // Reset course when formation changes
+        // Set course to first available course of new formation
+        const firstCourse = getCoursesByFormation(newValue)[0];
+        setSelectedCourse(firstCourse?.id || 'iac-terraform');
     };
 
     const handleCourseChange = (event, newValue) => {
