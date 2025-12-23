@@ -49,7 +49,7 @@ function App() {
   return (
     <ThemeProvider>
       <CssBaseline />
-      <Router basename="/portifolio-data-analytics">
+      <Router basename="/portifolio">
         <AppContent />
       </Router>
     </ThemeProvider>
