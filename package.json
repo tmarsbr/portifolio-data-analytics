@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Portfólio profissional de Data & Analytics - Tiago Silva",
-  "homepage": "https://tmarsbr.github.io/portifolio-data-analytics",
+  "homepage": "https://tmarsbr.github.io/portfolio",
   "keywords": [
     "react",
     "portfolio",
@@ -40,7 +40,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prebuild": "npm run generate:og",
-    "generate:og": "node scripts/generate-og.js"
+    "generate:og": "node scripts/generate-og.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "puppeteer": "^24.20.0"
   }
 }
