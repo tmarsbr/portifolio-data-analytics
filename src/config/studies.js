@@ -174,12 +174,12 @@ export const studies = [
         id: 102,
         title: "Lab 1 - Automatizando a Infraestrutura de Instâncias EC2 na Nuvem AWS com Terraform",
         type: "Laboratório",
-        description: "Automação de provisionamento de instâncias EC2 na AWS utilizando Terraform para Infrastructure as Code.",
-        technologies: ["Terraform", "AWS", "EC2", "IaC"],
+        description: "Automação de provisionamento de instâncias EC2 na AWS utilizando Terraform para Infrastructure as Code. Container Docker com ambiente completo para IaC.",
+        technologies: ["Terraform", "AWS", "EC2", "IaC", "Docker"],
         course: "iac-terraform",
         courseName: "Infraestrutura e Cloud",
         image: `${process.env.PUBLIC_URL}/projects/iac_lab1.png`,
-        github: "https://github.com/tmarsbr/Lab-1-",
+        github: "https://github.com/tmarsbr/Lab_1_projeto_automatizando_a_infraestrutura",
         date: "2024"
     },
     {
