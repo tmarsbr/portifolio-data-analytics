@@ -142,6 +142,22 @@ const Studies = () => {
 
                 <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
                     <Box sx={{ textAlign: 'center', mb: 6 }} data-aos="fade-up">
+                        {/* Institution Label */}
+                        <Typography
+                            variant="caption"
+                            sx={{
+                                display: 'block',
+                                mb: 2,
+                                textTransform: 'uppercase',
+                                letterSpacing: 1.5,
+                                fontWeight: 700,
+                                color: 'text.secondary',
+                                fontSize: '0.75rem',
+                            }}
+                        >
+                            {studiesPageConfig.institutionsLabel}
+                        </Typography>
+
                         {/* Institution Badges */}
                         <Box
                             sx={{
@@ -294,11 +310,50 @@ const Studies = () => {
                             {FORMATIONS.map((formation) => (
                                 <Tab
                                     key={formation.id}
-                                    label={`${formation.icon} ${formation.name} - ${formation.institution} (${getStudiesForFormation(formation.id).length})`}
+                                    label={`${formation.icon} ${formation.name} (${getStudiesForFormation(formation.id).length})`}
                                     value={formation.id}
                                 />
                             ))}
                         </Tabs>
+
+                        {/* Sub-Formações (quando disponíveis) */}
+                        {FORMATIONS.find(f => f.id === selectedFormation)?.subFormations && (
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
+                                    gap: 1,
+                                    mt: 1.5,
+                                    pl: 1,
+                                }}
+                            >
+                                <Typography
+                                    variant="caption"
+                                    sx={{
+                                        color: 'text.secondary',
+                                        fontWeight: 600,
+                                        alignSelf: 'center',
+                                        mr: 0.5,
+                                    }}
+                                >
+                                    Inclui:
+                                </Typography>
+                                {FORMATIONS.find(f => f.id === selectedFormation)?.subFormations.map((sub) => (
+                                    <Chip
+                                        key={sub.id}
+                                        label={`${sub.icon} ${sub.name}`}
+                                        size="small"
+                                        variant="outlined"
+                                        sx={{
+                                            fontSize: '0.7rem',
+                                            height: 24,
+                                            borderColor: alpha(theme.palette.primary.main, 0.3),
+                                            color: 'text.secondary',
+                                        }}
+                                    />
+                                ))}
+                            </Box>
+                        )}
                     </Container>
                 </Box>
 
@@ -386,9 +441,14 @@ const Studies = () => {
                                                 }} 
                                             />
                                         </Box>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary', ml: 6 }}>
-                                            {course.fullName}
-                                        </Typography>
+                                        <Box sx={{ ml: 6, mt: 1 }}>
+                                            <Typography variant="subtitle1" sx={{ color: 'text.primary', fontWeight: 600, mb: 1 }}>
+                                                {course.fullName}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}>
+                                                {course.description}
+                                            </Typography>
+                                        </Box>
                                         <Divider sx={{ mt: 2, borderColor: alpha(course.color, 0.2) }} />
                                     </Box>
 
@@ -484,11 +544,14 @@ const Studies = () => {
                                             {course.icon}
                                         </Typography>
                                         <Box>
-                                            <Typography variant="h4" sx={{ fontWeight: 700, color: course.color }}>
+                                            <Typography variant="h4" sx={{ fontWeight: 700, color: course.color, mb: 1 }}>
                                                 {course.name}
                                             </Typography>
-                                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                            <Typography variant="subtitle1" sx={{ color: 'text.primary', fontWeight: 600, mb: 1 }}>
                                                 {course.fullName}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}>
+                                                {course.description}
                                             </Typography>
                                         </Box>
                                     </Box>

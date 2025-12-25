@@ -31,6 +31,7 @@ import {
   CloudQueue,
   DeviceHub,
   Hub,
+  Code,
 } from '@mui/icons-material';
 import {
   Storage,
@@ -39,7 +40,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 
-import { personalInfo, SKILL_TREE } from '../../config/portfolio';
+import { personalInfo } from '../../config/portfolio';
 import HoverSkillChip from '../common/HoverSkillChip';
 
 // Componente para efeito de digitação
@@ -182,19 +183,29 @@ const HeroSection = () => {
 
   const mainStacks = [
     {
-      label: 'ETL/ELT',
+      label: 'Python & SQL',
+      icon: <Code fontSize="small" />,
+      items: ['Python', 'pandas', 'SQL', 'PostgreSQL', 'DuckDB'],
+    },
+    {
+      label: 'Airflow & dbt',
       icon: <DeviceHub fontSize="small" />,
-      items: SKILL_TREE?.['Engenharia de Dados']?.['ETL/ELT'] || [],
+      items: ['Apache Airflow', 'dbt', 'Airbyte', 'ETL/ELT'],
     },
     {
       label: 'Cloud AWS',
       icon: <CloudQueue fontSize="small" />,
-      items: SKILL_TREE?.['Engenharia de Dados']?.['Cloud AWS'] || [],
+      items: ['S3', 'Redshift', 'Athena', 'Glue', 'EMR', 'Databricks', 'QuickSight', 'DynamoDB', 'SageMaker'],
     },
     {
-      label: 'SQL',
+      label: 'IaC',
       icon: <Storage fontSize="small" />,
-      items: SKILL_TREE?.['Data Science']?.['SQL'] || [],
+      items: ['Terraform', 'Docker', 'GitHub Actions'],
+    },
+    {
+      label: 'Web Scraping',
+      icon: <Code fontSize="small" />,
+      items: ['Selenium', 'Scrapy', 'BeautifulSoup', 'Playwright', 'Selectolax'],
     },
   ];
 

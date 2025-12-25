@@ -3,10 +3,10 @@
  * @description Dados básicos e contatos do portfólio
  */
 export const personalInfo = {
-  name: "Tiago da Silva e Santo",
-  fullName: "Tiago Da Silva E Santo",
-  title: "Engenheiro de Dados",
-  subtitle: "Transformando dados em insights estratégicos para negócios",
+  name: "Tiago da Silva E. Santo",
+  fullName: "Tiago da Silva E. Santo",
+  title: "Engenheiro de Dados em Formação",
+  subtitle: "Em transição da indústria para dados, construindo pipelines confiáveis e automatizados",
   location: "São Paulo, SP",
   email: "tiagomars233@gmail.com",
   phone: "+55 11 97542-9994",
@@ -16,7 +16,7 @@ export const personalInfo = {
   resume: `${process.env.PUBLIC_URL}/certificates/Curriculo_Tiago_Santo_Formatado.pdf`,
 
   // Resumo para a página inicial (1-2 frases)
-  homeIntro: "Da precisão da usinagem ao rigor dos pipelines: projeto soluções de dados end-to-end com Airflow, dbt, Spark e Airbyte — tudo cloud-native na AWS.",
+  homeIntro: "Engenheiro de Dados em formação, em transição da área industrial. Experiência prática na construção de pipelines ETL/ELT, modelagem de dados e orquestração com Python, SQL, Airflow e dbt, atuando em ambientes AWS. Trago mentalidade de processo, disciplina operacional e foco em dados confiáveis.",
 
   // Descrição expandida para a seção Sobre
   aboutDescription: `Da Oficina para os Dados
