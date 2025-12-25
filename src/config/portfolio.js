@@ -33,7 +33,7 @@ export const seoConfig = {
   description: "Engenharia de Dados e Data Science: ETL/ELT (Airflow, dbt, Spark), analytics e features para ML. IaC, CI/CD e DataOps na AWS.",
   keywords: "engenharia de dados, data engineering, data science, analytics, python, machine learning, sql, aws, airflow, dbt, spark, tiago silva, portfólio",
   author: "Tiago Silva",
-  url: "https://tmarsbr.github.io/portifolio-data-analytics", // URL do GitHub Pages
+  url: "https://tmarsbr.github.io/portifolio", // URL do GitHub Pages
   image: `${process.env.PUBLIC_URL}/og-image.jpg`, // Adicione uma imagem de preview
 
   // Open Graph

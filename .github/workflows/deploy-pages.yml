@@ -41,7 +41,7 @@ jobs:
         run: npm run build
         env:
           # Importante: define a URL base para GitHub Pages
-          PUBLIC_URL: /portifolio-data-analytics
+          PUBLIC_URL: /portifolio
           # Permite warnings do ESLint durante o build
           CI: false
           
